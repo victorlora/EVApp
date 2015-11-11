@@ -15,6 +15,8 @@
 		5208A7B81BE7F81600CB4437 /* VoltageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208A7B71BE7F81600CB4437 /* VoltageTests.swift */; };
 		5208A7C31BE7F81600CB4437 /* VoltageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208A7C21BE7F81600CB4437 /* VoltageUITests.swift */; };
 		5235942E1BE935F300A06241 /* CarFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5235942D1BE935F300A06241 /* CarFinder.swift */; };
+		5263A5551BEAA8D000A02452 /* CarMake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5263A5541BEAA8D000A02452 /* CarMake.swift */; };
+		5263A5571BEAA9DF00A02452 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		5208A7C21BE7F81600CB4437 /* VoltageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltageUITests.swift; sourceTree = "<group>"; };
 		5208A7C41BE7F81600CB4437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5235942D1BE935F300A06241 /* CarFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarFinder.swift; sourceTree = "<group>"; };
+		5263A5541BEAA8D000A02452 /* CarMake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarMake.swift; sourceTree = "<group>"; };
+		5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				5208A7A41BE7F81500CB4437 /* ViewController.swift */,
 				5208A7A61BE7F81500CB4437 /* Main.storyboard */,
 				5235942D1BE935F300A06241 /* CarFinder.swift */,
+				5263A5541BEAA8D000A02452 /* CarMake.swift */,
+				5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */,
 				5208A7A91BE7F81500CB4437 /* Assets.xcassets */,
 				5208A7AB1BE7F81500CB4437 /* LaunchScreen.storyboard */,
 				5208A7AE1BE7F81500CB4437 /* Info.plist */,
@@ -262,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5263A5551BEAA8D000A02452 /* CarMake.swift in Sources */,
 				5208A7A51BE7F81500CB4437 /* ViewController.swift in Sources */,
+				5263A5571BEAA9DF00A02452 /* NetworkOperation.swift in Sources */,
 				5235942E1BE935F300A06241 /* CarFinder.swift in Sources */,
 				5208A7A31BE7F81500CB4437 /* AppDelegate.swift in Sources */,
 			);
