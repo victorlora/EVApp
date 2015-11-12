@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var element = NSString()
     var title1 = NSMutableString()
     var date = NSMutableString()
-    let url = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
+    let makeAPI = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
     
     @IBOutlet weak var carViewer: UITableView!
     @IBOutlet weak var carTaskLabel: UILabel!
@@ -25,9 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     private let carFinderAPIKey = "6m8ettta5byepu43rkhsc79j"
 
     let textCellIdentifier = "carChoice"
-    let manufacturers = ["AM General", "Acura", "Alfa Romeo", "Aston Martin", "Audi", "BMW", "Bentley", "Buick","Cadillac", "Chevrolet", "Chrysler", "Daewoo", "Dodge", "Eagle", "Fiat", "Ferrari", "Fisker", "Ford", "GMC", "Geo", "Hummer", "Honda", "Hyundai", "Infiniti", "Isuzu", "Jaguar", "Jeep", "Kia", "Lamborghini", "Land Rover", "Lexus", "Lincoln", "Lotus","Maserati", "Mini", "Maybach", "Mazda", "Mercedes Benz", "Mercury", "Mitsubishi", "Nissan", "Oldsmobile", "Panoz", "Plymouth", "Pontiac", "Porsche", "Ram", "Rolls Royce", "Saab", "Saturn", "Scion", "Spyker", "Subaru", "Suzuki", "Tesla", "Toyota", "Volkswagen", "Volvo", "Smart",  ]
-    
-    let makes = [String]()
+    var manufacturers = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +34,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carViewer.delegate = self
         carViewer.dataSource = self
         carTaskLabel.text = "Select Car Make"
+        getMakes()
         configureView()
     }
     
@@ -49,29 +48,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func getMakes() {
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
-        let session = NSURLSession.sharedSession()
+        let edmundsAPI: String = makeAPI
         let url = NSURL(string: edmundsAPI)!
         
-        // Make the POST call and handle it in a completion handler
-        session.dataTaskWithURL(url, completionHandler: { ( data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
-            // Make sure we get an OK response
-            guard let realResponse = response as? NSHTTPURLResponse where
-                realResponse.statusCode == 200 else {
-                    print("Not a 200 response")
-                    return
-            }
-            
-            // Read the JSON
-            do {
-                if let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? NSDictionary {
-                    print(json)
-                    // parse json here
+        // Get JSON data
+        let data = NSData(contentsOfURL: url)!
+        
+        // Read the JSON
+        do {
+            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+            // Parse JSON
+            if let makes = json["makes"] as? [[String: AnyObject]] {
+                for make in makes {
+                    if let name = make["name"] as? String {
+                        print(name) // debuggin purposes only, DELETE
+                        self.manufacturers.append(name)
+                    }
                 }
-            } catch {
-                print("bad things happened")
             }
-        }).resume()
+
+        } catch {
+            print("bad things happened")
+        }
     }
 
 
@@ -101,9 +99,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(carViewer: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        getMakes()
         carViewer.deselectRowAtIndexPath(indexPath, animated: true)
-        
         let row = indexPath.row
         print(manufacturers[row])
     }
