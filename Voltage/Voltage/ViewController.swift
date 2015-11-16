@@ -11,13 +11,14 @@ import Foundation
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    var parser = NSXMLParser()
     var posts = NSMutableArray()
     var elements = NSMutableDictionary()
     var element = NSString()
     var title1 = NSMutableString()
     var date = NSMutableString()
     let makeAPI = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
+    
+    var make:String = ""
     
     @IBOutlet weak var carViewer: UITableView!
     @IBOutlet weak var carTaskLabel: UILabel!
@@ -26,6 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     let textCellIdentifier = "carChoice"
     var manufacturers = [String]()
+    var models = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,12 +63,46 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let makes = json["makes"] as? [[String: AnyObject]] {
                 for make in makes {
                     if let name = make["name"] as? String {
-                        print(name) // debuggin purposes only, DELETE
                         self.manufacturers.append(name)
                     }
                 }
             }
 
+        } catch {
+            print("bad things happened")
+        }
+    }
+    
+    func getModels() {
+        
+        // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
+        let edmundsAPI: String = makeAPI
+        let url = NSURL(string: edmundsAPI)!
+        
+        // Get JSON data
+        let data = NSData(contentsOfURL: url)!
+        
+        // Read the JSON
+        do {
+            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+            // Parse JSON
+            if let makes = json["makes"] as? [[String: AnyObject]] {
+                for make in makes {
+                    if let name = make["name"] as? String {
+                        if name.isEqual(self.make) {
+                            if let models = make["models"] as? [[String: AnyObject]] {
+                                for model in models {
+                                    if let name = model["name"] as? String {
+                                        print(name)
+                                        self.models.append(name)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
         } catch {
             print("bad things happened")
         }
@@ -101,7 +137,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(carViewer: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         carViewer.deselectRowAtIndexPath(indexPath, animated: true)
         let row = indexPath.row
-        print(manufacturers[row])
+        self.make = manufacturers[row]
+        getModels()
+        print(self.make)
     }
 }
 
