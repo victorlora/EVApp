@@ -74,7 +74,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
 
         } catch {
-            print("bad things happened")
+            print("Error finding makes")
         }
     }
     
@@ -109,7 +109,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             
         } catch {
-            print("bad things happened")
+            print("Error finding models")
         }
         getYears()
     }
@@ -153,7 +153,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             
         } catch {
-            print("bad things happened")
+            print("Error finding years")
         }
     }
 
@@ -189,7 +189,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let row = indexPath.row
         self.make = manufacturers[row]
         getModels()
-        print(self.make)
     }
 }
 
