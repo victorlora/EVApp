@@ -19,6 +19,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let makeAPI = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
     
     var make:String = ""
+    var model:String = "200" // make "" filling in until UI makes selections
+    var year:String = ""
+    
+    var manufacturers = [String]()
+    var models = [String]()
+    var years = [Int]()
     
     @IBOutlet weak var carViewer: UITableView!
     @IBOutlet weak var carTaskLabel: UILabel!
@@ -26,8 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     private let carFinderAPIKey = "6m8ettta5byepu43rkhsc79j"
 
     let textCellIdentifier = "carChoice"
-    var manufacturers = [String]()
-    var models = [String]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,9 +97,53 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         if name.isEqual(self.make) {
                             if let models = make["models"] as? [[String: AnyObject]] {
                                 for model in models {
-                                    if let name = model["name"] as? String {
-                                        print(name)
-                                        self.models.append(name)
+                                    if let carModel = model["name"] as? String {
+                                        print(carModel) // Remove: debug purpose only
+                                        self.models.append(carModel)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        } catch {
+            print("bad things happened")
+        }
+        getYears()
+    }
+    
+    func getYears() {
+        
+        // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
+        let edmundsAPI: String = makeAPI
+        let url = NSURL(string: edmundsAPI)!
+        
+        // Get JSON data
+        let data = NSData(contentsOfURL: url)!
+        
+        // Read the JSON
+        do {
+            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+            // Parse JSON
+            if let makes = json["makes"] as? [[String: AnyObject]] {
+                for make in makes {
+                    if let name = make["name"] as? String {
+                        if name.isEqual(self.make) {
+                            if let models = make["models"] as? [[String: AnyObject]] {
+                                for model in models {
+                                    if let carModel = model["name"] as? String {
+                                        if carModel.isEqual(self.model) {
+                                            if let years = model["years"] as? [[String: AnyObject]] {
+                                                for year in years {
+                                                    if let carYear = year["year"] as? Int {
+                                                        print(carYear) // Remove: debug purpose only
+                                                        self.years.append(carYear)
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -107,6 +156,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("bad things happened")
         }
     }
+
 
 
     func configureView() {
