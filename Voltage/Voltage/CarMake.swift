@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+/* This struct sets Strings id and name in order to make
+    API matches possible*/
 struct CarMake {
     let id: String?
     let name: String?
