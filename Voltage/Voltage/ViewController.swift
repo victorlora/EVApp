@@ -11,11 +11,6 @@ import Foundation
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    var posts = NSMutableArray()
-    var elements = NSMutableDictionary()
-    var element = NSString()
-    var title1 = NSMutableString()
-    var date = NSMutableString()
     let makeAPI = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
     
     var make:String = ""
@@ -37,7 +32,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     let textCellIdentifier = "carChoice"
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -195,7 +189,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func configureView() {
         // Set custom height for table view row
         carViewer.rowHeight = 36
-        carViewer.backgroundColor = UIColor.blackColor()
+        carViewer.backgroundColor = UIColor.clearColor()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
