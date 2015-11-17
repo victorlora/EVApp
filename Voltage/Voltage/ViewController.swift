@@ -220,7 +220,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else if (currentPage == models) {
             switchToYear()
         } else if (currentPage == years) {
-            print ("getCarInfo")
+            self.year = self.currentSelection
+            carTaskLabel.text = "" + self.make + " " + self.model + " " + self.year
         }
     }
 
