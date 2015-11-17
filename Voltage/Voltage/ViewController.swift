@@ -19,12 +19,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let makeAPI = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
     
     var make:String = ""
-    var model:String = "200" // make "" filling in until UI makes selections
+    var model:String = "" // make "" filling in until UI makes selections
     var year:String = ""
     
     var manufacturers = [String]()
     var models = [String]()
-    var years = [Int]()
+    var years = [String]()
+    
+    var currentPage = []
+    var currentSelection = ""
     
     @IBOutlet weak var carViewer: UITableView!
     @IBOutlet weak var carTaskLabel: UILabel!
@@ -43,6 +46,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carViewer.dataSource = self
         carTaskLabel.text = "Select Car Make"
         getMakes()
+        self.currentPage = self.manufacturers
+        self.currentSelection = self.make
         configureView()
     }
     
@@ -51,6 +56,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func switchToMake() {
+        getMakes()
+        self.currentPage = self.manufacturers
+        self.currentSelection = self.make
+        carTaskLabel.text = "Select Car Make"
+        carViewer.reloadData()
+    }
+    
+    func switchToModel() {
+        make = currentSelection
+        getModels()
+        self.currentPage = self.models
+        self.currentSelection = self.model
+        carTaskLabel.text = "Select Car Model"
+        carViewer.reloadData()
+    }
+    
+    func switchToYear() {
+        model = currentSelection
+        getYears()
+        self.currentPage = self.years
+        self.currentSelection = self.year
+        carTaskLabel.text = "Select Car Year"
+        carViewer.reloadData()
     }
     
     func getMakes() {
@@ -140,7 +171,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                                 for year in years {
                                                     if let carYear = year["year"] as? Int {
                                                         print(carYear) // Remove: debug purpose only
-                                                        self.years.append(carYear)
+                                                        //if let carID = year["id"] as? Int {
+                                                        self.years.append(String(carYear))
                                                     }
                                                 }
                                             }
@@ -171,7 +203,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return manufacturers.count
+        return currentPage.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -180,7 +212,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         let row = indexPath.row
         
-        cell.textLabel?.text = manufacturers[row]
+        cell.textLabel?.text = currentPage[row] as? String
         return cell
         
     }
@@ -188,10 +220,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(carViewer: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         carViewer.deselectRowAtIndexPath(indexPath, animated: true)
         let row = indexPath.row
-        self.make = manufacturers[row]
-        self.carViewer?.reloadData()
-        getModels()
-        self.model = models[row]
+        self.currentSelection = currentPage[row] as! String
+        if (currentPage == manufacturers) {
+            switchToModel()
+        } else if (currentPage == models) {
+            switchToYear()
+        } else if (currentPage == years) {
+            print ("getCarInfo")
+        }
     }
 
 }
