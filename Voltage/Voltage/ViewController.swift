@@ -28,6 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var carViewer: UITableView!
     @IBOutlet weak var carTaskLabel: UILabel!
+    @IBOutlet weak var errorHandler: UILabel!
     
     private let carFinderAPIKey = "6m8ettta5byepu43rkhsc79j"
 
@@ -74,7 +75,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
 
         } catch {
-            print("Error finding makes")
+            errorHandler.text="Error finding makes"
         }
     }
     
@@ -109,7 +110,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             
         } catch {
-            print("Error finding models")
+            errorHandler.text="Error finding models"
         }
         getYears()
     }
@@ -153,7 +154,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             
         } catch {
-            print("Error finding years")
+            errorHandler.text="Error finding years"
         }
     }
 
@@ -188,7 +189,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carViewer.deselectRowAtIndexPath(indexPath, animated: true)
         let row = indexPath.row
         self.make = manufacturers[row]
+        self.carViewer?.reloadData()
         getModels()
+        self.model = models[row]
     }
+
 }
 
