@@ -43,7 +43,6 @@ struct MakeFinder {
 
 /* This struct uses the string carFinderAPIKey, carMake and the edmunds api
     in order to find the model the user asks for*/
-
 struct ModelFinder {
         
     let carFinderAPIKey: String                 //String used to find a match in the API
