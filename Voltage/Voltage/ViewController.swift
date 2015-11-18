@@ -170,7 +170,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                             if let models = make["models"] as? [[String: AnyObject]] {
                                 for model in models {
                                     if let carModel = model["name"] as? String {
-                                        print(carModel) // Remove: debug purpose only
                                         self.models.append(carModel)
                                     }
                                 }
@@ -215,8 +214,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                             if let years = model["years"] as? [[String: AnyObject]] {
                                                 for year in years {
                                                     if let carYear = year["year"] as? Int {
-                                                        print(carYear) // Remove: debug purpose only
-                                                        //if let carID = year["id"] as? Int {
                                                         self.years.append(String(carYear))
                                                     }
                                                 }
