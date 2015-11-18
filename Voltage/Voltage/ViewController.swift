@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var carViewer: UITableView!
     @IBOutlet weak var carTaskLabel: UILabel!
     @IBOutlet weak var errorHandler: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     private let carFinderAPIKey = "6m8ettta5byepu43rkhsc79j"
 
@@ -66,6 +67,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.currentPage = self.models
         self.currentSelection = self.model
         carTaskLabel.text = "Select Car Model"
+        backButton.setTitle("< Make", forState: .Normal)
         carViewer.reloadData()
     }
     
@@ -75,6 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.currentPage = self.years
         self.currentSelection = self.year
         carTaskLabel.text = "Select Car Year"
+        backButton.setTitle("< Model", forState: .Normal)
         carViewer.reloadData()
     }
     

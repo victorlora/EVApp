@@ -78,7 +78,7 @@
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlb-Y9-QqP">
                                 <rect key="frame" x="22" y="134" width="108" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Car">
+                                <state key="normal" title=":">
                                     <color key="titleColor" red="1" green="0.56585752773067699" blue="0.04974167888432246" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -143,6 +143,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="rlb-Y9-QqP" id="Pze-K9-dr7"/>
                         <outlet property="carTaskLabel" destination="5ED-Na-bZZ" id="7l2-cJ-o00"/>
                         <outlet property="carViewer" destination="fcZ-mf-B5c" id="g3z-6m-Ft8"/>
                         <outlet property="errorHandler" destination="iZl-J1-TUC" id="QmH-nt-dTl"/>
