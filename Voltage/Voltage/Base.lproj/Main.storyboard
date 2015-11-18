@@ -82,6 +82,9 @@
                                     <color key="titleColor" red="1" green="0.56585752773067699" blue="0.04974167888432246" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="backButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aC2-9s-ePv"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Yd4-lV-BhK">
                                 <rect key="frame" x="131" y="24" width="429" height="102"/>
@@ -143,7 +146,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="rlb-Y9-QqP" id="Pze-K9-dr7"/>
+                        <outlet property="backButton" destination="rlb-Y9-QqP" id="z9B-iy-ZMQ"/>
                         <outlet property="carTaskLabel" destination="5ED-Na-bZZ" id="7l2-cJ-o00"/>
                         <outlet property="carViewer" destination="fcZ-mf-B5c" id="g3z-6m-Ft8"/>
                         <outlet property="errorHandler" destination="iZl-J1-TUC" id="QmH-nt-dTl"/>

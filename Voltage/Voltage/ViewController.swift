@@ -17,7 +17,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var carViewer: UITableView!
     @IBOutlet weak var carTaskLabel: UILabel!
     @IBOutlet weak var errorHandler: UILabel!
+
     @IBOutlet weak var backButton: UIButton!
+    @IBAction func backButton(sender: AnyObject) {
+        handleBackButton()
+    }
     
     //--------------API-----------------------
     private let API = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
@@ -55,7 +59,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carTaskLabel.text = "Select Car Make"
         getMakes()
         self.currentPage = self.manufacturers
-        self.currentSelection = self.make
         configureView()
     }
     
@@ -76,10 +79,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
      */
     
     func switchToMake() {
+        self.manufacturers = [String]()
         getMakes()
         self.currentPage = self.manufacturers
-        self.currentSelection = self.make
         carTaskLabel.text = "Select Car Make"
+        backButton.setTitle(";", forState: .Normal)
         carViewer.reloadData()
     }
     
@@ -89,10 +93,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
      */
     
     func switchToModel() {
-        make = currentSelection
+        self.models = [String]()
         getModels()
         self.currentPage = self.models
-        self.currentSelection = self.model
         carTaskLabel.text = "Select Car Model"
         backButton.setTitle("< Make", forState: .Normal)
         carViewer.reloadData()
@@ -104,13 +107,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
      */
     
     func switchToYear() {
-        model = currentSelection
+        self.years = [String]()
         getYears()
         self.currentPage = self.years
-        self.currentSelection = self.year
+        //self.currentSelection = self.year
         carTaskLabel.text = "Select Car Year"
         backButton.setTitle("< Model", forState: .Normal)
         carViewer.reloadData()
+    }
+    
+    func handleBackButton() {
+        if (currentPage == models) {
+            switchToMake()
+        } else if (currentPage == years) {
+            switchToModel()
+        }
     }
     
     /* getMakes()
@@ -286,8 +297,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let row = indexPath.row
         self.currentSelection = currentPage[row] as! String
         if (currentPage == manufacturers) {
+            self.make = currentSelection
             switchToModel()
         } else if (currentPage == models) {
+            self.model = currentSelection
             switchToYear()
         } else if (currentPage == years) {
             self.year = self.currentSelection
