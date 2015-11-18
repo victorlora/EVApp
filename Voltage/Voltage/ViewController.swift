@@ -11,28 +11,41 @@ import Foundation
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    let makeAPI = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
+    //--------------------------Variables--------------------------------
     
-    var make:String = ""
-    var model:String = "" // make "" filling in until UI makes selections
-    var year:String = ""
-    
-    var manufacturers = [String]()
-    var models = [String]()
-    var years = [String]()
-    
-    var currentPage = []
-    var currentSelection = ""
-    
+    //---------Storyboard Links--------------
     @IBOutlet weak var carViewer: UITableView!
     @IBOutlet weak var carTaskLabel: UILabel!
     @IBOutlet weak var errorHandler: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
-    private let carFinderAPIKey = "6m8ettta5byepu43rkhsc79j"
+    //--------------API-----------------------
+    private let API = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
+    private let APIKey = "6m8ettta5byepu43rkhsc79j"
+    
+    //----------API Generated Arrays----------
+    var manufacturers = [String]()  // Array of manufacturer populated by API and displayed on the UI
+    var models = [String]()         // Array of models that is populated by API upon Make selection
+    var years = [String]()          // Array of years populated by API upon Make and Model selection
 
-    let textCellIdentifier = "carChoice"
+    //---------User Selections----------------
+    var make:String = ""            // Stores user's make selection
+    var model:String = ""           // Stores user's model selection
+    var year:String = ""            // Stores user's year selection
+    
+    //-------------Temp Current----------------
+    var currentPage = []        // Stores array of the current items to be selected (e.g. makes, models, etc.)
+    var currentSelection = ""   // Stores users selection at each tableview
 
+    let textCellIdentifier = "carChoice"    // Cell with carchoice (for tableview purposes)
+
+    //--------------------------Functions--------------------------------
+    
+    /* viewDidLoad()
+     * @description
+     *      Initial function call similar to main()
+     */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,11 +60,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-
+    /* didReceiveMemoryWarning()
+     * @description
+     *      Used on large, memory intensive apps
+     */
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    /* switchToMake()
+     * @description
+     *      Sets the parameters for the "Select Make" view
+     */
     
     func switchToMake() {
         getMakes()
@@ -60,6 +82,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carTaskLabel.text = "Select Car Make"
         carViewer.reloadData()
     }
+    
+    /* switchToModel()
+     * @description
+     *      Sets the parameters for the "Select Model" view
+     */
     
     func switchToModel() {
         make = currentSelection
@@ -71,6 +98,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carViewer.reloadData()
     }
     
+    /* switchToYear()
+     * @description
+     *      Sets the parameters for the "Select Year" view
+     */
+    
     func switchToYear() {
         model = currentSelection
         getYears()
@@ -81,10 +113,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carViewer.reloadData()
     }
     
+    /* getMakes()
+     * @description
+     *      Makes API call and parses JSON to compile a list
+     *       of car makes
+     */
+    
     func getMakes() {
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let edmundsAPI: String = makeAPI
+        let edmundsAPI: String = API
         let url = NSURL(string: edmundsAPI)!
         
         // Get JSON data
@@ -107,10 +145,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    /* getModels()
+     * @description
+     *      Makes API call and parses JSON to compile a list
+     *       of car models based on make
+     */
     func getModels() {
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let edmundsAPI: String = makeAPI
+        let edmundsAPI: String = API
         let url = NSURL(string: edmundsAPI)!
         
         // Get JSON data
@@ -140,13 +183,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } catch {
             errorHandler.text="Error finding models"
         }
-        getYears()
     }
+    
+    /* getYears()
+     * @description
+     *      Makes API call and parses JSON to compile a list
+     *       of car years based on make and model
+     */
     
     func getYears() {
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let edmundsAPI: String = makeAPI
+        let edmundsAPI: String = API
         let url = NSURL(string: edmundsAPI)!
         
         // Get JSON data
@@ -187,32 +235,54 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
-
+    /* configureView()
+     * @description
+     *      Configures UI display
+     */
 
     func configureView() {
-        // Set custom height for table view row
-        carViewer.rowHeight = 36
-        carViewer.backgroundColor = UIColor.clearColor()
+        carViewer.rowHeight = 36                            // Set custom height for table view rows
+        carViewer.backgroundColor = UIColor.clearColor()    // sets table bg color
     }
+    
+    /* numberOfSectionsInTableView()
+     * @returns
+     *      Number of columns in tableView
+     */
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
   
+    /* tableView()
+     * @returns
+     *      Number of items in current array for tableview rows
+     */
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentPage.count
     }
 
+    /* tableView()
+     * @description
+     *      Generates table containing all the items in the
+     *       corresponding array
+     */
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = carViewer.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as UITableViewCell
-
         let row = indexPath.row
         
         cell.textLabel?.text = currentPage[row] as? String
-        return cell
         
+        return cell
     }
+    
+    /* tableView()
+     * @description
+     *      Handles table actions
+     */
     
     func tableView(carViewer: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         carViewer.deselectRowAtIndexPath(indexPath, animated: true)
