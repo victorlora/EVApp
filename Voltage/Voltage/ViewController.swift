@@ -43,7 +43,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var currentSelection = ""   // Stores users selection at each tableview
 
     let textCellIdentifier = "carChoice"    // Cell with carchoice (for tableview purposes)
-    var icon: UIImage? = UIImage(named: "tire.png")
 
     //--------------------------Functions--------------------------------
     
@@ -100,7 +99,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.models = [String]()
         getModels()
         self.currentPage = self.models
-        let car = UIImage(named: "\(make.lowercaseString).png")
+        let maker = make.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let car = UIImage(named: "\(maker.lowercaseString).png")
         carLogo.image = car
         carTaskLabel.text = "Select Car Model"
         backButton.setTitle("< Make", forState: .Normal)
