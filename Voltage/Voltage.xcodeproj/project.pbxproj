@@ -15,7 +15,6 @@
 		5208A7B81BE7F81600CB4437 /* VoltageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208A7B71BE7F81600CB4437 /* VoltageTests.swift */; };
 		5208A7C31BE7F81600CB4437 /* VoltageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208A7C21BE7F81600CB4437 /* VoltageUITests.swift */; };
 		5263A5571BEAA9DF00A02452 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */; };
-		52A1CD471BFB79F400B87053 /* ManufacturerLogos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1CD461BFB79F400B87053 /* ManufacturerLogos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		5208A7C21BE7F81600CB4437 /* VoltageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltageUITests.swift; sourceTree = "<group>"; };
 		5208A7C41BE7F81600CB4437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
-		52A1CD461BFB79F400B87053 /* ManufacturerLogos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerLogos.swift; path = ../ManufacturerLogos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				5208A7A21BE7F81500CB4437 /* AppDelegate.swift */,
-				52A1CD461BFB79F400B87053 /* ManufacturerLogos.swift */,
 				5208A7A41BE7F81500CB4437 /* ViewController.swift */,
 				5208A7A61BE7F81500CB4437 /* Main.storyboard */,
 				5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */,
@@ -268,7 +265,6 @@
 				5208A7A51BE7F81500CB4437 /* ViewController.swift in Sources */,
 				5263A5571BEAA9DF00A02452 /* NetworkOperation.swift in Sources */,
 				5208A7A31BE7F81500CB4437 /* AppDelegate.swift in Sources */,
-				52A1CD471BFB79F400B87053 /* ManufacturerLogos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

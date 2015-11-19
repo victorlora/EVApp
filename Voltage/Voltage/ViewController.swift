@@ -18,7 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var carTaskLabel: UILabel!
     @IBOutlet weak var errorHandler: UILabel!
 
+    @IBOutlet weak var carLogo: UIImageView!
     @IBOutlet weak var backButton: UIButton!
+
     @IBAction func backButton(sender: AnyObject) {
         handleBackButton()
     }
@@ -36,12 +38,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var make:String = ""            // Stores user's make selection
     var model:String = ""           // Stores user's model selection
     var year:String = ""            // Stores user's year selection
-    
     //-------------Temp Current----------------
     var currentPage = []        // Stores array of the current items to be selected (e.g. makes, models, etc.)
     var currentSelection = ""   // Stores users selection at each tableview
 
     let textCellIdentifier = "carChoice"    // Cell with carchoice (for tableview purposes)
+    var icon: UIImage? = UIImage(named: "tire.png")
 
     //--------------------------Functions--------------------------------
     
@@ -82,8 +84,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.manufacturers = [String]()
         getMakes()
         self.currentPage = self.manufacturers
+        let car = UIImage(named: "tire.png")
+        carLogo.image = car
         carTaskLabel.text = "Select Car Make"
-        backButton.setTitle(";", forState: .Normal)
+        backButton.setTitle("", forState: .Normal)
         carViewer.reloadData()
     }
     
@@ -96,6 +100,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.models = [String]()
         getModels()
         self.currentPage = self.models
+        let car = UIImage(named: "\(make.lowercaseString).png")
+        carLogo.image = car
         carTaskLabel.text = "Select Car Model"
         backButton.setTitle("< Make", forState: .Normal)
         carViewer.reloadData()
@@ -304,7 +310,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             switchToYear()
         } else if (currentPage == years) {
             self.year = self.currentSelection
-            carTaskLabel.text = "" + self.make + " " + self.model + " " + self.year
+            carTaskLabel.text = "" + self.year + " " + self.make + " " + self.model
         }
     }
 
