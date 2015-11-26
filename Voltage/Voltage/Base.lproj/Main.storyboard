@@ -16,11 +16,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Car Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ED-Na-bZZ">
-                                <rect key="frame" x="223" y="134" width="155" height="24"/>
+                                <rect key="frame" x="2" y="134" width="155" height="24"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="155" id="WEy-r9-i56"/>
@@ -30,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="236" verticalHuggingPriority="251" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="110" image="EV-3X" translatesAutoresizingMaskIntoConstraints="NO" id="Nhv-Oa-bB0">
-                                <rect key="frame" x="30" y="22" width="93" height="110"/>
+                                <rect key="frame" x="26" y="22" width="93" height="110"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="Nhv-Oa-bB0" secondAttribute="height" multiplier="1:1" id="ApW-Qn-Ui3"/>
@@ -43,7 +43,7 @@
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="236" verticalHuggingPriority="251" placeholderIntrinsicWidth="90" placeholderIntrinsicHeight="128" image="gas-3X" translatesAutoresizingMaskIntoConstraints="NO" id="plm-UZ-KqJ">
-                                <rect key="frame" x="485" y="504" width="80" height="88"/>
+                                <rect key="frame" x="203" y="504" width="141" height="155"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="J9s-wJ-mu3"/>
@@ -51,7 +51,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CarViewer" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fcZ-mf-B5c">
-                                <rect key="frame" x="25" y="166" width="555" height="337"/>
+                                <rect key="frame" x="21" y="166" width="338" height="337"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -59,10 +59,10 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="playback" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="carChoice" id="yGQ-lD-ysF">
-                                        <rect key="frame" x="0.0" y="28" width="555" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="338" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cell" tableViewCell="yGQ-lD-ysF" id="v2R-37-dja">
-                                            <rect key="frame" x="0.0" y="0.0" width="522" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="305" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -76,7 +76,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlb-Y9-QqP">
-                                <rect key="frame" x="22" y="134" width="108" height="30"/>
+                                <rect key="frame" x="18" y="134" width="108" height="30"/>
                                 <animations/>
                                 <state key="normal">
                                     <color key="titleColor" red="1" green="0.56585752773067699" blue="0.04974167888432246" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,7 +87,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tire" translatesAutoresizingMaskIntoConstraints="NO" id="Yd4-lV-BhK">
-                                <rect key="frame" x="131" y="24" width="429" height="102"/>
+                                <rect key="frame" x="127" y="24" width="212" height="102"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="261" id="H9i-i7-4Sg"/>
@@ -101,7 +101,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZl-J1-TUC">
-                                <rect key="frame" x="22" y="537" width="372" height="21"/>
+                                <rect key="frame" x="18" y="537" width="94" height="88"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -145,6 +145,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="backButton" destination="rlb-Y9-QqP" id="z9B-iy-ZMQ"/>
                         <outlet property="carLogo" destination="Yd4-lV-BhK" id="psK-xr-Dko"/>

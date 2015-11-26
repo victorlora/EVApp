@@ -57,10 +57,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view, typically from a nib.
         carViewer.delegate = self
         carViewer.dataSource = self
-        carTaskLabel.text = "Select Car Make"
-        getMakes()
-        self.currentPage = self.manufacturers
-        configureView()
+        configureView()         // Configure tableview
+        
+        // Check for user saved car data
+        if (NSUserDefaults.standardUserDefaults().objectForKey("make") != nil) {
+            self.make = NSUserDefaults.standardUserDefaults().objectForKey("make") as! String
+            if (NSUserDefaults.standardUserDefaults().objectForKey("model") != nil) {
+                self.model = NSUserDefaults.standardUserDefaults().objectForKey("model") as! String
+                if (NSUserDefaults.standardUserDefaults().objectForKey("year") != nil) {
+                    self.year = NSUserDefaults.standardUserDefaults().objectForKey("year") as! String
+                    getCarInfo()
+                }
+            }
+        } else {
+            carTaskLabel.text = "Select Car Make"
+            getMakes()
+            self.currentPage = self.manufacturers
+        }
+        
     }
     
     
@@ -116,7 +130,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.years = [String]()
         getYears()
         self.currentPage = self.years
-        //self.currentSelection = self.year
+        let maker = make.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let car = UIImage(named: "\(maker.lowercaseString).png")
+        carLogo.image = car
         carTaskLabel.text = "Select Car Year"
         backButton.setTitle("< Model", forState: .Normal)
         carViewer.reloadData()
@@ -304,12 +320,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.currentSelection = currentPage[row] as! String
         if (currentPage == manufacturers) {
             self.make = currentSelection
+            NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "make")
             switchToModel()
         } else if (currentPage == models) {
             self.model = currentSelection
+            NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "model")
             switchToYear()
         } else if (currentPage == years) {
             self.year = self.currentSelection
+            NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "year")
             carTaskLabel.text = "" + self.year + " " + self.make + " " + self.model
         }
     }
