@@ -43,9 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet var continueButton: UIButton!
     
-    @IBAction func continueButton(sender: AnyObject) {
-        getCarInfo()
-    }
+    
     //--------------API-----------------------
     private let API = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
     private let APIKey = "6m8ettta5byepu43rkhsc79j"
