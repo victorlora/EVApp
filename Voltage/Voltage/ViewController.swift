@@ -22,9 +22,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var backButton: UIButton!
 
     @IBAction func backButton(sender: AnyObject) {
-        handleBackButton()
+        if (currentPage == models) {
+            switchToMake()
+        } else if (currentPage == years) {
+            switchToModel()
+        }
     }
     
+    @IBOutlet var saveCarLabel: UILabel!
+    @IBOutlet var saveCar: UISwitch!
+    @IBAction func saveCar(sender: AnyObject) {
+        if (!saveSelection) {
+            saveSelection = true
+            saveCar.setOn(true, animated: true)
+        } else {
+            saveSelection = false
+            saveCar.setOn(false, animated: true)
+        }
+    }
+    
+    @IBOutlet var continueButton: UIButton!
+    
+    @IBAction func continueButton(sender: AnyObject) {
+        getCarInfo()
+    }
     //--------------API-----------------------
     private let API = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
     private let APIKey = "6m8ettta5byepu43rkhsc79j"
@@ -38,6 +59,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var make:String = ""            // Stores user's make selection
     var model:String = ""           // Stores user's model selection
     var year:String = ""            // Stores user's year selection
+    
+    var saveSelection = false       // User's choice to save their car
     //-------------Temp Current----------------
     var currentPage = []        // Stores array of the current items to be selected (e.g. makes, models, etc.)
     var currentSelection = ""   // Stores users selection at each tableview
@@ -71,8 +94,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         } else {
             carTaskLabel.text = "Select Car Make"
-            getMakes()
-            self.currentPage = self.manufacturers
+            switchToMake()
+            
         }
         
     }
@@ -101,6 +124,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carLogo.image = car
         carTaskLabel.text = "Select Car Make"
         backButton.setTitle("", forState: .Normal)
+        
+        saveCar.setOn(false, animated: true)
+        
+        saveCarLabel.hidden = false
+        saveCar.hidden = false
+        continueButton.hidden = true
+        
         carViewer.reloadData()
     }
     
@@ -113,11 +143,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.models = [String]()
         getModels()
         self.currentPage = self.models
+        
         let maker = make.stringByReplacingOccurrencesOfString(" ", withString: "")
+        
         let car = UIImage(named: "\(maker.lowercaseString).png")
         carLogo.image = car
+        
         carTaskLabel.text = "Select Car Model"
-        backButton.setTitle("< Make", forState: .Normal)
+        
+        backButton.setTitle("Back", forState: .Normal)
+        
+        saveCarLabel.hidden = true
+        saveCar.hidden = true
+        continueButton.hidden = true
+        
         carViewer.reloadData()
     }
     
@@ -128,23 +167,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func switchToYear() {
         self.years = [String]()
+        self.year = ""
         getYears()
         self.currentPage = self.years
         let maker = make.stringByReplacingOccurrencesOfString(" ", withString: "")
         let car = UIImage(named: "\(maker.lowercaseString).png")
         carLogo.image = car
         carTaskLabel.text = "Select Car Year"
-        backButton.setTitle("< Model", forState: .Normal)
+        backButton.setTitle("Back", forState: .Normal)
+        
+        saveCarLabel.hidden = true
+        saveCar.hidden = true
+        
         carViewer.reloadData()
     }
     
-    func handleBackButton() {
-        if (currentPage == models) {
-            switchToMake()
-        } else if (currentPage == years) {
-            switchToModel()
-        }
-    }
+//    func handleBackButton() {
+//        if (currentPage == models) {
+//            switchToMake()
+//        } else if (currentPage == years) {
+//            switchToModel()
+//        }
+//    }
     
     /* getMakes()
      * @description
@@ -264,6 +308,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             errorHandler.text="Error finding years"
         }
     }
+    
+    /* getCarInfo()
+    * @description
+    *      Makes API call and parses JSON to compile a list
+    *       of car years based on make and model
+    */
+    
+    func getCarInfo() {
+        print(self.make + " " + self.model + " " + self.year)
+    }
+
 
     /* configureView()
      * @description
@@ -320,15 +375,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.currentSelection = currentPage[row] as! String
         if (currentPage == manufacturers) {
             self.make = currentSelection
-            NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "make")
+            if (saveSelection) {
+                NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "make")
+            }
             switchToModel()
         } else if (currentPage == models) {
             self.model = currentSelection
-            NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "model")
+            if (saveSelection) {
+                NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "model")
+            }
             switchToYear()
         } else if (currentPage == years) {
             self.year = self.currentSelection
-            NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "year")
+            if (saveSelection) {
+                NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "year")
+            }
+            if (!self.year.isEmpty) {
+                continueButton.hidden = false
+            }
             carTaskLabel.text = "" + self.year + " " + self.make + " " + self.model
         }
     }
