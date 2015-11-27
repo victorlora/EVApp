@@ -9,6 +9,13 @@
 import UIKit
 import Foundation
 
+
+
+//---------Static User Selections----------------
+var make:String = ""            // Stores user's make selection
+var model:String = ""           // Stores user's model selection
+var year:String = ""            // Stores user's year selection
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     //--------------------------Variables--------------------------------
@@ -53,10 +60,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var models = [String]()         // Array of models that is populated by API upon Make selection
     var years = [String]()          // Array of years populated by API upon Make and Model selection
 
-    //---------User Selections----------------
-    var make:String = ""            // Stores user's make selection
-    var model:String = ""           // Stores user's model selection
-    var year:String = ""            // Stores user's year selection
     
     var saveSelection = false       // User's choice to save their car
     //-------------Temp Current----------------
@@ -82,11 +85,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // Check for user saved car data
         if (NSUserDefaults.standardUserDefaults().objectForKey("make") != nil) {
-            self.make = NSUserDefaults.standardUserDefaults().objectForKey("make") as! String
+            make = NSUserDefaults.standardUserDefaults().objectForKey("make") as! String
             if (NSUserDefaults.standardUserDefaults().objectForKey("model") != nil) {
-                self.model = NSUserDefaults.standardUserDefaults().objectForKey("model") as! String
+                model = NSUserDefaults.standardUserDefaults().objectForKey("model") as! String
                 if (NSUserDefaults.standardUserDefaults().objectForKey("year") != nil) {
-                    self.year = NSUserDefaults.standardUserDefaults().objectForKey("year") as! String
+                    year = NSUserDefaults.standardUserDefaults().objectForKey("year") as! String
                     getCarInfo()
                 }
             }
@@ -164,10 +167,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
      */
     
     func switchToYear() {
-        self.years = [String]()
-        self.year = ""
+        years = [String]()
+        year = ""
         getYears()
-        self.currentPage = self.years
+        self.currentPage = years
         let maker = make.stringByReplacingOccurrencesOfString(" ", withString: "")
         let car = UIImage(named: "\(maker.lowercaseString).png")
         carLogo.image = car
@@ -241,7 +244,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let makes = json["makes"] as? [[String: AnyObject]] {
                 for make in makes {
                     if let name = make["name"] as? String {
-                        if name.isEqual(self.make) {
+                        if name.isEqual(make) {
                             if let models = make["models"] as? [[String: AnyObject]] {
                                 for model in models {
                                     if let carModel = model["name"] as? String {
@@ -281,11 +284,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let makes = json["makes"] as? [[String: AnyObject]] {
                 for make in makes {
                     if let name = make["name"] as? String {
-                        if name.isEqual(self.make) {
+                        if name.isEqual(make) {
                             if let models = make["models"] as? [[String: AnyObject]] {
                                 for model in models {
                                     if let carModel = model["name"] as? String {
-                                        if carModel.isEqual(self.model) {
+                                        if carModel.isEqual(model) {
                                             if let years = model["years"] as? [[String: AnyObject]] {
                                                 for year in years {
                                                     if let carYear = year["year"] as? Int {
@@ -314,7 +317,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     */
     
     func getCarInfo() {
-        print(self.make + " " + self.model + " " + self.year)
+        print(make + " " + model + " " + year)
     }
 
 
@@ -372,26 +375,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let row = indexPath.row
         self.currentSelection = currentPage[row] as! String
         if (currentPage == manufacturers) {
-            self.make = currentSelection
+            make = currentSelection
             if (saveSelection) {
                 NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "make")
             }
             switchToModel()
         } else if (currentPage == models) {
-            self.model = currentSelection
+            model = currentSelection
             if (saveSelection) {
                 NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "model")
             }
             switchToYear()
         } else if (currentPage == years) {
-            self.year = self.currentSelection
+            year = self.currentSelection
             if (saveSelection) {
                 NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "year")
             }
-            if (!self.year.isEmpty) {
+            if (!year.isEmpty) {
                 continueButton.hidden = false
             }
-            carTaskLabel.text = "" + self.year + " " + self.make + " " + self.model
+            carTaskLabel.text = "" + year + " " + make + " " + model
         }
     }
 
