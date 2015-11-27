@@ -12,9 +12,10 @@ import Foundation
 
 
 //---------Static User Selections----------------
-var make:String = ""            // Stores user's make selection
-var model:String = ""           // Stores user's model selection
-var year:String = ""            // Stores user's year selection
+var userMake:String = ""            // Stores user's make selection
+var userModel:String = ""           // Stores user's model selection
+var userYear:String = ""            // Stores user's year selection
+var userStyle:String = ""           // Stores user's style selection
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -33,9 +34,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             switchToMake()
         } else if (currentPage == years) {
             switchToModel()
+        } else if (currentPage == styles) {
+            switchToYear()
         }
     }
     
+    //---------Car Save Toggle--------------
     @IBOutlet var saveCarLabel: UILabel!
     @IBOutlet var saveCar: UISwitch!
     @IBAction func saveCar(sender: AnyObject) {
@@ -50,6 +54,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet var continueButton: UIButton!
     
+    var saveSelection = false       // User's choice to save their car
     
     //--------------API-----------------------
     private let API = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
@@ -59,9 +64,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var manufacturers = [String]()  // Array of manufacturer populated by API and displayed on the UI
     var models = [String]()         // Array of models that is populated by API upon Make selection
     var years = [String]()          // Array of years populated by API upon Make and Model selection
+    var styles = [String]()
 
     
-    var saveSelection = false       // User's choice to save their car
     //-------------Temp Current----------------
     var currentPage = []        // Stores array of the current items to be selected (e.g. makes, models, etc.)
     var currentSelection = ""   // Stores users selection at each tableview
@@ -85,12 +90,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // Check for user saved car data
         if (NSUserDefaults.standardUserDefaults().objectForKey("make") != nil) {
-            make = NSUserDefaults.standardUserDefaults().objectForKey("make") as! String
+            userMake = NSUserDefaults.standardUserDefaults().objectForKey("make") as! String
             if (NSUserDefaults.standardUserDefaults().objectForKey("model") != nil) {
-                model = NSUserDefaults.standardUserDefaults().objectForKey("model") as! String
+                userModel = NSUserDefaults.standardUserDefaults().objectForKey("model") as! String
                 if (NSUserDefaults.standardUserDefaults().objectForKey("year") != nil) {
-                    year = NSUserDefaults.standardUserDefaults().objectForKey("year") as! String
-                    getCarInfo()
+                    userYear = NSUserDefaults.standardUserDefaults().objectForKey("year") as! String
+                    if (NSUserDefaults.standardUserDefaults().objectForKey("style") != nil) {
+                        userStyle = NSUserDefaults.standardUserDefaults().objectForKey("style") as! String
+                        getCarInfo()
+                    }
                 }
             }
         } else {
@@ -145,7 +153,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         getModels()
         self.currentPage = self.models
         
-        let maker = make.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let maker = userMake.stringByReplacingOccurrencesOfString(" ", withString: "")
         
         let car = UIImage(named: "\(maker.lowercaseString).png")
         carLogo.image = car
@@ -168,10 +176,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func switchToYear() {
         years = [String]()
-        year = ""
+        userYear = ""
         getYears()
         self.currentPage = years
-        let maker = make.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let maker = userMake.stringByReplacingOccurrencesOfString(" ", withString: "")
         let car = UIImage(named: "\(maker.lowercaseString).png")
         carLogo.image = car
         carTaskLabel.text = "Select Car Year"
@@ -179,17 +187,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         saveCarLabel.hidden = true
         saveCar.hidden = true
+        continueButton.hidden = true
         
         carViewer.reloadData()
     }
     
-//    func handleBackButton() {
-//        if (currentPage == models) {
-//            switchToMake()
-//        } else if (currentPage == years) {
-//            switchToModel()
-//        }
-//    }
+    func switchToStyle() {
+        styles = [String]()
+        userStyle = ""
+        getStyles()
+        self.currentPage = styles
+        let maker = userMake.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let car = UIImage(named: "\(maker.lowercaseString).png")
+        carLogo.image = car
+        carTaskLabel.text = "Select Car Style"
+        backButton.setTitle("Back", forState: .Normal)
+        
+        saveCarLabel.hidden = true
+        saveCar.hidden = true
+        
+        carViewer.reloadData()
+    }
     
     /* getMakes()
      * @description
@@ -228,10 +246,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
      *      Makes API call and parses JSON to compile a list
      *       of car models based on make
      */
+    
     func getModels() {
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let edmundsAPI: String = API
+        let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))/models?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
         let url = NSURL(string: edmundsAPI)!
         
         // Get JSON data
@@ -241,22 +260,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         do {
             let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
             // Parse JSON
-            if let makes = json["makes"] as? [[String: AnyObject]] {
-                for make in makes {
-                    if let name = make["name"] as? String {
-                        if name.isEqual(make) {
-                            if let models = make["models"] as? [[String: AnyObject]] {
-                                for model in models {
-                                    if let carModel = model["name"] as? String {
-                                        self.models.append(carModel)
-                                    }
-                                }
-                            }
-                        }
+            if let models = json["models"] as? [[String: AnyObject]] {
+                for model in models {
+                    if let name = model["name"] as? String {
+                        self.models.append(name)
                     }
                 }
             }
-            
         } catch {
             errorHandler.text="Error finding models"
         }
@@ -284,11 +294,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let makes = json["makes"] as? [[String: AnyObject]] {
                 for make in makes {
                     if let name = make["name"] as? String {
-                        if name.isEqual(make) {
+                        if name.isEqual(userMake) {
                             if let models = make["models"] as? [[String: AnyObject]] {
                                 for model in models {
                                     if let carModel = model["name"] as? String {
-                                        if carModel.isEqual(model) {
+                                        if carModel.isEqual(userModel) {
                                             if let years = model["years"] as? [[String: AnyObject]] {
                                                 for year in years {
                                                     if let carYear = year["year"] as? Int {
@@ -310,6 +320,49 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    func getStyles() {
+        
+        // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
+        let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))/models?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
+        let url = NSURL(string: edmundsAPI)!
+        
+        // Get JSON data
+        let data = NSData(contentsOfURL: url)!
+        
+        // Read the JSON
+        do {
+            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+            // Parse JSON
+            if let models = json["models"] as? [[String: AnyObject]] {
+                for model in models {
+                    if let carModel = model["name"] as? String {
+                        if carModel.isEqual(userModel) {
+                            if let years = model["years"] as? [[String: AnyObject]] {
+                                for year in years {
+                                    if let carYear = year["year"] as? Int {
+                                        if (carYear == Int(userYear)) {
+                                            if let styles = year["styles"] as? [[String: AnyObject]] {
+                                                for style in styles {
+                                                    if let carStyle = style["name"] as? String {
+                                                        self.styles.append(carStyle)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        } catch {
+            errorHandler.text="Error finding styles"
+        }
+    }
+
+    
     /* getCarInfo()
     * @description
     *      Makes API call and parses JSON to compile a list
@@ -317,7 +370,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     */
     
     func getCarInfo() {
-        print(make + " " + model + " " + year)
+//        print(userMake + " " + userModel + " " + userYear)
     }
 
 
@@ -375,26 +428,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let row = indexPath.row
         self.currentSelection = currentPage[row] as! String
         if (currentPage == manufacturers) {
-            make = currentSelection
+            userMake = currentSelection
             if (saveSelection) {
                 NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "make")
             }
             switchToModel()
         } else if (currentPage == models) {
-            model = currentSelection
+            userModel = currentSelection
             if (saveSelection) {
                 NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "model")
             }
             switchToYear()
         } else if (currentPage == years) {
-            year = self.currentSelection
+            userYear = self.currentSelection
             if (saveSelection) {
                 NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "year")
             }
-            if (!year.isEmpty) {
+            switchToStyle()
+        } else if (currentPage == styles) {
+            userStyle = self.currentSelection
+            if (saveSelection) {
+                NSUserDefaults.standardUserDefaults().setObject(currentSelection, forKey: "style")
+            }
+            
+            if (!userStyle.isEmpty) {
                 continueButton.hidden = false
             }
-            carTaskLabel.text = "" + year + " " + make + " " + model
+            
+            carTaskLabel.text = "" + userYear + " " + userMake + " " + userModel + " " + userStyle
         }
     }
 
