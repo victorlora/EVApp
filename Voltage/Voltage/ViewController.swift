@@ -99,7 +99,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         userStyle = NSUserDefaults.standardUserDefaults().objectForKey("style") as! String
                         dispatch_async(dispatch_get_main_queue()) {
                             [unowned self] in
-                            self.performSegueWithIdentifier("CarInfoPage", sender: self)
+                            self.performSegueWithIdentifier("homePage", sender: self)
                         }
                     } else {
                         switchToStyle()
@@ -144,6 +144,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         saveCar.setOn(false, animated: true)
         
+        backButton.hidden = true
         saveCarLabel.hidden = false
         saveCar.hidden = false
         continueButton.hidden = true
@@ -170,6 +171,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         backButton.setTitle("Back", forState: .Normal)
         
+        backButton.hidden = false
         saveCarLabel.hidden = true
         saveCar.hidden = true
         continueButton.hidden = true
@@ -193,6 +195,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carTaskLabel.text = "Select Car Year"
         backButton.setTitle("Back", forState: .Normal)
         
+        backButton.hidden = false
         saveCarLabel.hidden = true
         saveCar.hidden = true
         continueButton.hidden = true
@@ -211,6 +214,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carTaskLabel.text = "Select Car Style"
         backButton.setTitle("Back", forState: .Normal)
         
+        backButton.hidden = false
         saveCarLabel.hidden = true
         saveCar.hidden = true
         
