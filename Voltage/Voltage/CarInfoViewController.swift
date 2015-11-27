@@ -15,8 +15,8 @@ class CarInfoViewController: UIViewController, UITableViewDelegate {
     var carInfo = [String]()
     var id = ""
     
-    var MPGCity:Int = 0
-    var MPGHighway:Int = 0
+    var mpgCity:Int = 0
+    var mpgHighway:Int = 0
     var combinedMPG = 0
     
     @IBOutlet var carInfoTable: UITableView!
@@ -167,14 +167,14 @@ class CarInfoViewController: UIViewController, UITableViewDelegate {
             if let MPG = json["MPG"] as? NSDictionary {
                 self.carInfo.append("MPG:")
                 if let city = MPG["city"] as? String {
-                    self.MPGCity = Int(city)!
+                    self.mpgCity = Int(city)!
                     self.carInfo.append("\t City: \(city)")
                 }
                 if let highway = MPG["highway"] as? String {
-                    self.MPGHighway = Int(highway)!
+                    self.mpgHighway = Int(highway)!
                     self.carInfo.append("\t Highway: \(highway)")
                 }
-                self.combinedMPG = (self.MPGCity + self.MPGHighway) / 2
+                self.combinedMPG = (self.mpgCity + self.mpgHighway) / 2
                 self.carInfo.append("\t Combined: \(self.combinedMPG)")
             }
         } catch {
