@@ -299,10 +299,12 @@
                                     <outlet property="delegate" destination="yoQ-Qd-0kI" id="J9i-By-GOt"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XmL-21-l69">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XmL-21-l69">
                                 <rect key="frame" x="340" y="28" width="240" height="91"/>
                                 <animations/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="4aW-48-p5d"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="91" id="8cK-Ht-dnV"/>
                                     <constraint firstAttribute="height" constant="91" id="NNY-aA-xzH"/>
                                     <constraint firstAttribute="width" constant="240" id="ZYE-3h-1Sf"/>
                                 </constraints>
@@ -319,11 +321,24 @@
                                     <color key="titleColor" red="0.95841595989999995" green="0.99035949030000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tik-kc-9Qq">
+                                <rect key="frame" x="20" y="79" width="259" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="QJ8-SU-Lyd"/>
+                                    <constraint firstAttribute="width" constant="259" id="Wz3-TO-3nm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" red="0.95841595989999995" green="0.99035949030000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="7mQ-BR-6Bw" firstAttribute="top" secondItem="Tik-kc-9Qq" secondAttribute="bottom" constant="8" id="227-RN-cy2"/>
                             <constraint firstItem="vsE-zx-QGM" firstAttribute="top" secondItem="7mQ-BR-6Bw" secondAttribute="bottom" constant="20" id="4t5-id-ivz"/>
+                            <constraint firstItem="Tik-kc-9Qq" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="56l-iT-GbY"/>
                             <constraint firstItem="vsE-zx-QGM" firstAttribute="top" secondItem="ggr-LR-Mjo" secondAttribute="bottom" id="8JF-HX-dgg"/>
                             <constraint firstItem="O5D-W1-hg5" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="Cs3-es-kYL"/>
                             <constraint firstItem="XmL-21-l69" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" constant="8" id="E51-b9-YJH"/>
@@ -332,6 +347,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ggr-LR-Mjo" secondAttribute="trailing" constant="-20" id="UMk-EY-jT4"/>
                             <constraint firstItem="7mQ-BR-6Bw" firstAttribute="trailing" secondItem="cjJ-nh-uMq" secondAttribute="trailingMargin" id="ZCD-Gw-VQ9"/>
                             <constraint firstItem="XmL-21-l69" firstAttribute="trailing" secondItem="cjJ-nh-uMq" secondAttribute="trailingMargin" id="ZW0-ik-MRK"/>
+                            <constraint firstItem="XmL-21-l69" firstAttribute="trailing" secondItem="cjJ-nh-uMq" secondAttribute="trailingMargin" id="c8G-MU-DDS"/>
+                            <constraint firstItem="Tik-kc-9Qq" firstAttribute="top" secondItem="O5D-W1-hg5" secondAttribute="bottom" constant="20" id="e4j-i0-n59"/>
                             <constraint firstItem="7mQ-BR-6Bw" firstAttribute="top" secondItem="XmL-21-l69" secondAttribute="bottom" constant="8" id="fjv-g1-0IA"/>
                             <constraint firstItem="O5D-W1-hg5" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" constant="8" id="k5V-pZ-kiG"/>
                             <constraint firstItem="7mQ-BR-6Bw" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="ypt-Yt-4nz"/>
@@ -339,6 +356,7 @@
                     </view>
                     <connections>
                         <outlet property="carInfoTable" destination="7mQ-BR-6Bw" id="nfe-NA-VwZ"/>
+                        <outlet property="carLogo" destination="XmL-21-l69" id="dda-aM-Ib3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waJ-Np-wEa" userLabel="First Responder" sceneMemberID="firstResponder"/>

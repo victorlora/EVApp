@@ -11,16 +11,22 @@ import UIKit
 class CarInfoViewController: UIViewController, UITableViewDelegate {
     
     private let APIKey = "6m8ettta5byepu43rkhsc79j"
+    
     var carInfo = [String]()
+    var id = ""
+    
+    var MPGCity:Int = 0
+    var MPGHighway:Int = 0
+    var combinedMPG = 0
     
     @IBOutlet var carInfoTable: UITableView!
+    @IBOutlet var carLogo: UIImageView!
     
-    var id = ""
 
-//    private let API = "https://api.edmunds.com/api/vehicle/v2/styles/200477947/engines?fmt=json&api_key={api key}"
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        getCarLogo()
         getStyleId()
         getCarInfo()
         resetUserDefaults()
@@ -57,18 +63,22 @@ class CarInfoViewController: UIViewController, UITableViewDelegate {
         return cell
     }
     
-    
+    func getCarLogo() {
+        let maker = userMake.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let car = UIImage(named: "\(maker.lowercaseString).png")
+        carLogo.image = car
+    }
 
-    /* getCarInfo()
+    /* getCarStyleId()
     * @description
-    *      Makes API call and parses JSON to compile a list
-    *       of car information based on user's car selection
+    *      Makes API call and parses JSON to get a car's
+    *      style ID based on user's car selection
     */
     
     func getStyleId() {
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))/models?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
+        let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))/models?fmt=json&api_key=\(APIKey)"
         let url = NSURL(string: edmundsAPI)!
         
         // Get JSON data
@@ -111,40 +121,66 @@ class CarInfoViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    func getCarInfo() {
+    /* getCarInfo()
+    * @description
+    *      Makes API call and parses JSON to get a car's
+    *      information based on the user's selection
+    */
     
+    func getCarInfo() {
+        
+        
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
+        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(self.id)?view=full&fmt=json&api_key=\(APIKey)")!
         
-        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/17826?view=full&fmt=json&api_key=6m8ettta5byepu43rkhsc79j")!
+        // Get JSON data
+        let data = NSData(contentsOfURL: url)!
         
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
-            
-            if let urlContent = data {
-                do {
-                    // TO DO: Parse JSON
-                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
-                    if let engine = jsonResult["engine"] as? [[String: AnyObject]] {
-                        print("we made it")
-                        print(String(engine))
-                    } else {
-                        print("error")
-                    }
-
-                    
-                } catch {
-                    
-                    print("JSON serialization failed")
-                    
+        // Read the JSON
+        do {
+            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+            // Parse JSON
+            if let engineSpecs = json["engine"] as? NSDictionary {
+                self.carInfo.append("Engine Specs:")
+                if let cylinders = engineSpecs["cylinder"] as? Int {
+                    self.carInfo.append("\t Cylinders: \(cylinders)")
                 }
-                
-                
+                if let bhp = engineSpecs["horsepower"] as? Int {
+                    self.carInfo.append("\t Horsepower: \(bhp)")
+                }
+                if let torq = engineSpecs["torque"] as? Int {
+                    self.carInfo.append("\t Torque: \(torq)")
+                }
+                if let engType = engineSpecs["type"] as? String {
+                    self.carInfo.append("\t Engine Type: \(engType)")
+                }
             }
-            
-            
+            if let tranSpecs = json["transmission"] as? NSDictionary {
+                self.carInfo.append("Transmission Specs:")
+                if let transType = tranSpecs["transmissionType"] as? String {
+                    self.carInfo.append("\t Transmission Type: \(transType)")
+                }
+                if let numSpeeds = tranSpecs["numberOfSpeeds"] as? String {
+                    self.carInfo.append("\t Number of Speeds: \(numSpeeds)")
+                }
+            }
+            if let MPG = json["MPG"] as? NSDictionary {
+                self.carInfo.append("MPG:")
+                if let city = MPG["city"] as? String {
+                    self.MPGCity = Int(city)!
+                    self.carInfo.append("\t City: \(city)")
+                }
+                if let highway = MPG["highway"] as? String {
+                    self.MPGHighway = Int(highway)!
+                    self.carInfo.append("\t Highway: \(highway)")
+                }
+                self.combinedMPG = (self.MPGCity + self.MPGHighway) / 2
+                self.carInfo.append("\t Combined: \(self.combinedMPG)")
+            }
+        } catch {
+            //errorHandler.text="Error finding makes"
         }
 
-        task.resume()
-        
         carInfoTable.reloadData()
     }
     
