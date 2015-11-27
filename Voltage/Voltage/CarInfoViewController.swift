@@ -79,7 +79,10 @@ class CarInfoViewController: UIViewController {
             //errorHandler.text="Error finding id"
         }
     }
-
+    
+    func getCarInfo() {
+        
+    }
     
 
 //    func resetUserDefaults() {

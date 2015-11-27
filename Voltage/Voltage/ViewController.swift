@@ -88,7 +88,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carViewer.dataSource = self
         configureView()         // Configure tableview
         
-        // Check for user saved car data
+        // Check for user saved car data and perform segue if all data exists
         if (NSUserDefaults.standardUserDefaults().objectForKey("make") != nil) {
             userMake = NSUserDefaults.standardUserDefaults().objectForKey("make") as! String
             if (NSUserDefaults.standardUserDefaults().objectForKey("model") != nil) {
@@ -97,12 +97,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     userYear = NSUserDefaults.standardUserDefaults().objectForKey("year") as! String
                     if (NSUserDefaults.standardUserDefaults().objectForKey("style") != nil) {
                         userStyle = NSUserDefaults.standardUserDefaults().objectForKey("style") as! String
-                        getCarInfo()
+                        dispatch_async(dispatch_get_main_queue()) {
+                            [unowned self] in
+                            self.performSegueWithIdentifier("CarInfoPage", sender: self)
+                        }
+                    } else {
+                        switchToStyle()
                     }
+                } else {
+                    switchToYear()
                 }
+            } else {
+                switchToModel()
             }
         } else {
-            carTaskLabel.text = "Select Car Make"
             switchToMake()
             
         }

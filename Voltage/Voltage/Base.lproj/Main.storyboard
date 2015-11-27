@@ -145,7 +145,7 @@
                                     <color key="titleColor" red="0.95841595989999995" green="0.99035949030000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yoQ-Qd-0kI" kind="show" id="6Ln-D2-dZ6"/>
+                                    <segue destination="yoQ-Qd-0kI" kind="show" identifier="CarInfoPage" id="6Ln-D2-dZ6"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tire" translatesAutoresizingMaskIntoConstraints="NO" id="Yd4-lV-BhK">
@@ -253,7 +253,7 @@
         <!--Car Info View Controller-->
         <scene sceneID="J04-i3-eVF">
             <objects>
-                <viewController id="yoQ-Qd-0kI" customClass="CarInfoViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="page2" id="yoQ-Qd-0kI" customClass="CarInfoViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UtN-Ht-krj"/>
                         <viewControllerLayoutGuide type="bottom" id="vsE-zx-QGM"/>
