@@ -305,8 +305,8 @@
                                 <rect key="frame" x="340" y="28" width="240" height="91"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="4aW-48-p5d"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="91" id="8cK-Ht-dnV"/>
+                                    <constraint firstAttribute="width" constant="240" id="4aW-48-p5d"/>
+                                    <constraint firstAttribute="height" constant="91" id="8cK-Ht-dnV"/>
                                     <constraint firstAttribute="height" constant="91" id="NNY-aA-xzH"/>
                                     <constraint firstAttribute="width" constant="240" id="ZYE-3h-1Sf"/>
                                 </constraints>
@@ -366,12 +366,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waJ-Np-wEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1168" y="314"/>
+            <point key="canvasLocation" x="334" y="1078"/>
         </scene>
         <!--Main Menu-->
         <scene sceneID="hrc-EL-TBo">
             <objects>
-                <viewController title="Main Menu" id="q9s-aJ-BVj" sceneMemberID="viewController">
+                <viewController title="Main Menu" id="q9s-aJ-BVj" customClass="MainMenuViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="riC-Pe-yjr"/>
                         <viewControllerLayoutGuide type="bottom" id="fP1-Eg-jKA"/>
@@ -408,7 +408,7 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="69" id="iwT-yB-eRP"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="mRB-wK-voZ"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Info">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -466,7 +466,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="2Gx-Pg-Zpq"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="c3b-Hu-ChD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3X-10-HS0">
@@ -511,7 +511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NY9-GT-gA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834" y="314"/>
+            <point key="canvasLocation" x="1118" y="664"/>
         </scene>
     </scenes>
     <resources>
@@ -521,6 +521,6 @@
         <image name="tire" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ghK-oS-mbO"/>
+        <segue reference="o1D-C5-ixS"/>
     </inferredMetricsTieBreakers>
 </document>

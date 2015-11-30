@@ -29,7 +29,6 @@ class CarInfoViewController: UIViewController, UITableViewDelegate {
         getCarLogo()
         getStyleId()
         getCarInfo()
-        resetUserDefaults()
     }
 
     override func didReceiveMemoryWarning() {
@@ -183,12 +182,4 @@ class CarInfoViewController: UIViewController, UITableViewDelegate {
 
         carInfoTable.reloadData()
     }
-    
-
-    func resetUserDefaults() {
-        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "make")
-        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "model")
-        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "year")
-    }
-
 }

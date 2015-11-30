@@ -15,6 +15,7 @@
 		5208A7B81BE7F81600CB4437 /* VoltageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208A7B71BE7F81600CB4437 /* VoltageTests.swift */; };
 		5208A7C31BE7F81600CB4437 /* VoltageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208A7C21BE7F81600CB4437 /* VoltageUITests.swift */; };
 		5263A5571BEAA9DF00A02452 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */; };
+		7E47FF601C0BDFB600DFC1C8 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E47FF5F1C0BDFB600DFC1C8 /* MainMenuViewController.swift */; };
 		7E6315001C07B96900D8EE88 /* CarInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6314FF1C07B96900D8EE88 /* CarInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		5208A7C21BE7F81600CB4437 /* VoltageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltageUITests.swift; sourceTree = "<group>"; };
 		5208A7C41BE7F81600CB4437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
+		7E47FF5F1C0BDFB600DFC1C8 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		7E6314FF1C07B96900D8EE88 /* CarInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				5208A7A21BE7F81500CB4437 /* AppDelegate.swift */,
 				5208A7A41BE7F81500CB4437 /* ViewController.swift */,
 				5208A7A61BE7F81500CB4437 /* Main.storyboard */,
+				7E47FF5F1C0BDFB600DFC1C8 /* MainMenuViewController.swift */,
 				7E6314FF1C07B96900D8EE88 /* CarInfoViewController.swift */,
 				5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */,
 				5208A7A91BE7F81500CB4437 /* Assets.xcassets */,
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5208A7A51BE7F81500CB4437 /* ViewController.swift in Sources */,
+				7E47FF601C0BDFB600DFC1C8 /* MainMenuViewController.swift in Sources */,
 				5263A5571BEAA9DF00A02452 /* NetworkOperation.swift in Sources */,
 				5208A7A31BE7F81500CB4437 /* AppDelegate.swift in Sources */,
 				7E6315001C07B96900D8EE88 /* CarInfoViewController.swift in Sources */,
