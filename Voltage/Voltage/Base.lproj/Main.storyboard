@@ -311,6 +311,14 @@
                                 <color key="textColor" red="0.95841595989999995" green="0.99035949030000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Br-Rv-QYx">
+                                <rect key="frame" x="20" y="28" width="41" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -320,7 +328,6 @@
                             <constraint firstItem="Tik-kc-9Qq" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="56l-iT-GbY"/>
                             <constraint firstItem="vsE-zx-QGM" firstAttribute="top" secondItem="ggr-LR-Mjo" secondAttribute="bottom" id="8JF-HX-dgg"/>
                             <constraint firstItem="XmL-21-l69" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" constant="8" id="E51-b9-YJH"/>
-                            <constraint firstItem="Tik-kc-9Qq" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" constant="59" id="GhD-PE-V5B"/>
                             <constraint firstItem="ggr-LR-Mjo" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" constant="-20" id="Ir3-xP-0T4"/>
                             <constraint firstItem="ggr-LR-Mjo" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" id="N9n-KJ-BmY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ggr-LR-Mjo" secondAttribute="trailing" constant="-20" id="UMk-EY-jT4"/>
