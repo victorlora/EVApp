@@ -26,7 +26,7 @@ Some services do exist, but do not provide as much detail this app would provide
 
 *Miles Per Gallon Equivalent (MPGe)* - is a measure of the average amount of miles traveled by an electric powered vehicle that would be equivalent to a regular ICE car.
 
-h3. Background
+### Background
 
 Most automobile manufacturers have produced an electric vehicle or have plans for one to be built in the near future. While most vehicles sold today are gasoline powered vehicles, the transition to electric vehicles is slowly taking an effect. Electric vehicles also offer higher MPGe rates than current fuel efficient ICE vehicles.
 
