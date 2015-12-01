@@ -311,9 +311,13 @@
                                 <color key="textColor" red="0.95841595989999995" green="0.99035949030000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Br-Rv-QYx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Br-Rv-QYx">
                                 <rect key="frame" x="20" y="28" width="41" height="30"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="2rU-hA-XCd"/>
+                                    <constraint firstAttribute="height" constant="30" id="Hnm-fS-SW7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -327,12 +331,15 @@
                             <constraint firstItem="vsE-zx-QGM" firstAttribute="top" secondItem="7mQ-BR-6Bw" secondAttribute="bottom" constant="20" id="4t5-id-ivz"/>
                             <constraint firstItem="Tik-kc-9Qq" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="56l-iT-GbY"/>
                             <constraint firstItem="vsE-zx-QGM" firstAttribute="top" secondItem="ggr-LR-Mjo" secondAttribute="bottom" id="8JF-HX-dgg"/>
+                            <constraint firstItem="Tik-kc-9Qq" firstAttribute="top" secondItem="5Br-Rv-QYx" secondAttribute="bottom" constant="21" id="DRO-A2-wlg"/>
                             <constraint firstItem="XmL-21-l69" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" constant="8" id="E51-b9-YJH"/>
                             <constraint firstItem="ggr-LR-Mjo" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" constant="-20" id="Ir3-xP-0T4"/>
+                            <constraint firstItem="5Br-Rv-QYx" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" constant="8" id="Jet-q8-dBO"/>
                             <constraint firstItem="ggr-LR-Mjo" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" id="N9n-KJ-BmY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ggr-LR-Mjo" secondAttribute="trailing" constant="-20" id="UMk-EY-jT4"/>
                             <constraint firstItem="7mQ-BR-6Bw" firstAttribute="trailing" secondItem="cjJ-nh-uMq" secondAttribute="trailingMargin" id="ZCD-Gw-VQ9"/>
                             <constraint firstItem="XmL-21-l69" firstAttribute="trailing" secondItem="cjJ-nh-uMq" secondAttribute="trailingMargin" id="ZW0-ik-MRK"/>
+                            <constraint firstItem="5Br-Rv-QYx" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="bXa-lV-Qjh"/>
                             <constraint firstItem="XmL-21-l69" firstAttribute="trailing" secondItem="cjJ-nh-uMq" secondAttribute="trailingMargin" id="c8G-MU-DDS"/>
                             <constraint firstItem="7mQ-BR-6Bw" firstAttribute="top" secondItem="XmL-21-l69" secondAttribute="bottom" constant="8" id="fjv-g1-0IA"/>
                             <constraint firstItem="7mQ-BR-6Bw" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="ypt-Yt-4nz"/>
