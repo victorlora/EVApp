@@ -183,6 +183,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     /* switchToYear()
      * @description
      *      Sets the parameters for the "Select Year" view
+     *
      */
     
     func switchToYear() {
