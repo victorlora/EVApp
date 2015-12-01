@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Voltage
 
 class VoltageUITests: XCTestCase {
         
