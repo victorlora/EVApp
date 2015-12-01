@@ -50,6 +50,27 @@ While most electric vehicles have an onboard computer that tells the driver info
 
 It is assumed that most users of electric vehicles will have already purchased a mobile device and have access to download the app from their mobile device store. Users may also need to allow for space to allow for the app to store specific data pertaining to their profile. 
 
+### Competitive Analysis
+
+Four Competitors:
+1. Mobile app: GreenCharge
+2. Mobile app: PlugShare
+3. Mobile app: IPP Solar
+4. Mobile app: Azra Network
+
+Competitors features:
+1. Set up Charge notifications and setup reminders (1)(4)
+2. Calculate energy costs (1)
+3. Follow a charging sessions progress (4)(3)
+4. Geolocalize available charging stations (4)(3)(1)
+5. Customiza app with model, colour, and year of vehicle (4)
+6. Search and find solar powered charging stations near vehicle (3)
+7. Store credit card information (3)(2)
+8. Pay for charging (3)
+9. Review charging stations (2)
+10. View charging station ratings (2)
+11. Add new charging stations as they are discovered (2)
+12. Filter for charges that support the user's electric vehicle (2)
 
 ## Requirements
 
