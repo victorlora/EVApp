@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15A282a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -300,21 +300,6 @@
                                     <constraint firstAttribute="width" constant="240" id="ZYE-3h-1Sf"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5D-W1-hg5">
-                                <rect key="frame" x="20" y="28" width="58" height="31"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="M1n-LH-OzE"/>
-                                    <constraint firstAttribute="width" constant="58" id="jXC-tl-hEW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.95841595989999995" green="0.99035949030000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="q9s-aJ-BVj" kind="show" id="o1D-C5-ixS"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tik-kc-9Qq">
                                 <rect key="frame" x="20" y="79" width="259" height="40"/>
                                 <animations/>
@@ -334,17 +319,15 @@
                             <constraint firstItem="vsE-zx-QGM" firstAttribute="top" secondItem="7mQ-BR-6Bw" secondAttribute="bottom" constant="20" id="4t5-id-ivz"/>
                             <constraint firstItem="Tik-kc-9Qq" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="56l-iT-GbY"/>
                             <constraint firstItem="vsE-zx-QGM" firstAttribute="top" secondItem="ggr-LR-Mjo" secondAttribute="bottom" id="8JF-HX-dgg"/>
-                            <constraint firstItem="O5D-W1-hg5" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="Cs3-es-kYL"/>
                             <constraint firstItem="XmL-21-l69" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" constant="8" id="E51-b9-YJH"/>
+                            <constraint firstItem="Tik-kc-9Qq" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" constant="59" id="GhD-PE-V5B"/>
                             <constraint firstItem="ggr-LR-Mjo" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" constant="-20" id="Ir3-xP-0T4"/>
                             <constraint firstItem="ggr-LR-Mjo" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" id="N9n-KJ-BmY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ggr-LR-Mjo" secondAttribute="trailing" constant="-20" id="UMk-EY-jT4"/>
                             <constraint firstItem="7mQ-BR-6Bw" firstAttribute="trailing" secondItem="cjJ-nh-uMq" secondAttribute="trailingMargin" id="ZCD-Gw-VQ9"/>
                             <constraint firstItem="XmL-21-l69" firstAttribute="trailing" secondItem="cjJ-nh-uMq" secondAttribute="trailingMargin" id="ZW0-ik-MRK"/>
                             <constraint firstItem="XmL-21-l69" firstAttribute="trailing" secondItem="cjJ-nh-uMq" secondAttribute="trailingMargin" id="c8G-MU-DDS"/>
-                            <constraint firstItem="Tik-kc-9Qq" firstAttribute="top" secondItem="O5D-W1-hg5" secondAttribute="bottom" constant="20" id="e4j-i0-n59"/>
                             <constraint firstItem="7mQ-BR-6Bw" firstAttribute="top" secondItem="XmL-21-l69" secondAttribute="bottom" constant="8" id="fjv-g1-0IA"/>
-                            <constraint firstItem="O5D-W1-hg5" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" constant="8" id="k5V-pZ-kiG"/>
                             <constraint firstItem="7mQ-BR-6Bw" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="ypt-Yt-4nz"/>
                         </constraints>
                     </view>
@@ -373,22 +356,20 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w67-5g-tpC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w67-5g-tpC">
                                 <rect key="frame" x="266" y="147" width="69" height="69"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="69" id="dUp-SG-dEH"/>
                                     <constraint firstAttribute="width" constant="69" id="jfR-8b-SZ5"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="Maps.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEi-aN-qtl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEi-aN-qtl">
                                 <rect key="frame" x="266" y="301" width="69" height="69"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="69" id="14X-0u-Qb2"/>
                                     <constraint firstAttribute="height" constant="69" id="1se-uM-eI7"/>
@@ -397,50 +378,47 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="69" id="iwT-yB-eRP"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="mRB-wK-voZ"/>
                                 </constraints>
-                                <state key="normal" title="Info">
+                                <state key="normal" image="Info.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="yoQ-Qd-0kI" kind="show" id="Vpb-e8-9Wi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHE-nW-SDd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHE-nW-SDd">
                                 <rect key="frame" x="122" y="302" width="69" height="69"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="OGC-l2-CO1"/>
                                     <constraint firstAttribute="width" constant="69" id="v5r-gC-MWO"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="69" id="xdx-wg-2RN"/>
                                     <constraint firstAttribute="height" constant="69" id="yeC-Zt-kfM"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="Mechanic.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMz-jB-TBW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMz-jB-TBW">
                                 <rect key="frame" x="417" y="147" width="69" height="69"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="3zL-FC-PlB"/>
                                     <constraint firstAttribute="width" constant="69" id="60w-24-4Zr"/>
                                     <constraint firstAttribute="height" constant="69" id="J5z-lH-FGO"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="69" id="NUC-kK-4n1"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="GasStation.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHp-EE-ZB4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHp-EE-ZB4">
                                 <rect key="frame" x="417" y="301" width="69" height="69"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="69" id="V9r-zU-iwT"/>
                                     <constraint firstAttribute="width" constant="69" id="x09-5b-Vxe"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="Accessories.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -458,17 +436,16 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="c3b-Hu-ChD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3X-10-HS0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3X-10-HS0">
                                 <rect key="frame" x="122" y="147" width="69" height="69"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="69" id="Lry-6A-YzJ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="69" id="Tbm-UD-Q7E"/>
                                     <constraint firstAttribute="height" constant="69" id="Zfg-aQ-B0Z"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="imj-DD-JFa"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="CharginStation.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -504,12 +481,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Accessories.png" width="94" height="94"/>
+        <image name="CharginStation.png" width="94" height="94"/>
         <image name="EV-3X" width="133" height="164"/>
+        <image name="GasStation.png" width="94" height="94"/>
+        <image name="Info.png" width="94" height="94"/>
+        <image name="Maps.png" width="94" height="94"/>
+        <image name="Mechanic.png" width="94" height="94"/>
         <image name="background" width="170" height="170"/>
         <image name="gas-3X" width="750" height="1571"/>
         <image name="tire" width="400" height="400"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ghK-oS-mbO"/>
-    </inferredMetricsTieBreakers>
 </document>
