@@ -29,6 +29,24 @@ class VoltageUITests: XCTestCase {
         super.tearDown()
     }
     
+    func testChooseMake(){
+
+        
+    }
+    
+    func testChooseModel(){
+        
+        
+        
+    }
+    
+    func testChooseYear(){
+        
+        
+        
+    }
+    
+    
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
