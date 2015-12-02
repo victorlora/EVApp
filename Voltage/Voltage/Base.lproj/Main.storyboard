@@ -469,41 +469,35 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSc-uH-g27">
-                                <rect key="frame" x="100" y="475" width="400" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSc-uH-g27">
+                                <rect key="frame" x="100" y="493" width="400" height="80"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="04f-GJ-Ifu"/>
+                                    <constraint firstAttribute="height" constant="80" id="04f-GJ-Ifu"/>
                                     <constraint firstAttribute="width" constant="400" id="fiX-Ra-boo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.94806034480000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uHE-nW-SDd" firstAttribute="leading" relation="lessThanOrEqual" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="80" id="22p-gg-QJb"/>
                             <constraint firstItem="iHV-E5-Mbu" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" id="4wa-c7-FEH"/>
                             <constraint firstItem="sHp-EE-ZB4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qEi-aN-qtl" secondAttribute="trailing" constant="10" id="5pT-Zl-1Bc"/>
+                            <constraint firstItem="GSc-uH-g27" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="40" id="8Ay-9D-4CW"/>
                             <constraint firstItem="w67-5g-tpC" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="127" id="DKv-6K-BUH"/>
-                            <constraint firstItem="sHp-EE-ZB4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="qEi-aN-qtl" secondAttribute="trailing" constant="50" id="JH8-8X-v8O"/>
-                            <constraint firstItem="qEi-aN-qtl" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" constant="1" id="K49-oo-MiL"/>
                             <constraint firstItem="zMz-jB-TBW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="w67-5g-tpC" secondAttribute="trailing" constant="10" id="KGv-TX-27O"/>
                             <constraint firstItem="w67-5g-tpC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="u3X-10-HS0" secondAttribute="trailing" constant="10" id="NQf-r3-3KP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iHV-E5-Mbu" secondAttribute="trailing" constant="-20" id="OT0-sD-0GY"/>
-                            <constraint firstItem="w67-5g-tpC" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" constant="1" id="OjN-RW-GKb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sHp-EE-ZB4" secondAttribute="trailing" constant="40" id="OsO-Bk-pe5"/>
                             <constraint firstItem="Ikb-hw-xOc" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="8" symbolic="YES" id="Pjw-WY-0Ep"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="GSc-uH-g27" secondAttribute="trailing" constant="40" id="QFN-9r-es1"/>
                             <constraint firstItem="fP1-Eg-jKA" firstAttribute="top" secondItem="iHV-E5-Mbu" secondAttribute="bottom" id="Sob-pd-oHb"/>
-                            <constraint firstItem="w67-5g-tpC" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" id="TzE-F0-oIc"/>
                             <constraint firstItem="u3X-10-HS0" firstAttribute="leading" relation="lessThanOrEqual" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="80" id="WHI-Ez-uMl"/>
                             <constraint firstItem="u3X-10-HS0" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="127" id="X3n-Qf-gJP"/>
-                            <constraint firstItem="GSc-uH-g27" firstAttribute="top" secondItem="uHE-nW-SDd" secondAttribute="bottom" constant="62" id="Xez-7o-FaA"/>
-                            <constraint firstItem="qEi-aN-qtl" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" id="YVm-BE-L3k"/>
+                            <constraint firstItem="GSc-uH-g27" firstAttribute="top" secondItem="uHE-nW-SDd" secondAttribute="bottom" constant="80" id="Xez-7o-FaA"/>
                             <constraint firstItem="uHE-nW-SDd" firstAttribute="top" secondItem="u3X-10-HS0" secondAttribute="bottom" constant="66" id="ZV8-L7-MJN"/>
-                            <constraint firstItem="qEi-aN-qtl" firstAttribute="leading" relation="lessThanOrEqual" secondItem="uHE-nW-SDd" secondAttribute="trailing" constant="50" id="ZZd-jM-Rkh"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="zMz-jB-TBW" secondAttribute="trailing" constant="80" id="aT9-NO-gLT"/>
                             <constraint firstItem="iHV-E5-Mbu" firstAttribute="leading" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="-20" id="bbM-gx-NIS"/>
                             <constraint firstItem="Ikb-hw-xOc" firstAttribute="trailing" secondItem="zoU-XM-V2w" secondAttribute="trailingMargin" id="cJq-4b-JlD"/>
@@ -521,18 +515,6 @@
                             <constraint firstItem="zMz-jB-TBW" firstAttribute="leading" relation="lessThanOrEqual" secondItem="w67-5g-tpC" secondAttribute="trailing" constant="50" id="yW4-8h-QJP"/>
                             <constraint firstItem="qEi-aN-qtl" firstAttribute="leading" relation="lessThanOrEqual" secondItem="uHE-nW-SDd" secondAttribute="trailing" constant="50" id="z7U-ku-gfm"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="OjN-RW-GKb"/>
-                                <exclude reference="TzE-F0-oIc"/>
-                                <exclude reference="22p-gg-QJb"/>
-                                <exclude reference="K49-oo-MiL"/>
-                                <exclude reference="YVm-BE-L3k"/>
-                                <exclude reference="ZZd-jM-Rkh"/>
-                                <exclude reference="JH8-8X-v8O"/>
-                                <exclude reference="OsO-Bk-pe5"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="funFactLabel" destination="GSc-uH-g27" id="xTb-NK-gfV"/>
@@ -844,14 +826,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Accessories" width="260" height="260"/>
-        <image name="CharginStation" width="260" height="260"/>
+        <image name="Accessories" width="86" height="86"/>
+        <image name="CharginStation" width="86" height="86"/>
         <image name="EV-3X" width="101" height="142"/>
-        <image name="GasStation" width="260" height="260"/>
-        <image name="Info" width="260" height="260"/>
-        <image name="Maps" width="260" height="260"/>
-        <image name="Mechanic" width="260" height="260"/>
-        <image name="Settings" width="180" height="180"/>
+        <image name="GasStation" width="86" height="86"/>
+        <image name="Info" width="86" height="86"/>
+        <image name="Maps" width="86" height="86"/>
+        <image name="Mechanic" width="86" height="86"/>
+        <image name="Settings" width="60" height="60"/>
         <image name="background" width="170" height="170"/>
         <image name="gas-3X" width="750" height="1571"/>
         <image name="tire" width="400" height="400"/>
