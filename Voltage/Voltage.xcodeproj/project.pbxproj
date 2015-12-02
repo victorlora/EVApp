@@ -23,6 +23,7 @@
 		7E6522AF1C0E634D008832C1 /* GasStation.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6522AB1C0E634D008832C1 /* GasStation.png */; };
 		7E6522B01C0E634D008832C1 /* Info.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6522AC1C0E634D008832C1 /* Info.png */; };
 		7E6522B11C0E634D008832C1 /* Maps.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6522AD1C0E634D008832C1 /* Maps.png */; };
+		7E6522B31C0E6671008832C1 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6522B21C0E6671008832C1 /* Settings.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		7E6522AB1C0E634D008832C1 /* GasStation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GasStation.png; sourceTree = "<group>"; };
 		7E6522AC1C0E634D008832C1 /* Info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Info.png; sourceTree = "<group>"; };
 		7E6522AD1C0E634D008832C1 /* Maps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Maps.png; sourceTree = "<group>"; };
+		7E6522B21C0E6671008832C1 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				7E6522AB1C0E634D008832C1 /* GasStation.png */,
 				7E6522AC1C0E634D008832C1 /* Info.png */,
 				7E6522AD1C0E634D008832C1 /* Maps.png */,
+				7E6522B21C0E6671008832C1 /* Settings.png */,
 			);
 			path = Voltage;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6522B31C0E6671008832C1 /* Settings.png in Resources */,
 				7E6522B11C0E634D008832C1 /* Maps.png in Resources */,
 				5208A7AD1BE7F81500CB4437 /* LaunchScreen.storyboard in Resources */,
 				5208A7AA1BE7F81500CB4437 /* Assets.xcassets in Resources */,

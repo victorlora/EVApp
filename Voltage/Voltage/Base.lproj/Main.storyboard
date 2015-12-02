@@ -80,7 +80,7 @@
                                     <outlet property="delegate" destination="8bC-Xf-vdC" id="FlR-X2-tDR"/>
                                 </connections>
                             </tableView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlb-Y9-QqP">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlb-Y9-QqP">
                                 <rect key="frame" x="20" y="475" width="99" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.47058823529999999" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -374,26 +374,22 @@
                                 <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w67-5g-tpC">
-                                <rect key="frame" x="266" y="147" width="69" height="69"/>
+                                <rect key="frame" x="250" y="147" width="100" height="100"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="69" id="dUp-SG-dEH"/>
-                                    <constraint firstAttribute="width" constant="69" id="jfR-8b-SZ5"/>
+                                    <constraint firstAttribute="height" constant="100" id="WnL-6E-Vy6"/>
+                                    <constraint firstAttribute="width" constant="100" id="vyH-ve-gYU"/>
                                 </constraints>
                                 <state key="normal" image="Maps.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEi-aN-qtl">
-                                <rect key="frame" x="266" y="301" width="69" height="69"/>
+                                <rect key="frame" x="250" y="307" width="100" height="100"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="69" id="14X-0u-Qb2"/>
-                                    <constraint firstAttribute="height" constant="69" id="1se-uM-eI7"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="69" id="YBE-V3-8aa"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="69" id="hgo-R8-YOn"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="69" id="iwT-yB-eRP"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="mRB-wK-voZ"/>
+                                    <constraint firstAttribute="width" constant="100" id="Jdn-VR-b8e"/>
+                                    <constraint firstAttribute="height" constant="100" id="bZb-nG-TJH"/>
                                 </constraints>
                                 <state key="normal" image="Info.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -403,50 +399,51 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHE-nW-SDd">
-                                <rect key="frame" x="122" y="302" width="69" height="69"/>
+                                <rect key="frame" x="100" y="313" width="100" height="100"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="OGC-l2-CO1"/>
-                                    <constraint firstAttribute="width" constant="69" id="v5r-gC-MWO"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="69" id="xdx-wg-2RN"/>
-                                    <constraint firstAttribute="height" constant="69" id="yeC-Zt-kfM"/>
+                                    <constraint firstAttribute="height" constant="100" id="7I1-9q-XJJ"/>
+                                    <constraint firstAttribute="width" constant="100" id="xDI-dA-I7K"/>
                                 </constraints>
                                 <state key="normal" image="Mechanic.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="xDI-dA-I7K"/>
+                                    </mask>
+                                </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMz-jB-TBW">
-                                <rect key="frame" x="417" y="147" width="69" height="69"/>
+                                <rect key="frame" x="400" y="147" width="100" height="100"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="3zL-FC-PlB"/>
-                                    <constraint firstAttribute="width" constant="69" id="60w-24-4Zr"/>
-                                    <constraint firstAttribute="height" constant="69" id="J5z-lH-FGO"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="69" id="NUC-kK-4n1"/>
+                                    <constraint firstAttribute="height" constant="100" id="9vw-Wn-gMn"/>
+                                    <constraint firstAttribute="width" constant="100" id="Jex-6R-hn5"/>
                                 </constraints>
                                 <state key="normal" image="GasStation.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHp-EE-ZB4">
-                                <rect key="frame" x="417" y="301" width="69" height="69"/>
+                                <rect key="frame" x="400" y="307" width="100" height="100"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="69" id="V9r-zU-iwT"/>
-                                    <constraint firstAttribute="width" constant="69" id="x09-5b-Vxe"/>
+                                    <constraint firstAttribute="height" constant="100" id="5DL-dg-HiW"/>
+                                    <constraint firstAttribute="width" constant="100" id="yjK-HZ-xWd"/>
                                 </constraints>
                                 <state key="normal" image="Accessories.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-hw-xOc">
-                                <rect key="frame" x="511" y="28" width="69" height="58"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-hw-xOc">
+                                <rect key="frame" x="530" y="28" width="50" height="47"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="69" id="PSI-NB-GZ2"/>
-                                    <constraint firstAttribute="height" constant="58" id="inJ-wc-926"/>
+                                    <constraint firstAttribute="height" constant="47" id="GhR-VK-LUy"/>
+                                    <constraint firstAttribute="width" constant="50" id="U8b-gd-6Yq"/>
                                 </constraints>
-                                <state key="normal" title="Settings">
+                                <state key="normal" image="Settings.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -454,13 +451,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3X-10-HS0">
-                                <rect key="frame" x="122" y="147" width="69" height="69"/>
+                                <rect key="frame" x="100" y="147" width="100" height="100"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="69" id="Lry-6A-YzJ"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="69" id="Tbm-UD-Q7E"/>
-                                    <constraint firstAttribute="height" constant="69" id="Zfg-aQ-B0Z"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="imj-DD-JFa"/>
+                                    <constraint firstAttribute="height" constant="100" id="7HK-aW-PHL"/>
+                                    <constraint firstAttribute="width" constant="100" id="P34-vR-UFq"/>
                                 </constraints>
                                 <state key="normal" image="CharginStation.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -470,26 +465,53 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qEi-aN-qtl" firstAttribute="top" secondItem="w67-5g-tpC" secondAttribute="bottom" constant="85" id="2X0-sy-kd0"/>
+                            <constraint firstItem="uHE-nW-SDd" firstAttribute="leading" relation="lessThanOrEqual" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="80" id="22p-gg-QJb"/>
                             <constraint firstItem="iHV-E5-Mbu" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" id="4wa-c7-FEH"/>
+                            <constraint firstItem="sHp-EE-ZB4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qEi-aN-qtl" secondAttribute="trailing" constant="10" id="5pT-Zl-1Bc"/>
                             <constraint firstItem="w67-5g-tpC" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="127" id="DKv-6K-BUH"/>
-                            <constraint firstItem="zMz-jB-TBW" firstAttribute="leading" secondItem="w67-5g-tpC" secondAttribute="trailing" constant="82" id="GkR-Nc-ie5"/>
-                            <constraint firstItem="sHp-EE-ZB4" firstAttribute="leading" secondItem="qEi-aN-qtl" secondAttribute="trailing" constant="82" id="HP8-Jr-Pcx"/>
-                            <constraint firstItem="qEi-aN-qtl" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" id="K49-oo-MiL"/>
+                            <constraint firstItem="sHp-EE-ZB4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="qEi-aN-qtl" secondAttribute="trailing" constant="50" id="JH8-8X-v8O"/>
+                            <constraint firstItem="qEi-aN-qtl" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" constant="1" id="K49-oo-MiL"/>
+                            <constraint firstItem="zMz-jB-TBW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="w67-5g-tpC" secondAttribute="trailing" constant="10" id="KGv-TX-27O"/>
+                            <constraint firstItem="w67-5g-tpC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="u3X-10-HS0" secondAttribute="trailing" constant="10" id="NQf-r3-3KP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iHV-E5-Mbu" secondAttribute="trailing" constant="-20" id="OT0-sD-0GY"/>
-                            <constraint firstItem="w67-5g-tpC" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" id="OjN-RW-GKb"/>
+                            <constraint firstItem="w67-5g-tpC" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" constant="1" id="OjN-RW-GKb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sHp-EE-ZB4" secondAttribute="trailing" constant="40" id="OsO-Bk-pe5"/>
+                            <constraint firstItem="Ikb-hw-xOc" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="8" symbolic="YES" id="Pjw-WY-0Ep"/>
                             <constraint firstItem="fP1-Eg-jKA" firstAttribute="top" secondItem="iHV-E5-Mbu" secondAttribute="bottom" id="Sob-pd-oHb"/>
-                            <constraint firstItem="qEi-aN-qtl" firstAttribute="leading" secondItem="uHE-nW-SDd" secondAttribute="trailing" constant="75" id="T50-v2-Rbt"/>
-                            <constraint firstItem="Ikb-hw-xOc" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="8" id="U7C-tq-nds"/>
-                            <constraint firstItem="sHp-EE-ZB4" firstAttribute="top" secondItem="zMz-jB-TBW" secondAttribute="bottom" constant="85" id="UfZ-Bo-pW1"/>
+                            <constraint firstItem="w67-5g-tpC" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" id="TzE-F0-oIc"/>
+                            <constraint firstItem="u3X-10-HS0" firstAttribute="leading" relation="lessThanOrEqual" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="80" id="WHI-Ez-uMl"/>
                             <constraint firstItem="u3X-10-HS0" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="127" id="X3n-Qf-gJP"/>
-                            <constraint firstItem="Ikb-hw-xOc" firstAttribute="trailing" secondItem="zoU-XM-V2w" secondAttribute="trailingMargin" id="aOz-Z1-zLO"/>
+                            <constraint firstItem="qEi-aN-qtl" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" id="YVm-BE-L3k"/>
+                            <constraint firstItem="uHE-nW-SDd" firstAttribute="top" secondItem="u3X-10-HS0" secondAttribute="bottom" constant="66" id="ZV8-L7-MJN"/>
+                            <constraint firstItem="qEi-aN-qtl" firstAttribute="leading" relation="lessThanOrEqual" secondItem="uHE-nW-SDd" secondAttribute="trailing" constant="50" id="ZZd-jM-Rkh"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="zMz-jB-TBW" secondAttribute="trailing" constant="80" id="aT9-NO-gLT"/>
                             <constraint firstItem="iHV-E5-Mbu" firstAttribute="leading" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="-20" id="bbM-gx-NIS"/>
-                            <constraint firstItem="uHE-nW-SDd" firstAttribute="top" secondItem="u3X-10-HS0" secondAttribute="bottom" constant="86" id="eyk-lh-LeP"/>
+                            <constraint firstItem="Ikb-hw-xOc" firstAttribute="trailing" secondItem="zoU-XM-V2w" secondAttribute="trailingMargin" id="cJq-4b-JlD"/>
+                            <constraint firstItem="qEi-aN-qtl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uHE-nW-SDd" secondAttribute="trailing" constant="10" id="e4U-mL-6LP"/>
+                            <constraint firstItem="qEi-aN-qtl" firstAttribute="top" secondItem="w67-5g-tpC" secondAttribute="bottom" constant="60" id="f5f-gs-wAd"/>
+                            <constraint firstItem="sHp-EE-ZB4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="qEi-aN-qtl" secondAttribute="trailing" constant="50" id="gk9-nt-CY4"/>
+                            <constraint firstItem="w67-5g-tpC" firstAttribute="leading" relation="lessThanOrEqual" secondItem="u3X-10-HS0" secondAttribute="trailing" constant="50" id="jBz-7Y-8Yx"/>
                             <constraint firstItem="zMz-jB-TBW" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="127" id="nIm-yS-bos"/>
-                            <constraint firstItem="w67-5g-tpC" firstAttribute="leading" secondItem="u3X-10-HS0" secondAttribute="trailing" constant="75" id="nrw-vB-fyq"/>
-                            <constraint firstItem="qEi-aN-qtl" firstAttribute="leading" secondItem="uHE-nW-SDd" secondAttribute="trailing" constant="75" id="pwz-cW-T2T"/>
+                            <constraint firstItem="w67-5g-tpC" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" id="pzo-Wv-AUw"/>
+                            <constraint firstItem="uHE-nW-SDd" firstAttribute="leading" relation="lessThanOrEqual" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="80" id="rrv-Wz-t2f"/>
+                            <constraint firstItem="sHp-EE-ZB4" firstAttribute="top" secondItem="zMz-jB-TBW" secondAttribute="bottom" constant="60" id="ruy-tp-QmE"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="sHp-EE-ZB4" secondAttribute="trailing" constant="80" id="sEZ-rU-cjf"/>
+                            <constraint firstItem="qEi-aN-qtl" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" id="wK0-2r-ITn"/>
+                            <constraint firstItem="zMz-jB-TBW" firstAttribute="leading" relation="lessThanOrEqual" secondItem="w67-5g-tpC" secondAttribute="trailing" constant="50" id="yW4-8h-QJP"/>
+                            <constraint firstItem="qEi-aN-qtl" firstAttribute="leading" relation="lessThanOrEqual" secondItem="uHE-nW-SDd" secondAttribute="trailing" constant="50" id="z7U-ku-gfm"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OjN-RW-GKb"/>
+                                <exclude reference="TzE-F0-oIc"/>
+                                <exclude reference="22p-gg-QJb"/>
+                                <exclude reference="K49-oo-MiL"/>
+                                <exclude reference="YVm-BE-L3k"/>
+                                <exclude reference="ZZd-jM-Rkh"/>
+                                <exclude reference="JH8-8X-v8O"/>
+                                <exclude reference="OsO-Bk-pe5"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NY9-GT-gA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -505,6 +527,7 @@
         <image name="Info.png" width="94" height="94"/>
         <image name="Maps.png" width="94" height="94"/>
         <image name="Mechanic.png" width="94" height="94"/>
+        <image name="Settings.png" width="94" height="94"/>
         <image name="background" width="170" height="170"/>
         <image name="gas-3X" width="750" height="1571"/>
         <image name="tire" width="400" height="400"/>
