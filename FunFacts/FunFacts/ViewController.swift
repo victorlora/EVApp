@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     let colorWheel = ColorWheel()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         funFactLabel.text = factBook.randomFact()
     }

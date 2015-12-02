@@ -10,9 +10,15 @@ import UIKit
 
 class MainMenuViewController: UIViewController {
 
+    @IBOutlet weak var funFactLabel: UILabel!
+    
+    var time = NSTimer()
+    
+    let factBook = FactBookEV()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        time = .scheduledTimerWithTimeInterval(5, target: self, selector: Selector("showFunFact"), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
 
@@ -29,6 +35,10 @@ class MainMenuViewController: UIViewController {
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "model")
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "year")
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "style")
+    }
+    
+    @IBAction func showFunFact(){
+        funFactLabel.text = factBook.randomFact()
     }
 
     /*
