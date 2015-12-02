@@ -263,33 +263,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ggr-LR-Mjo">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <animations/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7mQ-BR-6Bw">
-                                <rect key="frame" x="20" y="127" width="560" height="453"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexColor" red="0.95841595989999995" green="0.99035949030000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="carInfo" id="w4z-DW-Rin">
-                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w4z-DW-Rin" id="FVY-BQ-Hb4">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="yoQ-Qd-0kI" id="sK5-Wb-vt6"/>
-                                    <outlet property="delegate" destination="yoQ-Qd-0kI" id="J9i-By-GOt"/>
-                                </connections>
-                            </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XmL-21-l69">
                                 <rect key="frame" x="340" y="28" width="240" height="91"/>
                                 <animations/>
@@ -326,20 +299,42 @@
                                     <segue destination="q9s-aJ-BVj" kind="show" id="elu-sG-kFI"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7mQ-BR-6Bw">
+                                <rect key="frame" x="20" y="127" width="560" height="453"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.13526400860000001" green="0.46963900860000002" blue="0.79369612069999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" red="0.95841595989999995" green="0.99035949030000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.1333333333" green="0.47058823529999999" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="carInfo" id="w4z-DW-Rin">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w4z-DW-Rin" id="FVY-BQ-Hb4">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yoQ-Qd-0kI" id="sK5-Wb-vt6"/>
+                                    <outlet property="delegate" destination="yoQ-Qd-0kI" id="J9i-By-GOt"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.13526400860000001" green="0.46963900860000002" blue="0.79369612069999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="7mQ-BR-6Bw" firstAttribute="top" secondItem="Tik-kc-9Qq" secondAttribute="bottom" constant="8" id="227-RN-cy2"/>
                             <constraint firstItem="vsE-zx-QGM" firstAttribute="top" secondItem="7mQ-BR-6Bw" secondAttribute="bottom" constant="20" id="4t5-id-ivz"/>
                             <constraint firstItem="Tik-kc-9Qq" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="56l-iT-GbY"/>
-                            <constraint firstItem="vsE-zx-QGM" firstAttribute="top" secondItem="ggr-LR-Mjo" secondAttribute="bottom" id="8JF-HX-dgg"/>
                             <constraint firstItem="Tik-kc-9Qq" firstAttribute="top" secondItem="5Br-Rv-QYx" secondAttribute="bottom" constant="21" id="DRO-A2-wlg"/>
                             <constraint firstItem="XmL-21-l69" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" constant="8" id="E51-b9-YJH"/>
-                            <constraint firstItem="ggr-LR-Mjo" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" constant="-20" id="Ir3-xP-0T4"/>
                             <constraint firstItem="5Br-Rv-QYx" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" constant="8" id="Jet-q8-dBO"/>
-                            <constraint firstItem="ggr-LR-Mjo" firstAttribute="top" secondItem="UtN-Ht-krj" secondAttribute="bottom" id="N9n-KJ-BmY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ggr-LR-Mjo" secondAttribute="trailing" constant="-20" id="UMk-EY-jT4"/>
                             <constraint firstItem="7mQ-BR-6Bw" firstAttribute="trailing" secondItem="cjJ-nh-uMq" secondAttribute="trailingMargin" id="ZCD-Gw-VQ9"/>
                             <constraint firstItem="XmL-21-l69" firstAttribute="trailing" secondItem="cjJ-nh-uMq" secondAttribute="trailingMargin" id="ZW0-ik-MRK"/>
                             <constraint firstItem="5Br-Rv-QYx" firstAttribute="leading" secondItem="cjJ-nh-uMq" secondAttribute="leadingMargin" id="bXa-lV-Qjh"/>
@@ -591,7 +586,7 @@
         <scene sceneID="gkv-Fs-E03">
             <objects>
                 <tableViewController id="2AB-h1-noa" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="lK6-5E-oxT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="lK6-5E-oxT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
@@ -704,13 +699,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want your car selection to remain even after quitting the app?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSd-hg-Enc">
-                                                    <rect key="frame" x="15" y="22" width="334" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want your car selection to remain even after quitting the app?" lineBreakMode="headTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSd-hg-Enc">
+                                                    <rect key="frame" x="15" y="22" width="309" height="19"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="HSd-hg-Enc" secondAttribute="height" multiplier="334:21" id="c7g-QF-d7q"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
