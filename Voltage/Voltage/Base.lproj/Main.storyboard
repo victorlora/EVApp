@@ -378,9 +378,10 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="WnL-6E-Vy6"/>
+                                    <constraint firstAttribute="width" secondItem="w67-5g-tpC" secondAttribute="height" multiplier="1:1" id="YZJ-pW-nXS"/>
                                     <constraint firstAttribute="width" constant="100" id="vyH-ve-gYU"/>
                                 </constraints>
-                                <state key="normal" image="Maps.png">
+                                <state key="normal" image="Maps">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -392,9 +393,10 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Jdn-VR-b8e"/>
+                                    <constraint firstAttribute="width" secondItem="qEi-aN-qtl" secondAttribute="height" multiplier="1:1" id="Jh1-s1-hf1"/>
                                     <constraint firstAttribute="height" constant="100" id="bZb-nG-TJH"/>
                                 </constraints>
-                                <state key="normal" image="Info.png">
+                                <state key="normal" image="Info">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -406,10 +408,11 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="7I1-9q-XJJ"/>
+                                    <constraint firstAttribute="width" secondItem="uHE-nW-SDd" secondAttribute="height" multiplier="1:1" id="WfQ-OW-VK9"/>
                                     <constraint firstAttribute="width" constant="100" id="wBb-pm-S9U"/>
                                     <constraint firstAttribute="width" constant="100" id="xDI-dA-I7K"/>
                                 </constraints>
-                                <state key="normal" image="Mechanic.png">
+                                <state key="normal" image="Mechanic">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
@@ -424,8 +427,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="9vw-Wn-gMn"/>
                                     <constraint firstAttribute="width" constant="100" id="Jex-6R-hn5"/>
+                                    <constraint firstAttribute="width" secondItem="zMz-jB-TBW" secondAttribute="height" multiplier="1:1" id="f3l-Q3-mD2"/>
                                 </constraints>
-                                <state key="normal" image="GasStation.png">
+                                <state key="normal" image="GasStation">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -434,9 +438,10 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="5DL-dg-HiW"/>
+                                    <constraint firstAttribute="width" secondItem="sHp-EE-ZB4" secondAttribute="height" multiplier="1:1" id="saf-BX-3dI"/>
                                     <constraint firstAttribute="width" constant="100" id="yjK-HZ-xWd"/>
                                 </constraints>
-                                <state key="normal" image="Accessories.png">
+                                <state key="normal" image="Accessories">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -450,7 +455,7 @@
                                     <constraint firstAttribute="height" constant="47" id="GhR-VK-LUy"/>
                                     <constraint firstAttribute="width" constant="50" id="U8b-gd-6Yq"/>
                                 </constraints>
-                                <state key="normal" image="Settings.png">
+                                <state key="normal" image="Settings">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -463,8 +468,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="7HK-aW-PHL"/>
                                     <constraint firstAttribute="width" constant="100" id="P34-vR-UFq"/>
+                                    <constraint firstAttribute="width" secondItem="u3X-10-HS0" secondAttribute="height" multiplier="1:1" id="w4w-L8-n2y"/>
                                 </constraints>
-                                <state key="normal" image="CharginStation.png">
+                                <state key="normal" image="CharginStation">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -843,14 +849,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Accessories.png" width="94" height="94"/>
-        <image name="CharginStation.png" width="94" height="94"/>
+        <image name="Accessories" width="260" height="260"/>
+        <image name="CharginStation" width="260" height="260"/>
         <image name="EV-3X" width="101" height="142"/>
-        <image name="GasStation.png" width="94" height="94"/>
-        <image name="Info.png" width="94" height="94"/>
-        <image name="Maps.png" width="94" height="94"/>
-        <image name="Mechanic.png" width="94" height="94"/>
-        <image name="Settings.png" width="94" height="94"/>
+        <image name="GasStation" width="260" height="260"/>
+        <image name="Info" width="260" height="260"/>
+        <image name="Maps" width="260" height="260"/>
+        <image name="Mechanic" width="260" height="260"/>
+        <image name="Settings" width="180" height="180"/>
         <image name="background" width="170" height="170"/>
         <image name="gas-3X" width="750" height="1571"/>
         <image name="tire" width="400" height="400"/>
