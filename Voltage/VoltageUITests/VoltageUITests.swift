@@ -149,4 +149,39 @@ class VoltageUITests: XCTestCase {
         //continue button is selected
         XCTAssert(app.buttons["Info"].exists)
     }
+    
+    //UI Test for Back button after Info is selected
+    func testInfoBack(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        
+        tablesQuery.staticTexts["AM General"].tap()
+        tablesQuery.staticTexts["Hummer"].tap()
+        tablesQuery.staticTexts["1998"].tap()
+        tablesQuery.staticTexts["Hard Top 2dr SUV AWD"].tap()
+        app.buttons["Continue"].tap()
+        app.buttons["Info"].tap()
+        
+        //Assert statement, returns true if back button exists
+        XCTAssert(app.buttons["Back"].exists)
+    }
+    
+    //UI Test for Info after Back button is selected
+    func testInfoBackInfo(){
+        
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        
+        tablesQuery.staticTexts["AM General"].tap()
+        tablesQuery.staticTexts["Hummer"].tap()
+        tablesQuery.staticTexts["1998"].tap()
+        tablesQuery.staticTexts["Hard Top 2dr SUV AWD"].tap()
+        app.buttons["Continue"].tap()
+        app.buttons["Info"].tap()
+        app.buttons["Back"].tap()
+        
+        //Assert statement, returns true if back button exists
+        XCTAssert(app.buttons["Info"].exists)
+        
+    }
 }
