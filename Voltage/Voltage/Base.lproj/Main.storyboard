@@ -538,7 +538,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="rns-NB-ddw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="rns-NB-ddw">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <animations/>
                             </imageView>
@@ -568,11 +568,15 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rns-NB-ddw" firstAttribute="centerX" secondItem="OfE-Rs-hOK" secondAttribute="centerX" id="7DJ-EU-uex"/>
                             <constraint firstItem="z3H-IV-FWF" firstAttribute="top" secondItem="OfE-Rs-hOK" secondAttribute="bottom" constant="20" id="IAm-tC-LFd"/>
                             <constraint firstItem="OfE-Rs-hOK" firstAttribute="centerX" secondItem="RiK-PA-4aN" secondAttribute="centerX" id="WBn-Ru-rV9"/>
                             <constraint firstItem="OfE-Rs-hOK" firstAttribute="top" secondItem="eXg-yS-Imh" secondAttribute="bottom" constant="8" symbolic="YES" id="ach-xz-UfH"/>
                             <constraint firstItem="eXg-yS-Imh" firstAttribute="top" secondItem="ISz-zZ-rgJ" secondAttribute="bottom" constant="8" symbolic="YES" id="oq2-vA-i4U"/>
+                            <constraint firstItem="rns-NB-ddw" firstAttribute="top" secondItem="ISz-zZ-rgJ" secondAttribute="bottom" id="plX-4l-hNz"/>
+                            <constraint firstItem="rns-NB-ddw" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leading" id="rFm-XB-Naj"/>
                             <constraint firstItem="OfE-Rs-hOK" firstAttribute="trailing" secondItem="RiK-PA-4aN" secondAttribute="trailingMargin" id="s65-wr-bjF"/>
+                            <constraint firstItem="rns-NB-ddw" firstAttribute="bottom" secondItem="z3H-IV-FWF" secondAttribute="top" id="t7b-py-PIo"/>
                             <constraint firstItem="OfE-Rs-hOK" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leadingMargin" id="wtW-dN-Zzy"/>
                             <constraint firstItem="eXg-yS-Imh" firstAttribute="leading" secondItem="OfE-Rs-hOK" secondAttribute="leading" id="y5A-vT-UEa"/>
                         </constraints>
