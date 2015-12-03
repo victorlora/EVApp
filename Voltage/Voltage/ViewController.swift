@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-
+import SystemConfiguration
 
 
 //---------Static User Selections----------------
@@ -88,7 +88,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carViewer.dataSource = self
         configureView()         // Configure tableview
         // Check for user saved car data and perform segue if all data exists
-        if (NSUserDefaults.standardUserDefaults().objectForKey("make") != nil) {
+        if isConnectedToNetwork() == true {
+            if (NSUserDefaults.standardUserDefaults().objectForKey("make") != nil) {
             userMake = NSUserDefaults.standardUserDefaults().objectForKey("make") as! String
             print (userMake)
             if (NSUserDefaults.standardUserDefaults().objectForKey("model") != nil) {
@@ -109,14 +110,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             } else {
                 switchToModel()
-            }
+           }
         } else {
             switchToMake()
-            
         }
-        
+        }
+        else {
+            print("Working a Ok")
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Refresh When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                print("Handle Ok logic here")
+            }))
+        }
     }
-    
     
     /* didReceiveMemoryWarning()
      * @description
@@ -133,6 +140,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }))
         
         presentViewController(refreshAlert, animated: true, completion: nil)
+    }
+    
+     func isConnectedToNetwork() -> Bool {
+        
+        var blankAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+        blankAddress.sin_len = UInt8(sizeofValue(blankAddress))
+        blankAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(&blankAddress) {
+            SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, UnsafePointer($0))
+        }
+        
+        var stop: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
+        if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &stop) == false {
+            return false
+        }
+        
+        let Reachable = stop == .Reachable
+        let requiresConnection = stop == .ConnectionRequired
+        
+        return Reachable && !requiresConnection
+        
     }
     
     /* switchToMake()
