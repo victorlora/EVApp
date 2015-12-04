@@ -116,13 +116,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         }
         else {
-            print("Working a Ok")
+            print("Internet Not Available")
             let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Refresh When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
                 print("Handle Ok logic here")
             }))
-        }
+            dispatch_async(dispatch_get_main_queue(), {
+                self.presentViewController(refreshAlert, animated: true, completion: nil)
+            })
+            }
     }
     
     /* didReceiveMemoryWarning()
@@ -268,7 +271,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
      */
     
     func getMakes() {
-        
+        if isConnectedToNetwork() == true {
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
         let edmundsAPI: String = API
         let url = NSURL(string: edmundsAPI)!
@@ -291,6 +294,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } catch {
             errorHandler.text="Error finding makes"
         }
+        }
+        else {
+            print("Internet Not Available")
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Refresh When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                print("Handle Ok logic here")
+            }))
+            dispatch_async(dispatch_get_main_queue(), {
+                self.presentViewController(refreshAlert, animated: true, completion: nil)
+            })
+        }
     }
     
     /* getModels()
@@ -300,7 +315,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
      */
     
     func getModels() {
-        
+        if isConnectedToNetwork() == true {
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
         let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))/models?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
         let url = NSURL(string: edmundsAPI)!
@@ -322,6 +337,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } catch {
             errorHandler.text="Error finding models"
         }
+        }
+        else {
+            print("Internet Not Available")
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Refresh When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                print("Handle Ok logic here")
+            }))
+            dispatch_async(dispatch_get_main_queue(), {
+                self.presentViewController(refreshAlert, animated: true, completion: nil)
+            })
+        }
     }
     
     /* getYears()
@@ -331,7 +358,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
      */
     
     func getYears() {
-        
+        if isConnectedToNetwork() == true {
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
         let edmundsAPI: String = API
         let url = NSURL(string: edmundsAPI)!
@@ -370,10 +397,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } catch {
             errorHandler.text="Error finding years"
         }
+        }
+        else {
+            print("Internet Not Available")
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Refresh When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                print("Handle Ok logic here")
+            }))
+            dispatch_async(dispatch_get_main_queue(), {
+                self.presentViewController(refreshAlert, animated: true, completion: nil)
+            })
+        }
     }
     
     func getStyles() {
-        
+        if isConnectedToNetwork() == true {
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
         let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))/models?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
         let url = NSURL(string: edmundsAPI)!
@@ -412,6 +451,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } catch {
             errorHandler.text="Error finding styles"
         }
+        }
+        else {
+            print("Internet Not Available")
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Refresh When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                print("Handle Ok logic here")
+            }))
+            dispatch_async(dispatch_get_main_queue(), {
+                self.presentViewController(refreshAlert, animated: true, completion: nil)
+            })
+        }
+
     }
 
     
