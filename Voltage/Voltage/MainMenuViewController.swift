@@ -8,7 +8,15 @@
 
 import UIKit
 
+var carInfo = [String]()
+var id = ""
+
+var mpgCity:Int = 0
+var mpgHighway:Int = 0
+var combinedMPG = 0
+
 class MainMenuViewController: UIViewController {
+    
 
     @IBOutlet weak var funFactLabel: UILabel!
     
@@ -16,11 +24,14 @@ class MainMenuViewController: UIViewController {
     
     let factBook = FactBookEV()
     
+    private let APIKey = "6m8ettta5byepu43rkhsc79j"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showFunFact();
         time = .scheduledTimerWithTimeInterval(5, target: self, selector: Selector("showFunFact"), userInfo: nil, repeats: true)
-        // Do any additional setup after loading the view.
+        getStyleId()
+        getCarInfo()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,14 +50,119 @@ class MainMenuViewController: UIViewController {
         funFactLabel.text = factBook.randomFact()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
+    /* getCarStyleId()
+    * @description
+    *      Makes API call and parses JSON to get a car's
+    *      style ID based on user's car selection
     */
+    
+    func getStyleId() {
+        
+        // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
+        let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))/models?fmt=json&api_key=\(APIKey)"
+        let url = NSURL(string: edmundsAPI)!
+        
+        // Get JSON data
+        let data = NSData(contentsOfURL: url)!
+        
+        // Read the JSON
+        do {
+            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+            // Parse JSON
+            if let models = json["models"] as? [[String: AnyObject]] {
+                for model in models {
+                    if let carModel = model["name"] as? String {
+                        if carModel.isEqual(userModel) {
+                            if let years = model["years"] as? [[String: AnyObject]] {
+                                for year in years {
+                                    if let carYear = year["year"] as? Int {
+                                        if (carYear == Int(userYear)) {
+                                            if let styles = year["styles"] as? [[String: AnyObject]] {
+                                                for style in styles {
+                                                    if let carStyle = style["name"] as? String {
+                                                        if carStyle.isEqual(userStyle) {
+                                                            if (style["id"] != nil) {
+                                                                id = String(style["id"]!)
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        } catch {
+            //errorHandler.text="Error finding id"
+        }
+    }
+    
+    /* getCarInfo()
+    * @description
+    *      Makes API call and parses JSON to get a car's
+    *      information based on the user's selection
+    */
+    
+    func getCarInfo() {
+        
+        
+        // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
+        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(id)?view=full&fmt=json&api_key=\(APIKey)")!
+        
+        // Get JSON data
+        let data = NSData(contentsOfURL: url)!
+        
+        // Read the JSON
+        do {
+            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+            // Parse JSON
+            if let engineSpecs = json["engine"] as? NSDictionary {
+                carInfo.append("Engine Specs:")
+                if let cylinders = engineSpecs["cylinder"] as? Int {
+                    carInfo.append("\t Cylinders: \(cylinders)")
+                }
+                if let bhp = engineSpecs["horsepower"] as? Int {
+                    carInfo.append("\t Horsepower: \(bhp)")
+                }
+                if let torq = engineSpecs["torque"] as? Int {
+                    carInfo.append("\t Torque: \(torq)")
+                }
+                if let engType = engineSpecs["type"] as? String {
+                    carInfo.append("\t Engine Type: \(engType)")
+                }
+            }
+            if let tranSpecs = json["transmission"] as? NSDictionary {
+                carInfo.append("Transmission Specs:")
+                if let transType = tranSpecs["transmissionType"] as? String {
+                    carInfo.append("\t Transmission Type: \(transType)")
+                }
+                if let numSpeeds = tranSpecs["numberOfSpeeds"] as? String {
+                    carInfo.append("\t Number of Speeds: \(numSpeeds)")
+                }
+            }
+            if let MPG = json["MPG"] as? NSDictionary {
+                carInfo.append("MPG:")
+                if let city = MPG["city"] as? String {
+                    mpgCity = Int(city)!
+                    carInfo.append("\t City: \(city)")
+                }
+                if let highway = MPG["highway"] as? String {
+                    mpgHighway = Int(highway)!
+                    carInfo.append("\t Highway: \(highway)")
+                }
+                combinedMPG = (mpgCity + mpgHighway) / 2
+                carInfo.append("\t Combined: \(combinedMPG)")
+            }
+        } catch {
+            //errorHandler.text="Error finding makes"
+        }
+        
+    }
+
 
 }

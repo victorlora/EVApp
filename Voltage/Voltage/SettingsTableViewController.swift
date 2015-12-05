@@ -30,5 +30,6 @@ class SettingsTableViewController: UITableViewController {
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "model")
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "year")
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "style")
+        carInfo = [String]()
     }
 }
