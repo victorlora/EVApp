@@ -70,8 +70,8 @@ class VoltageUITests: XCTestCase {
         tablesQuery.cells.staticTexts["Acura"].tap()
         
         //Assert statement, returns true if the Back make button exists
-        XCTAssert(app.buttons["< Makes"].exists)
-        let makesButton = app.buttons["< Makes"]
+        XCTAssert(app.buttons["Back"].exists)
+        let makesButton = app.buttons["Back"]
         makesButton.tap()
         tablesQuery.staticTexts["Alfa Romeo"].tap()
         
@@ -92,7 +92,7 @@ class VoltageUITests: XCTestCase {
         
         //Assert statement, returns true if the back model button exists
         XCTAssert(app.buttons["< Models"].exists)
-        app.buttons["< Models"].tap()
+        app.buttons["Back"].tap()
         tablesQuery.staticTexts["2 Series"].tap()
         
         //Assert statement, returns true if the back model button continues
@@ -110,13 +110,13 @@ class VoltageUITests: XCTestCase {
         tablesQuery.staticTexts["2001"].tap()
         
         //Assert statement, returns true if the back year button exists
-        XCTAssert(app.buttons["< Years"].exists)
-        app.buttons["< Years"].tap()
+        XCTAssert(app.buttons["Back"].exists)
+        app.buttons["Back"].tap()
         tablesQuery.staticTexts["2002"].tap()
         
         //Assert statement, returns true if the back year button continues
         //to exist after choosng a new yr
-        XCTAssert(app.buttons["< Years"].exists)
+        XCTAssert(app.buttons["Back"].exists)
     }
     
     //UI Test for Continue button after Make, Model, and Year have been chosen
