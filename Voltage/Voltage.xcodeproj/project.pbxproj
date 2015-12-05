@@ -114,6 +114,8 @@
 				5208A7A21BE7F81500CB4437 /* AppDelegate.swift */,
 				522FEFF61C107BB9000E5279 /* MapViewContoller.swift */,
 				5208A7A41BE7F81500CB4437 /* ViewController.swift */,
+				7E1E79F21C13595A007BDC39 /* WebViewController.swift */,
+				7E982BF81C135CE60033FFB0 /* SettingsTableViewController.swift */,
 				5208A7A61BE7F81500CB4437 /* Main.storyboard */,
 				7E47FF5F1C0BDFB600DFC1C8 /* MainMenuViewController.swift */,
 				E4A34D1D1C0E809200DCC197 /* FactbookEV.swift */,
@@ -122,8 +124,6 @@
 				5208A7A91BE7F81500CB4437 /* Assets.xcassets */,
 				5208A7AB1BE7F81500CB4437 /* LaunchScreen.storyboard */,
 				5208A7AE1BE7F81500CB4437 /* Info.plist */,
-				7E1E79F21C13595A007BDC39 /* WebViewController.swift */,
-				7E982BF81C135CE60033FFB0 /* SettingsTableViewController.swift */,
 			);
 			path = Voltage;
 			sourceTree = "<group>";
