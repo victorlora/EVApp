@@ -23,7 +23,8 @@ struct FactBookEV {
         "NYC taxis were once primarily powered by electricity",
         "Electricity prices are much more stable than gasoline prices",
         "On average EV drivers pay $1.20 to drive the same distance a conventional car could go on a gallon",
-        "Electric cars charged from a coal fired grid are still more efficient and produce less pollution than gas engines.",  
+        "Electric cars charged from a coal fired grid are still more efficient and produce less pollution than gas engines.",
+        "Up to 80 percent of the energy in the battery is transferred directly to power the car, compared with only 14-26 percent of the energy from gasoline-powered vehicles.",
     ]
     
     func randomFact() -> String {
