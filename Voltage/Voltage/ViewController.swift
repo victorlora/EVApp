@@ -82,14 +82,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view, typically from a nib.
         carViewer.delegate = self
         carViewer.dataSource = self
         configureView()         // Configure tableview
         // Check for user saved car data and perform segue if all data exists
         if isConnectedToNetwork() == true {
-            if (NSUserDefaults.standardUserDefaults().objectForKey("make") != nil) {
+            beginView()
+        }
+        else {
+            print("Internet Not Available")
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: { (action: UIAlertAction!) in
+                print("Handle Ok logic here")
+                self.beginView()
+            }))
+            dispatch_async(dispatch_get_main_queue(), {
+                self.presentViewController(refreshAlert, animated: true, completion: nil)
+            })
+            }
+    }
+    
+    func beginView(){
+        if (NSUserDefaults.standardUserDefaults().objectForKey("make") != nil) {
             userMake = NSUserDefaults.standardUserDefaults().objectForKey("make") as! String
             print (userMake)
             if (NSUserDefaults.standardUserDefaults().objectForKey("model") != nil) {
@@ -110,22 +126,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             } else {
                 switchToModel()
-           }
+            }
         } else {
             switchToMake()
         }
-        }
-        else {
-            print("Internet Not Available")
-            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Refresh When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                print("Handle Ok logic here")
-            }))
-            dispatch_async(dispatch_get_main_queue(), {
-                self.presentViewController(refreshAlert, animated: true, completion: nil)
-            })
-            }
     }
     
     /* didReceiveMemoryWarning()
@@ -139,7 +143,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let refreshAlert = UIAlertController(title: "Memory Warning", message: "All data cannot be saved.", preferredStyle: UIAlertControllerStyle.Alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            print("Handle Ok logic here")
+            print("Memory Warning")
         }))
         
         presentViewController(refreshAlert, animated: true, completion: nil)
@@ -297,10 +301,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         else {
             print("Internet Not Available")
-            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Refresh When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
             
-            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                print("Handle Ok logic here")
+            refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: { (action: UIAlertAction!) in
+                self.getMakes()
             }))
             dispatch_async(dispatch_get_main_queue(), {
                 self.presentViewController(refreshAlert, animated: true, completion: nil)
@@ -340,10 +344,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         else {
             print("Internet Not Available")
-            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Refresh When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
             
-            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                print("Handle Ok logic here")
+            refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: { (action: UIAlertAction!) in
+                self.getModels()
             }))
             dispatch_async(dispatch_get_main_queue(), {
                 self.presentViewController(refreshAlert, animated: true, completion: nil)
@@ -400,10 +404,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         else {
             print("Internet Not Available")
-            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Refresh When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
             
-            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                print("Handle Ok logic here")
+            refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: { (action: UIAlertAction!) in
+                self.getYears()
             }))
             dispatch_async(dispatch_get_main_queue(), {
                 self.presentViewController(refreshAlert, animated: true, completion: nil)
@@ -454,10 +458,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         else {
             print("Internet Not Available")
-            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Refresh When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
             
-            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                print("Handle Ok logic here")
+            refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: { (action: UIAlertAction!) in
+                self.getStyles()
             }))
             dispatch_async(dispatch_get_main_queue(), {
                 self.presentViewController(refreshAlert, animated: true, completion: nil)
