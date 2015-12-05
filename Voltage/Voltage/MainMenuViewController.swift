@@ -18,6 +18,7 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showFunFact();
         time = .scheduledTimerWithTimeInterval(5, target: self, selector: Selector("showFunFact"), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
@@ -32,16 +33,6 @@ class MainMenuViewController: UIViewController {
         }))
         
         presentViewController(refreshAlert, animated: true, completion: nil)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        resetUserDefaults()
-    }
-    func resetUserDefaults() {
-        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "make")
-        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "model")
-        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "year")
-        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "style")
     }
     
     @IBAction func showFunFact(){

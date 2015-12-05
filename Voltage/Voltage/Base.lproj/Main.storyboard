@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="carSelection" id="BYZ-38-t0r" customClass="ViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -454,7 +454,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2AB-h1-noa" kind="show" id="IsG-C7-Txv"/>
+                                    <segue destination="2AB-h1-noa" kind="show" id="dSx-W6-dvN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3X-10-HS0">
@@ -526,10 +526,10 @@
             </objects>
             <point key="canvasLocation" x="1118" y="664"/>
         </scene>
-        <!--Map View Controller-->
+        <!--MapViewSwift-->
         <scene sceneID="ur6-hX-OLe">
             <objects>
-                <viewController id="9bL-H6-KYK" customClass="MapViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MapViewSwift" id="9bL-H6-KYK" customClass="MapViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ISz-zZ-rgJ"/>
                         <viewControllerLayoutGuide type="bottom" id="z3H-IV-FWF"/>
@@ -587,12 +587,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14k-dA-NNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="-101"/>
+            <point key="canvasLocation" x="1809" y="-106"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Settings-->
         <scene sceneID="gkv-Fs-E03">
             <objects>
-                <tableViewController id="2AB-h1-noa" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Settings" title="Settings" id="2AB-h1-noa" customClass="SettingsTableViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="lK6-5E-oxT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -613,7 +613,7 @@
                                                     <animations/>
                                                     <state key="normal" title="Back"/>
                                                     <connections>
-                                                        <segue destination="q9s-aJ-BVj" kind="show" id="QO8-Lw-5bP"/>
+                                                        <segue destination="q9s-aJ-BVj" kind="show" id="EHO-L0-alx"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -753,8 +753,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Statistics Using Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sy-d5-IUa">
-                                                    <rect key="frame" x="16" y="8" width="250" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sy-d5-IUa">
+                                                    <rect key="frame" x="266" y="8" width="0.0" height="0.0"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="7sy-d5-IUa" secondAttribute="height" multiplier="250:21" id="yiT-VP-aqf"/>
@@ -763,18 +763,52 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oO0-Fp-4fw">
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngG-vb-LJL">
+                                                    <rect key="frame" x="15" y="7" width="72" height="30"/>
+                                                    <animations/>
+                                                    <state key="normal" title="Select Car"/>
+                                                    <connections>
+                                                        <segue destination="BYZ-38-t0r" kind="show" identifier="selectCar" id="fxP-iw-jVq"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="7sy-d5-IUa" firstAttribute="leading" secondItem="GD6-QV-Eni" secondAttribute="leadingMargin" constant="258" id="AjV-Xc-o4q"/>
+                                                <constraint firstItem="7sy-d5-IUa" firstAttribute="top" secondItem="GD6-QV-Eni" secondAttribute="topMargin" id="rSG-fZ-sOX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="31a-aA-i66">
+                                        <rect key="frame" x="0.0" y="337" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="31a-aA-i66" id="xc0-Sh-gqw">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Statistics Using Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EA4-MJ-42u">
+                                                    <rect key="frame" x="16" y="8" width="250" height="21"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="EA4-MJ-42u" secondAttribute="height" multiplier="250:21" id="sFP-wJ-8QB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YM8-J6-x3L">
                                                     <rect key="frame" x="543" y="6" width="51" height="31"/>
                                                     <animations/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="oO0-Fp-4fw" secondAttribute="height" multiplier="49:31" id="jha-Qz-9gt"/>
+                                                        <constraint firstAttribute="width" secondItem="YM8-J6-x3L" secondAttribute="height" multiplier="49:31" id="tNH-6g-HFd"/>
                                                     </constraints>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow NoMoGas to access location in order to update statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u5H-3I-JHb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow NoMoGas to access location in order to update statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-ol-AR0">
                                                     <rect key="frame" x="16" y="22" width="303" height="18"/>
                                                     <animations/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="u5H-3I-JHb" secondAttribute="height" multiplier="356:21" id="iqO-Cu-IXh"/>
+                                                        <constraint firstAttribute="width" secondItem="Kzh-ol-AR0" secondAttribute="height" multiplier="356:21" id="pNs-XI-3gj"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -783,14 +817,14 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="oO0-Fp-4fw" firstAttribute="centerY" secondItem="GD6-QV-Eni" secondAttribute="centerY" id="76w-Yc-dPW"/>
-                                                <constraint firstItem="oO0-Fp-4fw" firstAttribute="top" secondItem="GD6-QV-Eni" secondAttribute="topMargin" constant="-2" id="7Iq-IB-JtG"/>
-                                                <constraint firstItem="7sy-d5-IUa" firstAttribute="leading" secondItem="GD6-QV-Eni" secondAttribute="leadingMargin" constant="8" id="AjV-Xc-o4q"/>
-                                                <constraint firstItem="u5H-3I-JHb" firstAttribute="top" secondItem="GD6-QV-Eni" secondAttribute="topMargin" constant="14" id="FOq-yi-NzP"/>
-                                                <constraint firstItem="oO0-Fp-4fw" firstAttribute="trailing" secondItem="GD6-QV-Eni" secondAttribute="trailingMargin" id="ILB-0p-vfV"/>
-                                                <constraint firstItem="u5H-3I-JHb" firstAttribute="leading" secondItem="GD6-QV-Eni" secondAttribute="leadingMargin" constant="8" id="Mpx-vl-QyU"/>
-                                                <constraint firstItem="oO0-Fp-4fw" firstAttribute="trailing" secondItem="GD6-QV-Eni" secondAttribute="trailingMargin" id="oxf-2s-1GO"/>
-                                                <constraint firstItem="7sy-d5-IUa" firstAttribute="top" secondItem="GD6-QV-Eni" secondAttribute="topMargin" id="rSG-fZ-sOX"/>
+                                                <constraint firstItem="YM8-J6-x3L" firstAttribute="centerY" secondItem="xc0-Sh-gqw" secondAttribute="centerY" id="2BM-11-cIN"/>
+                                                <constraint firstItem="YM8-J6-x3L" firstAttribute="top" secondItem="xc0-Sh-gqw" secondAttribute="topMargin" constant="-2" id="5I1-ys-wO9"/>
+                                                <constraint firstItem="Kzh-ol-AR0" firstAttribute="top" secondItem="xc0-Sh-gqw" secondAttribute="topMargin" constant="14" id="8N4-Gp-lgx"/>
+                                                <constraint firstItem="Kzh-ol-AR0" firstAttribute="leading" secondItem="xc0-Sh-gqw" secondAttribute="leadingMargin" constant="8" id="Dxm-Wo-aQH"/>
+                                                <constraint firstItem="YM8-J6-x3L" firstAttribute="trailing" secondItem="xc0-Sh-gqw" secondAttribute="trailingMargin" id="ERi-gd-4Oe"/>
+                                                <constraint firstItem="EA4-MJ-42u" firstAttribute="leading" secondItem="xc0-Sh-gqw" secondAttribute="leadingMargin" constant="8" id="Pbn-kR-5F2"/>
+                                                <constraint firstItem="YM8-J6-x3L" firstAttribute="trailing" secondItem="xc0-Sh-gqw" secondAttribute="trailingMargin" id="YWM-Xd-Hgq"/>
+                                                <constraint firstItem="EA4-MJ-42u" firstAttribute="top" secondItem="xc0-Sh-gqw" secondAttribute="topMargin" id="he3-uq-h8j"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
@@ -806,12 +840,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXH-Dd-hjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="652"/>
+            <point key="canvasLocation" x="1855" y="657"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="aWp-cC-Vb1">
             <objects>
-                <viewController id="wUx-Tw-zVD" sceneMemberID="viewController">
+                <viewController id="wUx-Tw-zVD" customClass="WebViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DeP-LC-wKd"/>
                         <viewControllerLayoutGuide type="bottom" id="tam-aP-zpR"/>
@@ -884,6 +918,6 @@
         <image name="tire" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ghK-oS-mbO"/>
+        <segue reference="EHO-L0-alx"/>
     </inferredMetricsTieBreakers>
 </document>
