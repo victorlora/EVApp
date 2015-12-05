@@ -14,6 +14,7 @@ var id = ""
 var mpgCity:Int = 0
 var mpgHighway:Int = 0
 var combinedMPG = 0
+var fuelCap = ""
 
 class MainMenuViewController: UIViewController {
     
@@ -32,6 +33,7 @@ class MainMenuViewController: UIViewController {
         time = .scheduledTimerWithTimeInterval(5, target: self, selector: Selector("showFunFact"), userInfo: nil, repeats: true)
         getStyleId()
         getCarInfo()
+        getTankCapacity()
     }
 
     override func didReceiveMemoryWarning() {
@@ -163,6 +165,46 @@ class MainMenuViewController: UIViewController {
         }
         
     }
+    
+    func getTankCapacity() {
+        
+        
+        // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
+        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(id)/equipment?availability=standard&equipmentType=OTHER&fmt=json&api_key=\(APIKey)")!
+        
+        // Get JSON data
+        let data = NSData(contentsOfURL: url)!
+        
+        // Read the JSON
+        do {
+            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+            // Parse JSON
+            if let equipment = json["equipment"] as? [[String: AnyObject]] {
+                for item in equipment {
+                    if let name = item["name"] as? String {
+                        if name.isEqual("Specifications") {
+                            if let attributes = item["attributes"] as? [[String: AnyObject]] {
+                                for attribute in attributes {
+                                    if let id = attribute["name"] as? String {
+                                        if id.isEqual("Fuel Capacity") {
+                                            if let fuelCapacity = attribute["value"] as? String {
+                                                fuelCap = fuelCapacity
+                                                carInfo.append("\t Fuel Capacity: " + fuelCap + " gal.")
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch {
+            //errorHandler.text="Error finding makes"
+        }
+        
+    }
+
 
 
 }
