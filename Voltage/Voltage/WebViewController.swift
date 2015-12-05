@@ -10,10 +10,14 @@ import UIKit
 
 class WebViewController: UIViewController {
 
+    @IBOutlet var webView: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let url = NSURL(string: "http://www.autozone.com")!
+        
+        webView.loadRequest(NSURLRequest(URL: url))
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,14 +33,5 @@ class WebViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

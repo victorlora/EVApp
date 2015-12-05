@@ -215,7 +215,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         backButton.setTitle("Back", forState: .Normal)
         
         backButton.hidden = false
-        backButton.setTitle("< Back", forState: .Normal)
+        backButton.setTitle("Back", forState: .Normal)
         saveCarLabel.hidden = true
         saveCar.hidden = true
         continueButton.hidden = true
@@ -241,7 +241,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         backButton.setTitle("Back", forState: .Normal)
         
         backButton.hidden = false
-        backButton.setTitle("< Back", forState: .Normal)
+        backButton.setTitle("Back", forState: .Normal)
         saveCarLabel.hidden = true
         saveCar.hidden = true
         continueButton.hidden = true
@@ -261,7 +261,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         backButton.setTitle("Back", forState: .Normal)
         
         backButton.hidden = false
-        backButton.setTitle("< Back", forState: .Normal)
+        backButton.setTitle("Back", forState: .Normal)
         saveCarLabel.hidden = true
         saveCar.hidden = true
         

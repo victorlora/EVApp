@@ -20,6 +20,7 @@
 		7E47FF601C0BDFB600DFC1C8 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E47FF5F1C0BDFB600DFC1C8 /* MainMenuViewController.swift */; };
 		7E6315001C07B96900D8EE88 /* CarInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6314FF1C07B96900D8EE88 /* CarInfoViewController.swift */; };
 		7E982BF91C135CE60033FFB0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E982BF81C135CE60033FFB0 /* SettingsTableViewController.swift */; };
+		7E982BFD1C1373040033FFB0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E982BFC1C1373040033FFB0 /* CoreLocation.framework */; };
 		E4A34D1E1C0E809200DCC197 /* FactbookEV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A34D1D1C0E809200DCC197 /* FactbookEV.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		7E47FF5F1C0BDFB600DFC1C8 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		7E6314FF1C07B96900D8EE88 /* CarInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInfoViewController.swift; sourceTree = "<group>"; };
 		7E982BF81C135CE60033FFB0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		7E982BFC1C1373040033FFB0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E4A34D1D1C0E809200DCC197 /* FactbookEV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactbookEV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E982BFD1C1373040033FFB0 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +94,7 @@
 		5208A7961BE7F81500CB4437 = {
 			isa = PBXGroup;
 			children = (
+				7E982BFC1C1373040033FFB0 /* CoreLocation.framework */,
 				5208A7A11BE7F81500CB4437 /* Voltage */,
 				5208A7B61BE7F81600CB4437 /* VoltageTests */,
 				5208A7C11BE7F81600CB4437 /* VoltageUITests */,
