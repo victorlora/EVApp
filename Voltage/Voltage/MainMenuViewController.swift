@@ -150,7 +150,7 @@ class MainMenuViewController: UIViewController {
     */
     
     func getCarInfo() {
-        
+        carInfo = [String]()
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
         let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(id)?view=full&fmt=json&api_key=\(APIKey)")!

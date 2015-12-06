@@ -63,9 +63,5 @@ class CarInfoViewController: UIViewController, UITableViewDelegate {
         let car = UIImage(named: "\(maker.lowercaseString).png")
         carLogo.image = car
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        carInfo = [String]()
-    }
 
 }
