@@ -573,7 +573,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="accesories" destination="y8l-EH-nYX" id="8NV-RC-22N"/>
+                        <outlet property="accesoriesLabel" destination="ytG-UK-ibh" id="qYj-E6-yOp"/>
+                        <outlet property="carInfo" destination="nrO-29-ezY" id="NtX-Rn-Mwe"/>
+                        <outlet property="carInfoLabel" destination="nrO-29-ezY" id="slt-60-Rtp"/>
+                        <outlet property="certifiedMechanic" destination="3oq-CB-V50" id="sqg-2h-WlA"/>
+                        <outlet property="certifiedMechanicLabel" destination="3oq-CB-V50" id="2su-ry-pEI"/>
+                        <outlet property="chargingStation" destination="GY0-OP-re7" id="0hn-g3-8iO"/>
+                        <outlet property="chargingStationLabel" destination="1D6-JN-DtO" id="z5i-U8-pu4"/>
                         <outlet property="funFactLabel" destination="GSc-uH-g27" id="xTb-NK-gfV"/>
+                        <outlet property="gasStation" destination="uiw-QS-1J6" id="16g-fQ-Zeu"/>
+                        <outlet property="gasStationLabel" destination="uiw-QS-1J6" id="Giv-Xk-Mgl"/>
+                        <outlet property="mapView" destination="w67-5g-tpC" id="ODm-Q3-rc0"/>
+                        <outlet property="mapViewLabel" destination="k5F-c7-Std" id="eQB-tf-8PI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NY9-GT-gA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
