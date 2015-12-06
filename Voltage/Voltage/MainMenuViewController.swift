@@ -21,7 +21,6 @@ var milesLeftEstimate: Double = 0.0      // Stores mileage remaining estimate
 
 class MainMenuViewController: UIViewController {
     
-
     @IBOutlet weak var funFactLabel: UILabel!
     
     var time = NSTimer()

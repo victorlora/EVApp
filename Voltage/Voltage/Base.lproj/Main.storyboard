@@ -505,6 +505,9 @@
                                 <state key="normal" image="CharginStation">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="lVT-t3-Fya" kind="show" id="WsP-Xw-UGN"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charging Stations" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1D6-JN-DtO">
                                 <rect key="frame" x="108" y="234" width="84" height="49"/>
@@ -591,6 +594,54 @@
             </objects>
             <point key="canvasLocation" x="1118" y="664"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Y8t-M9-8WR">
+            <objects>
+                <viewController id="lVT-t3-Fya" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eD6-98-Giu"/>
+                        <viewControllerLayoutGuide type="bottom" id="lKe-w3-P6s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N2u-b9-T7l">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="WLV-Uc-SiO">
+                                <rect key="frame" x="-11" y="20" width="611" height="588"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7O-8z-5ZK">
+                                <rect key="frame" x="19" y="30" width="43" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="43" id="FPk-ky-crK"/>
+                                    <constraint firstAttribute="width" secondItem="c7O-8z-5ZK" secondAttribute="height" multiplier="43:30" id="asB-QY-YoD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.95841595989999995" green="0.99035949030000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="q9s-aJ-BVj" kind="show" id="9zw-in-Bdt"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y74-QS-wLT">
+                                <rect key="frame" x="-1" y="56" width="600" height="554"/>
+                                <animations/>
+                            </mapView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c7O-8z-5ZK" firstAttribute="width" secondItem="c7O-8z-5ZK" secondAttribute="height" multiplier="43:30" id="jYk-43-hCm"/>
+                            <constraint firstItem="c7O-8z-5ZK" firstAttribute="width" secondItem="c7O-8z-5ZK" secondAttribute="height" multiplier="43:30" id="xgK-af-ixR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wd5-tZ-mDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="1409"/>
+        </scene>
         <!--MapViewSwift-->
         <scene sceneID="ur6-hX-OLe">
             <objects>
@@ -629,14 +680,6 @@
                                     <segue destination="q9s-aJ-BVj" kind="show" id="PYW-lh-Ghj"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OfE-Rs-hOK">
-                                <rect key="frame" x="20" y="66" width="560" height="449"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="514" id="cvA-Wd-NCS"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="560" id="tbS-Sk-dvS"/>
-                                </constraints>
-                            </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MPH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEv-Rb-Pfd">
                                 <rect key="frame" x="21" y="523" width="42" height="21"/>
                                 <animations/>
@@ -709,6 +752,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OfE-Rs-hOK">
+                                <rect key="frame" x="0.0" y="51" width="600" height="464"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="514" id="cvA-Wd-NCS"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="tbS-Sk-dvS"/>
+                                </constraints>
+                            </mapView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -722,7 +773,7 @@
                             <constraint firstItem="OfE-Rs-hOK" firstAttribute="centerX" secondItem="RiK-PA-4aN" secondAttribute="centerX" id="WBn-Ru-rV9"/>
                             <constraint firstItem="3NA-Og-DLZ" firstAttribute="leading" secondItem="KEv-Rb-Pfd" secondAttribute="trailing" constant="8" id="Wzj-pH-KqW"/>
                             <constraint firstItem="oVI-ae-jA3" firstAttribute="top" secondItem="OfE-Rs-hOK" secondAttribute="bottom" constant="30" id="ZNE-Hs-lLD"/>
-                            <constraint firstItem="OfE-Rs-hOK" firstAttribute="top" secondItem="eXg-yS-Imh" secondAttribute="bottom" constant="8" symbolic="YES" id="ach-xz-UfH"/>
+                            <constraint firstItem="OfE-Rs-hOK" firstAttribute="top" secondItem="eXg-yS-Imh" secondAttribute="bottom" constant="-7" id="ach-xz-UfH"/>
                             <constraint firstItem="oVI-ae-jA3" firstAttribute="leading" secondItem="JKh-FC-nOw" secondAttribute="trailing" constant="8" id="ahC-8B-GPo"/>
                             <constraint firstItem="koy-Rn-HOU" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leadingMargin" id="dCA-Wi-Le8"/>
                             <constraint firstItem="koy-Rn-HOU" firstAttribute="top" secondItem="oVI-ae-jA3" secondAttribute="bottom" constant="5" id="dNB-0m-Eby"/>
@@ -733,10 +784,10 @@
                             <constraint firstItem="eXg-yS-Imh" firstAttribute="top" secondItem="ISz-zZ-rgJ" secondAttribute="bottom" constant="8" symbolic="YES" id="oq2-vA-i4U"/>
                             <constraint firstItem="rns-NB-ddw" firstAttribute="top" secondItem="ISz-zZ-rgJ" secondAttribute="bottom" id="plX-4l-hNz"/>
                             <constraint firstItem="rns-NB-ddw" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leading" id="rFm-XB-Naj"/>
-                            <constraint firstItem="OfE-Rs-hOK" firstAttribute="trailing" secondItem="RiK-PA-4aN" secondAttribute="trailingMargin" id="s65-wr-bjF"/>
+                            <constraint firstItem="OfE-Rs-hOK" firstAttribute="trailing" secondItem="RiK-PA-4aN" secondAttribute="trailingMargin" constant="20" id="s65-wr-bjF"/>
                             <constraint firstItem="rns-NB-ddw" firstAttribute="bottom" secondItem="z3H-IV-FWF" secondAttribute="top" id="t7b-py-PIo"/>
-                            <constraint firstItem="OfE-Rs-hOK" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leadingMargin" id="wtW-dN-Zzy"/>
-                            <constraint firstItem="eXg-yS-Imh" firstAttribute="leading" secondItem="OfE-Rs-hOK" secondAttribute="leading" id="y5A-vT-UEa"/>
+                            <constraint firstItem="OfE-Rs-hOK" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leadingMargin" constant="-20" id="wtW-dN-Zzy"/>
+                            <constraint firstItem="eXg-yS-Imh" firstAttribute="leading" secondItem="OfE-Rs-hOK" secondAttribute="leading" constant="20" id="y5A-vT-UEa"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1149,6 +1200,6 @@
         <image name="tire" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rJt-Wc-9vn"/>
+        <segue reference="9zw-in-Bdt"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520407481C149FB30054B328 /* ChargingStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520407471C149FB30054B328 /* ChargingStationViewController.swift */; };
 		5208A7A31BE7F81500CB4437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208A7A21BE7F81500CB4437 /* AppDelegate.swift */; };
 		5208A7A51BE7F81500CB4437 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208A7A41BE7F81500CB4437 /* ViewController.swift */; };
 		5208A7A81BE7F81500CB4437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5208A7A61BE7F81500CB4437 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		520407471C149FB30054B328 /* ChargingStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargingStationViewController.swift; sourceTree = "<group>"; };
 		5208A79F1BE7F81500CB4437 /* Voltage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voltage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5208A7A21BE7F81500CB4437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5208A7A41BE7F81500CB4437 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				522FEFF61C107BB9000E5279 /* MapViewContoller.swift */,
 				5208A7A41BE7F81500CB4437 /* ViewController.swift */,
 				7E1E79F21C13595A007BDC39 /* WebViewController.swift */,
+				520407471C149FB30054B328 /* ChargingStationViewController.swift */,
 				7E982BF81C135CE60033FFB0 /* SettingsTableViewController.swift */,
 				5208A7A61BE7F81500CB4437 /* Main.storyboard */,
 				7E47FF5F1C0BDFB600DFC1C8 /* MainMenuViewController.swift */,
@@ -288,6 +291,7 @@
 				7E1E79F31C13595A007BDC39 /* WebViewController.swift in Sources */,
 				5208A7A51BE7F81500CB4437 /* ViewController.swift in Sources */,
 				E4A34D1E1C0E809200DCC197 /* FactbookEV.swift in Sources */,
+				520407481C149FB30054B328 /* ChargingStationViewController.swift in Sources */,
 				7E47FF601C0BDFB600DFC1C8 /* MainMenuViewController.swift in Sources */,
 				5263A5571BEAA9DF00A02452 /* NetworkOperation.swift in Sources */,
 				5208A7A31BE7F81500CB4437 /* AppDelegate.swift in Sources */,
