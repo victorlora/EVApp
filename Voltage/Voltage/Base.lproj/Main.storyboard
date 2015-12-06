@@ -584,6 +584,30 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance Traveled:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKh-FC-nOw">
+                                <rect key="frame" x="20" y="545" width="129" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0Yp-PQ-hs5"/>
+                                    <constraint firstAttribute="width" secondItem="JKh-FC-nOw" secondAttribute="height" multiplier="43:7" id="dgB-Wi-eMb"/>
+                                    <constraint firstAttribute="width" constant="129" id="mXh-7r-Nve"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVI-ae-jA3">
+                                <rect key="frame" x="157" y="545" width="71" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oVI-ae-jA3" secondAttribute="height" multiplier="71:21" id="Ekl-k1-v7I"/>
+                                    <constraint firstAttribute="width" constant="71" id="dfc-ct-etQ"/>
+                                    <constraint firstAttribute="height" constant="21" id="o0p-81-uIf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3NA-Og-DLZ">
                                 <rect key="frame" x="71" y="523" width="71" height="21"/>
                                 <animations/>
@@ -592,7 +616,7 @@
                                     <constraint firstAttribute="width" constant="71" id="n4R-rT-nYz"/>
                                     <constraint firstAttribute="width" secondItem="3NA-Og-DLZ" secondAttribute="height" multiplier="71:21" id="xvm-Ow-m1E"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -607,8 +631,12 @@
                             <constraint firstItem="KEv-Rb-Pfd" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leadingMargin" constant="1" id="QP5-fg-53m"/>
                             <constraint firstItem="OfE-Rs-hOK" firstAttribute="centerX" secondItem="RiK-PA-4aN" secondAttribute="centerX" id="WBn-Ru-rV9"/>
                             <constraint firstItem="3NA-Og-DLZ" firstAttribute="leading" secondItem="KEv-Rb-Pfd" secondAttribute="trailing" constant="8" id="Wzj-pH-KqW"/>
+                            <constraint firstItem="oVI-ae-jA3" firstAttribute="top" secondItem="OfE-Rs-hOK" secondAttribute="bottom" constant="30" id="ZNE-Hs-lLD"/>
                             <constraint firstItem="OfE-Rs-hOK" firstAttribute="top" secondItem="eXg-yS-Imh" secondAttribute="bottom" constant="8" symbolic="YES" id="ach-xz-UfH"/>
+                            <constraint firstItem="oVI-ae-jA3" firstAttribute="leading" secondItem="JKh-FC-nOw" secondAttribute="trailing" constant="8" id="ahC-8B-GPo"/>
+                            <constraint firstItem="JKh-FC-nOw" firstAttribute="top" secondItem="3NA-Og-DLZ" secondAttribute="bottom" constant="1" id="eh1-uu-Etg"/>
                             <constraint firstItem="KEv-Rb-Pfd" firstAttribute="top" secondItem="OfE-Rs-hOK" secondAttribute="bottom" constant="8" id="keY-aY-1bk"/>
+                            <constraint firstItem="JKh-FC-nOw" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leadingMargin" id="nTt-Cx-rlC"/>
                             <constraint firstItem="eXg-yS-Imh" firstAttribute="top" secondItem="ISz-zZ-rgJ" secondAttribute="bottom" constant="8" symbolic="YES" id="oq2-vA-i4U"/>
                             <constraint firstItem="rns-NB-ddw" firstAttribute="top" secondItem="ISz-zZ-rgJ" secondAttribute="bottom" id="plX-4l-hNz"/>
                             <constraint firstItem="rns-NB-ddw" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leading" id="rFm-XB-Naj"/>
@@ -619,6 +647,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="distanceLabel" destination="oVI-ae-jA3" id="Dvf-5b-nUD"/>
                         <outlet property="mapView" destination="OfE-Rs-hOK" id="l86-aa-Erm"/>
                         <outlet property="speedLabel" destination="3NA-Og-DLZ" id="eBM-Kd-jvF"/>
                     </connections>
@@ -966,6 +995,6 @@
         <image name="tire" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EHO-L0-alx"/>
+        <segue reference="PYW-lh-Ghj"/>
     </inferredMetricsTieBreakers>
 </document>

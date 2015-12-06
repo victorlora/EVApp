@@ -14,9 +14,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var speedLabel: UILabel!
+    @IBOutlet var distanceLabel: UILabel!
     
     var locationManager = CLLocationManager()
-    var startingLocation = ""
+    var locationArr = [CLLocation?]()
+    var startingLocation: CLLocation?
+    var distanceTraveled: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +42,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
+        //print(locations)
         let userLocation: CLLocation = locations[0]
+        if locationArr.count != 1 {
+            self.locationArr.append(userLocation)
+            self.startingLocation = self.locationArr.first!
+        }
+        self.distanceTraveled = Double(userLocation.distanceFromLocation(self.startingLocation!)) * 0.000621371
         
         let latitude = userLocation.coordinate.latitude
+
         let longitude = userLocation.coordinate.longitude
         
         let latDelta: CLLocationDegrees = 0.01
@@ -63,8 +72,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.showsTraffic = true;
         
         // print user speed
-        speedLabel.text = String(format: "%.2f", userLocation.speed * 2.23694)
-
+        speedLabel.text = String(format: "%.0f", userLocation.speed * 2.23694)
+        distanceLabel.text = String(format:"%.2f", self.distanceTraveled) + " mi."
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
