@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -368,22 +370,22 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oq-CB-V50">
-                                <rect key="frame" x="129" y="410" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5F-c7-Std">
+                                <rect key="frame" x="283" y="239" width="34" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrO-29-ezY">
-                                <rect key="frame" x="279" y="410" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas Station" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiw-QS-1J6">
+                                <rect key="frame" x="419" y="233" width="62" height="49"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytG-UK-ibh">
-                                <rect key="frame" x="429" y="410" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accesories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytG-UK-ibh">
+                                <rect key="frame" x="408" y="410" width="85" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -501,22 +503,22 @@
                                 <color key="textColor" red="1" green="0.94806034480000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5F-c7-Std">
-                                <rect key="frame" x="279" y="239" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Certified Mechanic" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oq-CB-V50">
+                                <rect key="frame" x="106" y="410" width="89" height="46"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiw-QS-1J6">
-                                <rect key="frame" x="429" y="239" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrO-29-ezY">
+                                <rect key="frame" x="277" y="410" width="47" height="46"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1D6-JN-DtO">
-                                <rect key="frame" x="129" y="239" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charging Stations" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1D6-JN-DtO">
+                                <rect key="frame" x="108" y="234" width="84" height="49"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -526,60 +528,66 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nrO-29-ezY" firstAttribute="leading" secondItem="k5F-c7-Std" secondAttribute="leading" id="0uo-cA-Vbi"/>
                             <constraint firstItem="iHV-E5-Mbu" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" id="4wa-c7-FEH"/>
                             <constraint firstItem="sHp-EE-ZB4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qEi-aN-qtl" secondAttribute="trailing" constant="10" id="5pT-Zl-1Bc"/>
+                            <constraint firstItem="w67-5g-tpC" firstAttribute="leading" secondItem="1D6-JN-DtO" secondAttribute="trailing" constant="58" id="7C5-RX-BFJ"/>
+                            <constraint firstItem="uiw-QS-1J6" firstAttribute="centerX" secondItem="zMz-jB-TBW" secondAttribute="centerX" id="7SM-uR-kyC"/>
                             <constraint firstItem="GSc-uH-g27" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="20" id="8Ay-9D-4CW"/>
-                            <constraint firstItem="uHE-nW-SDd" firstAttribute="top" secondItem="1D6-JN-DtO" secondAttribute="bottom" constant="60" id="8Ql-5R-fT5"/>
-                            <constraint firstItem="nrO-29-ezY" firstAttribute="centerX" secondItem="qEi-aN-qtl" secondAttribute="centerX" id="9ky-gc-9X7"/>
-                            <constraint firstItem="ytG-UK-ibh" firstAttribute="leading" secondItem="uiw-QS-1J6" secondAttribute="leading" id="Cyq-0C-Uxw"/>
+                            <constraint firstItem="nrO-29-ezY" firstAttribute="centerX" secondItem="qEi-aN-qtl" secondAttribute="centerX" id="8Ge-sq-cwI"/>
+                            <constraint firstItem="3oq-CB-V50" firstAttribute="centerX" secondItem="uHE-nW-SDd" secondAttribute="centerX" id="9WZ-gm-per"/>
+                            <constraint firstItem="1D6-JN-DtO" firstAttribute="centerX" secondItem="u3X-10-HS0" secondAttribute="centerX" id="9y0-Ig-87k"/>
+                            <constraint firstItem="sHp-EE-ZB4" firstAttribute="leading" secondItem="nrO-29-ezY" secondAttribute="trailing" constant="76" id="CWN-34-SXc"/>
                             <constraint firstItem="w67-5g-tpC" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="127" id="DKv-6K-BUH"/>
-                            <constraint firstItem="1D6-JN-DtO" firstAttribute="baseline" secondItem="k5F-c7-Std" secondAttribute="baseline" id="GY0-OP-re7"/>
+                            <constraint firstItem="ytG-UK-ibh" firstAttribute="baseline" secondItem="nrO-29-ezY" secondAttribute="firstBaseline" id="FpN-LT-Lhr"/>
+                            <constraint firstItem="3oq-CB-V50" firstAttribute="baseline" secondItem="nrO-29-ezY" secondAttribute="baseline" id="JUj-P2-EAe"/>
                             <constraint firstItem="zMz-jB-TBW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="w67-5g-tpC" secondAttribute="trailing" constant="10" id="KGv-TX-27O"/>
+                            <constraint firstItem="k5F-c7-Std" firstAttribute="baseline" secondItem="1D6-JN-DtO" secondAttribute="firstBaseline" constant="5" id="KgA-7O-WV3"/>
                             <constraint firstItem="w67-5g-tpC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="u3X-10-HS0" secondAttribute="trailing" constant="10" id="NQf-r3-3KP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iHV-E5-Mbu" secondAttribute="trailing" constant="-20" id="OT0-sD-0GY"/>
                             <constraint firstItem="Ikb-hw-xOc" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="8" symbolic="YES" id="Pjw-WY-0Ep"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="GSc-uH-g27" secondAttribute="trailing" constant="20" id="QFN-9r-es1"/>
+                            <constraint firstItem="uiw-QS-1J6" firstAttribute="leading" secondItem="w67-5g-tpC" secondAttribute="trailing" constant="69" id="SgE-wo-O7k"/>
                             <constraint firstItem="fP1-Eg-jKA" firstAttribute="top" secondItem="iHV-E5-Mbu" secondAttribute="bottom" id="Sob-pd-oHb"/>
+                            <constraint firstItem="k5F-c7-Std" firstAttribute="baseline" secondItem="uiw-QS-1J6" secondAttribute="firstBaseline" constant="6" id="Uuo-xm-FOc"/>
                             <constraint firstItem="u3X-10-HS0" firstAttribute="leading" relation="lessThanOrEqual" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="80" id="WHI-Ez-uMl"/>
                             <constraint firstItem="GSc-uH-g27" firstAttribute="leading" relation="lessThanOrEqual" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="40" id="Wi6-Bj-wBt"/>
                             <constraint firstItem="u3X-10-HS0" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="127" id="X3n-Qf-gJP"/>
                             <constraint firstItem="GSc-uH-g27" firstAttribute="top" secondItem="uHE-nW-SDd" secondAttribute="bottom" constant="80" id="Xez-7o-FaA"/>
-                            <constraint firstItem="k5F-c7-Std" firstAttribute="baseline" secondItem="uiw-QS-1J6" secondAttribute="baseline" id="YAg-sg-pRr"/>
+                            <constraint firstItem="qEi-aN-qtl" firstAttribute="top" secondItem="k5F-c7-Std" secondAttribute="bottom" constant="60" id="XqX-vB-lA3"/>
                             <constraint firstItem="uHE-nW-SDd" firstAttribute="top" secondItem="u3X-10-HS0" secondAttribute="bottom" constant="73" id="ZV8-L7-MJN"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="zMz-jB-TBW" secondAttribute="trailing" constant="80" id="aT9-NO-gLT"/>
-                            <constraint firstItem="nrO-29-ezY" firstAttribute="baseline" secondItem="3oq-CB-V50" secondAttribute="baseline" id="b4l-Gc-Nft"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="GSc-uH-g27" secondAttribute="trailing" constant="40" id="b5j-Rr-ziS"/>
                             <constraint firstItem="iHV-E5-Mbu" firstAttribute="leading" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="-20" id="bbM-gx-NIS"/>
-                            <constraint firstItem="1D6-JN-DtO" firstAttribute="leading" secondItem="3oq-CB-V50" secondAttribute="leading" id="brl-1z-d0c"/>
+                            <constraint firstItem="k5F-c7-Std" firstAttribute="centerX" secondItem="w67-5g-tpC" secondAttribute="centerX" id="bkU-11-jUA"/>
                             <constraint firstItem="Ikb-hw-xOc" firstAttribute="trailing" secondItem="zoU-XM-V2w" secondAttribute="trailingMargin" id="cJq-4b-JlD"/>
-                            <constraint firstItem="3oq-CB-V50" firstAttribute="centerX" secondItem="uHE-nW-SDd" secondAttribute="centerX" id="cLv-FZ-ihh"/>
                             <constraint firstItem="qEi-aN-qtl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uHE-nW-SDd" secondAttribute="trailing" constant="10" id="e4U-mL-6LP"/>
+                            <constraint firstItem="1D6-JN-DtO" firstAttribute="baseline" secondItem="uiw-QS-1J6" secondAttribute="baseline" constant="1" id="eQy-qb-HXm"/>
                             <constraint firstItem="qEi-aN-qtl" firstAttribute="top" secondItem="w67-5g-tpC" secondAttribute="bottom" constant="73" id="f5f-gs-wAd"/>
+                            <constraint firstItem="GSc-uH-g27" firstAttribute="top" secondItem="ytG-UK-ibh" secondAttribute="bottom" constant="69" id="g2d-N2-1uV"/>
                             <constraint firstItem="sHp-EE-ZB4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="qEi-aN-qtl" secondAttribute="trailing" constant="50" id="gk9-nt-CY4"/>
+                            <constraint firstItem="qEi-aN-qtl" firstAttribute="leading" secondItem="3oq-CB-V50" secondAttribute="trailing" constant="55" id="hOv-rq-PtQ"/>
                             <constraint firstItem="w67-5g-tpC" firstAttribute="leading" relation="lessThanOrEqual" secondItem="u3X-10-HS0" secondAttribute="trailing" constant="50" id="jBz-7Y-8Yx"/>
+                            <constraint firstItem="GSc-uH-g27" firstAttribute="top" secondItem="3oq-CB-V50" secondAttribute="bottom" constant="44" id="mrn-Db-hFZ"/>
                             <constraint firstItem="zMz-jB-TBW" firstAttribute="top" secondItem="riC-Pe-yjr" secondAttribute="bottom" constant="127" id="nIm-yS-bos"/>
-                            <constraint firstItem="ytG-UK-ibh" firstAttribute="centerX" secondItem="sHp-EE-ZB4" secondAttribute="centerX" id="pvT-AM-vvj"/>
+                            <constraint firstItem="ytG-UK-ibh" firstAttribute="baseline" secondItem="3oq-CB-V50" secondAttribute="firstBaseline" id="oKe-XL-rXf"/>
+                            <constraint firstItem="uHE-nW-SDd" firstAttribute="top" secondItem="1D6-JN-DtO" secondAttribute="bottom" constant="37" id="pU8-vk-nDo"/>
                             <constraint firstItem="w67-5g-tpC" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" id="pzo-Wv-AUw"/>
                             <constraint firstItem="uHE-nW-SDd" firstAttribute="leading" relation="lessThanOrEqual" secondItem="zoU-XM-V2w" secondAttribute="leadingMargin" constant="80" id="rrv-Wz-t2f"/>
+                            <constraint firstItem="ytG-UK-ibh" firstAttribute="centerX" secondItem="sHp-EE-ZB4" secondAttribute="centerX" id="ruI-C1-4yg"/>
                             <constraint firstItem="sHp-EE-ZB4" firstAttribute="top" secondItem="zMz-jB-TBW" secondAttribute="bottom" constant="73" id="ruy-tp-QmE"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="sHp-EE-ZB4" secondAttribute="trailing" constant="80" id="sEZ-rU-cjf"/>
                             <constraint firstItem="GSc-uH-g27" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" id="sq5-0M-0lk"/>
-                            <constraint firstItem="GSc-uH-g27" firstAttribute="top" secondItem="3oq-CB-V50" secondAttribute="bottom" constant="69" id="szC-ul-DG6"/>
                             <constraint firstItem="qEi-aN-qtl" firstAttribute="centerX" secondItem="zoU-XM-V2w" secondAttribute="centerX" id="wK0-2r-ITn"/>
-                            <constraint firstItem="ytG-UK-ibh" firstAttribute="baseline" secondItem="nrO-29-ezY" secondAttribute="baseline" id="y8l-EH-nYX"/>
                             <constraint firstItem="zMz-jB-TBW" firstAttribute="leading" relation="lessThanOrEqual" secondItem="w67-5g-tpC" secondAttribute="trailing" constant="50" id="yW4-8h-QJP"/>
                             <constraint firstItem="qEi-aN-qtl" firstAttribute="leading" relation="lessThanOrEqual" secondItem="uHE-nW-SDd" secondAttribute="trailing" constant="50" id="z7U-ku-gfm"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="accesories" destination="y8l-EH-nYX" id="8NV-RC-22N"/>
                         <outlet property="accesoriesLabel" destination="ytG-UK-ibh" id="qYj-E6-yOp"/>
                         <outlet property="carInfo" destination="nrO-29-ezY" id="NtX-Rn-Mwe"/>
                         <outlet property="carInfoLabel" destination="nrO-29-ezY" id="slt-60-Rtp"/>
                         <outlet property="certifiedMechanic" destination="3oq-CB-V50" id="sqg-2h-WlA"/>
                         <outlet property="certifiedMechanicLabel" destination="3oq-CB-V50" id="2su-ry-pEI"/>
-                        <outlet property="chargingStation" destination="GY0-OP-re7" id="0hn-g3-8iO"/>
                         <outlet property="chargingStationLabel" destination="1D6-JN-DtO" id="z5i-U8-pu4"/>
                         <outlet property="funFactLabel" destination="GSc-uH-g27" id="xTb-NK-gfV"/>
                         <outlet property="gasStation" destination="uiw-QS-1J6" id="16g-fQ-Zeu"/>
@@ -1150,6 +1158,6 @@
         <image name="tire" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ghK-oS-mbO"/>
+        <segue reference="rJt-Wc-9vn"/>
     </inferredMetricsTieBreakers>
 </document>

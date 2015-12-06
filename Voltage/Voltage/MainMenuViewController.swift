@@ -22,12 +22,6 @@ var milesLeftEstimate: Double = 0.0      // Stores mileage remaining estimate
 class MainMenuViewController: UIViewController {
     
 
-    @IBOutlet weak var chargingStationLabel: UILabel!
-    @IBOutlet weak var mapViewLabel: UILabel!
-    @IBOutlet weak var gasStationLabel: UILabel!
-    @IBOutlet weak var certifiedMechanicLabel: UILabel!
-    @IBOutlet weak var carInfoLabel: UILabel!
-    @IBOutlet weak var accesoriesLabel: UILabel!
     @IBOutlet weak var funFactLabel: UILabel!
     
     var time = NSTimer()
@@ -38,12 +32,6 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chargingStationLabel.text = "Charging Stations"
-        mapViewLabel.text = "Map"
-        gasStationLabel.text = "Gas Stations"
-        certifiedMechanicLabel.text = "Certified Mechanic"
-        carInfoLabel.text = "Car Info"
-        accesoriesLabel.text = "Accesories"
         if isConnectedToNetwork() == true {
             showFunFact();
             time = .scheduledTimerWithTimeInterval(5, target: self, selector: Selector("showFunFact"), userInfo: nil, repeats: true)
