@@ -223,10 +223,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         carTaskLabel.text = "Select Car Model"
         
-        backButton.setTitle("Back", forState: .Normal)
-        
+        backButton.setTitle("< Make", forState: .Normal)
         backButton.hidden = false
-        backButton.setTitle("Back", forState: .Normal)
         saveCarLabel.hidden = true
         saveCar.hidden = true
         continueButton.hidden = true
@@ -249,10 +247,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let car = UIImage(named: "\(maker.lowercaseString).png")
         carLogo.image = car
         carTaskLabel.text = "Select Car Year"
-        backButton.setTitle("Back", forState: .Normal)
-        
+        backButton.setTitle("< Model", forState: .Normal)
         backButton.hidden = false
-        backButton.setTitle("Back", forState: .Normal)
         saveCarLabel.hidden = true
         saveCar.hidden = true
         continueButton.hidden = true
@@ -269,10 +265,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let car = UIImage(named: "\(maker.lowercaseString).png")
         carLogo.image = car
         carTaskLabel.text = "Select Car Style"
-        backButton.setTitle("Back", forState: .Normal)
-        
+        backButton.setTitle("< Year", forState: .Normal)
         backButton.hidden = false
-        backButton.setTitle("Back", forState: .Normal)
         saveCarLabel.hidden = true
         saveCar.hidden = true
         
