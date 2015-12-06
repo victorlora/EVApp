@@ -12,29 +12,31 @@ import Foundation
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
+    //----------------UI Links----------------
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var speedLabel: UILabel!
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet var fuelEstLabel: UILabel!
     
+    //----------------Location Vars----------------
     var locationManager = CLLocationManager()
     var locationArr = [CLLocation?]()
     var startingLocation: CLLocation?
     var distanceTraveled: Double = 0
     
+    //--------------------------Functions--------------------------------
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Setup mapView
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
         let refreshAlert = UIAlertController(title: "Memory Warning", message: "All data cannot be saved.", preferredStyle: UIAlertControllerStyle.Alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
@@ -43,50 +45,53 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //print(locations)
         let userLocation: CLLocation = locations[0]
+        
+        // Store users initial location-necessary for distance traveled
         if locationArr.count != 1 {
             self.locationArr.append(userLocation)
             self.startingLocation = self.locationArr.first!
         }
         
+        // Set distance traveled
         self.distanceTraveled = Double(userLocation.distanceFromLocation(self.startingLocation!)) * 0.000621371
-        
+        // Check for user defaults for mileage estimate
         if (NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") != nil) {
-            fuelEstimate = fuelEstimate - (distanceTraveled / Double(combinedMPG))
-            print(fuelEstimate)
-            NSUserDefaults.standardUserDefaults().setObject(fuelEstimate, forKey: "fuelEstimate")
-            fuelEstLabel.text = String(format: "%.0f", fuelEstimate) + " mi."
+            milesLeftEstimate = milesLeftEstimate - (distanceTraveled / Double(combinedMPG))
+            print(milesLeftEstimate)
+            NSUserDefaults.standardUserDefaults().setObject(milesLeftEstimate, forKey: "fuelEstimate")
+            fuelEstLabel.text = String(format: "%.0f", milesLeftEstimate) + " mi."
         } else {
             fuelEstLabel.text = "N/A"
         }
-        let latitude = userLocation.coordinate.latitude
-
-        let longitude = userLocation.coordinate.longitude
         
+        // Display user's speed and distance traveled
+        speedLabel.text = String(format: "%.0f", userLocation.speed * 2.23694)
+        distanceLabel.text = String(format: "%.2f", self.distanceTraveled) + " mi."
+        
+        // Set lat and lon
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
+        // Set zoom amount
         let latDelta: CLLocationDegrees = 0.01
         let lonDelta: CLLocationDegrees = 0.01
-        
+        // Create view variables and region of interest
         let span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
-        
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-        
         let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
-       
-        // center map at this region
+        // Center map at this region
         self.mapView.setRegion(region, animated: true)
         
+        // Enable map features
         self.mapView.showsUserLocation = true;
         self.mapView.showsScale = true;
         self.mapView.showsPointsOfInterest = true;
         self.mapView.showsTraffic = true;
-        
-        // print user speed
-        speedLabel.text = String(format: "%.0f", userLocation.speed * 2.23694)
-        distanceLabel.text = String(format: "%.2f", self.distanceTraveled) + " mi."
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Stop updating location when user moves on to a different page
+        // This may be something we want the user to run in the backgroun...?
         locationManager.stopUpdatingLocation()
     }
 }

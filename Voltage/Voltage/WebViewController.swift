@@ -2,7 +2,7 @@
 //  WebViewController.swift
 //  Voltage
 //
-//  Created by admin on 12/5/15.
+//  Created by Victor Lora on 12/5/15.
 //  Copyright © 2015 EV-APP. All rights reserved.
 //
 
@@ -31,9 +31,12 @@ class WebViewController: UIViewController {
         }
     }
 
+    /* webLoad()
+     * @description
+     *      Load desired webpage
+     */
     func webLoad(){
         let url = NSURL(string: "http://www.autozone.com")!
-        
         webView.loadRequest(NSURLRequest(URL: url))
     }
     
@@ -48,6 +51,11 @@ class WebViewController: UIViewController {
         
         presentViewController(refreshAlert, animated: true, completion: nil)
     }
+    
+    /* isConnectedToNetwork()
+     * @description
+     *      Checks for network connection
+     */
     
     func isConnectedToNetwork() -> Bool {
         

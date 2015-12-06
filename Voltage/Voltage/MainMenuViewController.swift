@@ -2,21 +2,22 @@
 //  MainMenuViewController.swift
 //  Voltage
 //
-//  Created by admin on 11/29/15.
+//  Created by Victor Lora on 11/29/15.
 //  Copyright © 2015 EV-APP. All rights reserved.
 //
 
 import UIKit
 import SystemConfiguration
 
-var carInfo = [String]()
-var id = ""
 
-var mpgCity:Int = 0
-var mpgHighway:Int = 0
-var combinedMPG = 0
-var fuelCap = ""
-var fuelEstimate: Double = 0.0
+//----------------Static Vars----------------
+var carInfo = [String]()            // List of car information
+var styleId = ""                    // Stores style id
+var mpgCity:Int = 0                 // Stores city mpg
+var mpgHighway:Int = 0              // Stores highway mpg
+var combinedMPG = 0                 // Stores combined mpg
+var fuelCap = ""                    // Stores fuel tank capacity
+var milesLeftEstimate: Double = 0.0      // Stores mileage remaining estimate
 
 class MainMenuViewController: UIViewController {
     
@@ -38,9 +39,9 @@ class MainMenuViewController: UIViewController {
             getCarInfo()
             getTankCapacity()
             if (NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") != nil) {
-                fuelEstimate = NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") as! Double
+                milesLeftEstimate = NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") as! Double
             }
-            print(fuelEstimate)
+            print(milesLeftEstimate)
         }
         else{
             let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
@@ -128,7 +129,7 @@ class MainMenuViewController: UIViewController {
                                                     if let carStyle = style["name"] as? String {
                                                         if carStyle.isEqual(userStyle) {
                                                             if (style["id"] != nil) {
-                                                                id = String(style["id"]!)
+                                                                styleId = String(style["id"]!)
                                                             }
                                                         }
                                                     }
@@ -158,7 +159,7 @@ class MainMenuViewController: UIViewController {
         carInfo = [String]()
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(id)?view=full&fmt=json&api_key=\(APIKey)")!
+        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(styleId)?view=full&fmt=json&api_key=\(APIKey)")!
         
         // Get JSON data
         let data = NSData(contentsOfURL: url)!
@@ -214,7 +215,7 @@ class MainMenuViewController: UIViewController {
         
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(id)/equipment?availability=standard&equipmentType=OTHER&fmt=json&api_key=\(APIKey)")!
+        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(styleId)/equipment?availability=standard&equipmentType=OTHER&fmt=json&api_key=\(APIKey)")!
         
         // Get JSON data
         let data = NSData(contentsOfURL: url)!

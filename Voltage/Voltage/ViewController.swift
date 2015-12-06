@@ -11,7 +11,7 @@ import Foundation
 import SystemConfiguration
 
 
-//---------Static User Selections----------------
+//----------------Static User Selections----------------
 var userMake:String = ""            // Stores user's make selection
 var userModel:String = ""           // Stores user's model selection
 var userYear:String = ""            // Stores user's year selection
@@ -21,10 +21,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //--------------------------Variables--------------------------------
     
-    //---------Storyboard Links--------------
+    //--------------UI Links--------------
     @IBOutlet weak var carViewer: UITableView!
     @IBOutlet weak var carTaskLabel: UILabel!
     @IBOutlet weak var errorHandler: UILabel!
+    @IBOutlet var continueButton: UIButton!
 
     @IBOutlet weak var carLogo: UIImageView!
     @IBOutlet weak var backButton: UIButton!
@@ -39,7 +40,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    //---------Car Save Toggle--------------
+    //--------------Car Save Toggle--------------
+    var saveSelection = false
     @IBOutlet var saveCarLabel: UILabel!
     @IBOutlet var saveCar: UISwitch!
     @IBAction func saveCar(sender: AnyObject) {
@@ -52,11 +54,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    @IBOutlet var continueButton: UIButton!
+
     
-    var saveSelection = false       // User's choice to save their car
+
     
-    //--------------API-----------------------
+    //-----------------------API-----------------------
     private let API = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
     private let APIKey = "6m8ettta5byepu43rkhsc79j"
     
@@ -102,6 +104,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
     }
     
+    
+    /* beginView()
+     * @description
+     *      Checks for user defaults. If present, moves on to main menu, else
+     *      allows user to select their vehicle and save it if they choose
+     */
     func beginView(){
         if (NSUserDefaults.standardUserDefaults().objectForKey("make") != nil) {
             userMake = NSUserDefaults.standardUserDefaults().objectForKey("make") as! String
@@ -147,7 +155,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         presentViewController(refreshAlert, animated: true, completion: nil)
     }
     
-     func isConnectedToNetwork() -> Bool {
+    /* isConnectedToNetwork()
+     * @description
+     *      Checks for network connection
+     */
+    
+    func isConnectedToNetwork() -> Bool {
         
         var blankAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         blankAddress.sin_len = UInt8(sizeofValue(blankAddress))
@@ -338,9 +351,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         } catch {
             errorHandler.text="Error finding models"
-        }
-        }
-        else {
+        }} else {
             print("Internet Not Available")
             let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
             
@@ -398,9 +409,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
         } catch {
             errorHandler.text="Error finding years"
-        }
-        }
-        else {
+        }} else {
             print("Internet Not Available")
             let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
             
@@ -413,10 +422,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    /* getStyles()
+    * @description
+    *      Makes API call and parses JSON to compile a list
+    *      of car styles based on make, model and year
+    */
+    
     func getStyles() {
         if isConnectedToNetwork() == true {
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))/models?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"
+        let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))/models?fmt=json&api_key=\(APIKey)"
         let url = NSURL(string: edmundsAPI)!
         
         // Get JSON data
@@ -452,9 +467,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
         } catch {
             errorHandler.text="Error finding styles"
-        }
-        }
-        else {
+        }} else {
             print("Internet Not Available")
             let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
             
@@ -467,18 +480,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
 
     }
-
-    
-    /* getCarInfo()
-    * @description
-    *      Makes API call and parses JSON to compile a list
-    *       of car years based on make and model
-    */
-    
-    func getCarInfo() {
-//        print(userMake + " " + userModel + " " + userYear)
-    }
-
 
     /* configureView()
      * @description
@@ -511,7 +512,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     /* tableView()
      * @description
      *      Generates table containing all the items in the
-     *       corresponding array
+     *      corresponding array
      */
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -564,6 +565,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             carTaskLabel.text = "" + userYear + " " + userMake + " " + userModel + " " + userStyle
         }
     }
-
+    
 }
 
