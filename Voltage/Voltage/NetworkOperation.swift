@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class NetworkOperation {
     
     lazy var config: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -47,4 +48,5 @@ class NetworkOperation {
         
         dataTask.resume()
     }
+    
 }

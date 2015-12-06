@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SystemConfiguration
 
 var carInfo = [String]()
 var id = ""
@@ -29,11 +30,26 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if isConnectedToNetwork() == true {
         showFunFact();
         time = .scheduledTimerWithTimeInterval(5, target: self, selector: Selector("showFunFact"), userInfo: nil, repeats: true)
         getStyleId()
         getCarInfo()
         getTankCapacity()
+        }
+        else{
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: { (action: UIAlertAction!) in
+                self.getStyleId()
+                self.getCarInfo()
+                self.getTankCapacity()
+            }))
+            dispatch_async(dispatch_get_main_queue(), {
+                self.presentViewController(refreshAlert, animated: true, completion: nil)
+            })
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +63,29 @@ class MainMenuViewController: UIViewController {
         
         presentViewController(refreshAlert, animated: true, completion: nil)
     }
+    
+    func isConnectedToNetwork() -> Bool {
+        
+        var blankAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+        blankAddress.sin_len = UInt8(sizeofValue(blankAddress))
+        blankAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(&blankAddress) {
+            SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, UnsafePointer($0))
+        }
+        
+        var stop: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
+        if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &stop) == false {
+            return false
+        }
+        
+        let Reachable = stop == .Reachable
+        let requiresConnection = stop == .ConnectionRequired
+        
+        return Reachable && !requiresConnection
+        
+    }
+
     
     @IBAction func showFunFact(){
         funFactLabel.text = factBook.randomFact()
