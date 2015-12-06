@@ -610,12 +610,11 @@
                                 <rect key="frame" x="-11" y="20" width="611" height="588"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7O-8z-5ZK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7O-8z-5ZK">
                                 <rect key="frame" x="19" y="30" width="43" height="30"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="43" id="FPk-ky-crK"/>
-                                    <constraint firstAttribute="width" secondItem="c7O-8z-5ZK" secondAttribute="height" multiplier="43:30" id="asB-QY-YoD"/>
+                                    <constraint firstAttribute="width" constant="43" id="VGF-a4-hKL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Back">
@@ -625,7 +624,7 @@
                                     <segue destination="q9s-aJ-BVj" kind="show" id="9zw-in-Bdt"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y74-QS-wLT">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y74-QS-wLT">
                                 <rect key="frame" x="-1" y="56" width="600" height="554"/>
                                 <animations/>
                             </mapView>
@@ -633,8 +632,12 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="c7O-8z-5ZK" firstAttribute="width" secondItem="c7O-8z-5ZK" secondAttribute="height" multiplier="43:30" id="jYk-43-hCm"/>
-                            <constraint firstItem="c7O-8z-5ZK" firstAttribute="width" secondItem="c7O-8z-5ZK" secondAttribute="height" multiplier="43:30" id="xgK-af-ixR"/>
+                            <constraint firstItem="Y74-QS-wLT" firstAttribute="leading" secondItem="N2u-b9-T7l" secondAttribute="leadingMargin" constant="-21" id="AdV-ml-D6y"/>
+                            <constraint firstItem="c7O-8z-5ZK" firstAttribute="leading" secondItem="N2u-b9-T7l" secondAttribute="leadingMargin" constant="-1" id="E0v-Qi-0QO"/>
+                            <constraint firstItem="c7O-8z-5ZK" firstAttribute="top" secondItem="eD6-98-Giu" secondAttribute="bottom" constant="10" id="JMk-cF-9bN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y74-QS-wLT" secondAttribute="trailing" constant="-19" id="RTM-JE-i7o"/>
+                            <constraint firstItem="Y74-QS-wLT" firstAttribute="top" secondItem="eD6-98-Giu" secondAttribute="bottom" constant="36" id="r8H-Ra-ZFL"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Y74-QS-wLT" secondAttribute="bottom" constant="-10" id="vpK-63-35f"/>
                         </constraints>
                     </view>
                 </viewController>
