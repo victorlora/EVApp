@@ -701,8 +701,42 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Car Settings" footerTitle="Change your car settings here" id="uhe-Gy-Xz3">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hQT-Ll-p0S">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="wgV-Yr-czC">
                                         <rect key="frame" x="0.0" y="249" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wgV-Yr-czC" id="GD6-QV-Eni">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sy-d5-IUa">
+                                                    <rect key="frame" x="266" y="8" width="0.0" height="0.0"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="7sy-d5-IUa" secondAttribute="height" multiplier="250:21" id="yiT-VP-aqf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngG-vb-LJL">
+                                                    <rect key="frame" x="15" y="7" width="72" height="30"/>
+                                                    <animations/>
+                                                    <state key="normal" title="Select Car"/>
+                                                    <connections>
+                                                        <segue destination="BYZ-38-t0r" kind="show" identifier="selectCar" id="fxP-iw-jVq"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="7sy-d5-IUa" firstAttribute="leading" secondItem="GD6-QV-Eni" secondAttribute="leadingMargin" constant="258" id="AjV-Xc-o4q"/>
+                                                <constraint firstItem="7sy-d5-IUa" firstAttribute="top" secondItem="GD6-QV-Eni" secondAttribute="topMargin" id="rSG-fZ-sOX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hQT-Ll-p0S">
+                                        <rect key="frame" x="0.0" y="293" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hQT-Ll-p0S" id="tls-Nn-JjB">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -748,40 +782,6 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="wgV-Yr-czC">
-                                        <rect key="frame" x="0.0" y="293" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wgV-Yr-czC" id="GD6-QV-Eni">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sy-d5-IUa">
-                                                    <rect key="frame" x="266" y="8" width="0.0" height="0.0"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="7sy-d5-IUa" secondAttribute="height" multiplier="250:21" id="yiT-VP-aqf"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngG-vb-LJL">
-                                                    <rect key="frame" x="15" y="7" width="72" height="30"/>
-                                                    <animations/>
-                                                    <state key="normal" title="Select Car"/>
-                                                    <connections>
-                                                        <segue destination="BYZ-38-t0r" kind="show" identifier="selectCar" id="fxP-iw-jVq"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="7sy-d5-IUa" firstAttribute="leading" secondItem="GD6-QV-Eni" secondAttribute="leadingMargin" constant="258" id="AjV-Xc-o4q"/>
-                                                <constraint firstItem="7sy-d5-IUa" firstAttribute="top" secondItem="GD6-QV-Eni" secondAttribute="topMargin" id="rSG-fZ-sOX"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="31a-aA-i66">
                                         <rect key="frame" x="0.0" y="337" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -806,11 +806,11 @@
                                                         <constraint firstAttribute="width" secondItem="YM8-J6-x3L" secondAttribute="height" multiplier="49:31" id="tNH-6g-HFd"/>
                                                     </constraints>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow NoMoGas to access location in order to update statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-ol-AR0">
-                                                    <rect key="frame" x="16" y="22" width="303" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Voltage to access location in order to update statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-ol-AR0">
+                                                    <rect key="frame" x="16" y="22" width="292" height="17"/>
                                                     <animations/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Kzh-ol-AR0" secondAttribute="height" multiplier="356:21" id="pNs-XI-3gj"/>
+                                                        <constraint firstAttribute="width" secondItem="Kzh-ol-AR0" secondAttribute="height" multiplier="356:21" constant="-2.1428571428571672" id="pNs-XI-3gj"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -925,6 +925,6 @@
         <image name="tire" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PYW-lh-Ghj"/>
+        <segue reference="EHO-L0-alx"/>
     </inferredMetricsTieBreakers>
 </document>

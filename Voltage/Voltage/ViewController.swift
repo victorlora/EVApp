@@ -91,11 +91,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             beginView()
         }
         else {
-            print("Internet Not Available")
             let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: { (action: UIAlertAction!) in
-                print("Handle Ok logic here")
                 self.beginView()
             }))
             dispatch_async(dispatch_get_main_queue(), {
