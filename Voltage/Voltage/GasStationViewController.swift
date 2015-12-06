@@ -12,6 +12,10 @@ import Foundation
 
 class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    //-----------------------API-----------------------
+    private let API = "http://api.mygasfeed.com/ "
+    private let APIKey = "iz01eibvxt "
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
