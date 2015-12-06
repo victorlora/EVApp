@@ -620,6 +620,30 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas Miles Remaining:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koy-Rn-HOU">
+                                <rect key="frame" x="20" y="571" width="153" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="88z-OA-lKB"/>
+                                    <constraint firstAttribute="width" secondItem="koy-Rn-HOU" secondAttribute="height" multiplier="51:7" id="QzD-fA-BsJ"/>
+                                    <constraint firstAttribute="height" constant="21" id="dbo-ip-LPO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-fj-5Mj">
+                                <rect key="frame" x="181" y="571" width="71" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="44q-tj-NAU"/>
+                                    <constraint firstAttribute="width" secondItem="7Dh-fj-5Mj" secondAttribute="height" multiplier="71:21" id="CZK-y3-dcq"/>
+                                    <constraint firstAttribute="width" constant="71" id="h1H-bu-Upz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -629,12 +653,16 @@
                             <constraint firstItem="z3H-IV-FWF" firstAttribute="top" secondItem="OfE-Rs-hOK" secondAttribute="bottom" constant="85" id="IAm-tC-LFd"/>
                             <constraint firstItem="3NA-Og-DLZ" firstAttribute="top" secondItem="OfE-Rs-hOK" secondAttribute="bottom" constant="8" id="KiD-Me-QGL"/>
                             <constraint firstItem="KEv-Rb-Pfd" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leadingMargin" constant="1" id="QP5-fg-53m"/>
+                            <constraint firstItem="7Dh-fj-5Mj" firstAttribute="top" secondItem="oVI-ae-jA3" secondAttribute="bottom" constant="5" id="TYd-Av-7fI"/>
                             <constraint firstItem="OfE-Rs-hOK" firstAttribute="centerX" secondItem="RiK-PA-4aN" secondAttribute="centerX" id="WBn-Ru-rV9"/>
                             <constraint firstItem="3NA-Og-DLZ" firstAttribute="leading" secondItem="KEv-Rb-Pfd" secondAttribute="trailing" constant="8" id="Wzj-pH-KqW"/>
                             <constraint firstItem="oVI-ae-jA3" firstAttribute="top" secondItem="OfE-Rs-hOK" secondAttribute="bottom" constant="30" id="ZNE-Hs-lLD"/>
                             <constraint firstItem="OfE-Rs-hOK" firstAttribute="top" secondItem="eXg-yS-Imh" secondAttribute="bottom" constant="8" symbolic="YES" id="ach-xz-UfH"/>
                             <constraint firstItem="oVI-ae-jA3" firstAttribute="leading" secondItem="JKh-FC-nOw" secondAttribute="trailing" constant="8" id="ahC-8B-GPo"/>
+                            <constraint firstItem="koy-Rn-HOU" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leadingMargin" id="dCA-Wi-Le8"/>
+                            <constraint firstItem="koy-Rn-HOU" firstAttribute="top" secondItem="oVI-ae-jA3" secondAttribute="bottom" constant="5" id="dNB-0m-Eby"/>
                             <constraint firstItem="JKh-FC-nOw" firstAttribute="top" secondItem="3NA-Og-DLZ" secondAttribute="bottom" constant="1" id="eh1-uu-Etg"/>
+                            <constraint firstItem="7Dh-fj-5Mj" firstAttribute="leading" secondItem="koy-Rn-HOU" secondAttribute="trailing" constant="8" id="ipm-oH-jvw"/>
                             <constraint firstItem="KEv-Rb-Pfd" firstAttribute="top" secondItem="OfE-Rs-hOK" secondAttribute="bottom" constant="8" id="keY-aY-1bk"/>
                             <constraint firstItem="JKh-FC-nOw" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leadingMargin" id="nTt-Cx-rlC"/>
                             <constraint firstItem="eXg-yS-Imh" firstAttribute="top" secondItem="ISz-zZ-rgJ" secondAttribute="bottom" constant="8" symbolic="YES" id="oq2-vA-i4U"/>
@@ -648,6 +676,7 @@
                     </view>
                     <connections>
                         <outlet property="distanceLabel" destination="oVI-ae-jA3" id="Dvf-5b-nUD"/>
+                        <outlet property="fuelEstLabel" destination="7Dh-fj-5Mj" id="JtB-JH-uyF"/>
                         <outlet property="mapView" destination="OfE-Rs-hOK" id="l86-aa-Erm"/>
                         <outlet property="speedLabel" destination="3NA-Og-DLZ" id="eBM-Kd-jvF"/>
                     </connections>
@@ -812,7 +841,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want your car selection to remain even after quitting the app?" lineBreakMode="headTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSd-hg-Enc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want your car selection to remain even after quitting the app?" lineBreakMode="headTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="HSd-hg-Enc">
                                                     <rect key="frame" x="15" y="22" width="309" height="19"/>
                                                     <animations/>
                                                     <constraints>
@@ -829,7 +858,7 @@
                                                         <constraint firstAttribute="width" secondItem="TuP-gi-DDZ" secondAttribute="height" multiplier="49:31" id="uvg-ye-hH0"/>
                                                     </constraints>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save Car Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4m-WO-pnQ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save Car Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="C4m-WO-pnQ">
                                                     <rect key="frame" x="15" y="8" width="144" height="21"/>
                                                     <animations/>
                                                     <constraints>
@@ -859,7 +888,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Statistics Using Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EA4-MJ-42u">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Statistics Using Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="EA4-MJ-42u">
                                                     <rect key="frame" x="16" y="8" width="250" height="21"/>
                                                     <animations/>
                                                     <constraints>
@@ -876,7 +905,7 @@
                                                         <constraint firstAttribute="width" secondItem="YM8-J6-x3L" secondAttribute="height" multiplier="49:31" id="tNH-6g-HFd"/>
                                                     </constraints>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Voltage to access location in order to update statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-ol-AR0">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Voltage to access location in order to update statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-ol-AR0">
                                                     <rect key="frame" x="16" y="22" width="292" height="17"/>
                                                     <animations/>
                                                     <constraints>
@@ -901,6 +930,62 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="RnV-wK-rKV">
+                                        <rect key="frame" x="0.0" y="381" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RnV-wK-rKV" id="wNn-QW-83l">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Fuel Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="4W9-jI-Tkr">
+                                                    <rect key="frame" x="16" y="11" width="127" height="21"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="4W9-jI-Tkr" secondAttribute="height" multiplier="250:21" constant="-123" id="3XQ-gp-xnG"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="wlS-MY-2bP">
+                                                    <rect key="frame" x="398" y="7" width="196" height="31"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="wlS-MY-2bP" secondAttribute="height" multiplier="353:30" constant="-161" id="0l9-LU-WAS"/>
+                                                        <constraint firstAttribute="height" constant="30" id="LAP-8j-BFp"/>
+                                                        <constraint firstAttribute="width" constant="192" id="cDB-9V-NCd"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="fuelSlider:" destination="2AB-h1-noa" eventType="valueChanged" id="tYN-Us-vUc"/>
+                                                    </connections>
+                                                </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tqu-Zj-lJr">
+                                                    <rect key="frame" x="350" y="11" width="42" height="21"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="egZ-pi-ql1"/>
+                                                        <constraint firstAttribute="width" constant="42" id="hbH-NU-SGw"/>
+                                                        <constraint firstAttribute="width" secondItem="tqu-Zj-lJr" secondAttribute="height" multiplier="2:1" id="lqk-UA-Wv5"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="wlS-MY-2bP" firstAttribute="top" secondItem="wNn-QW-83l" secondAttribute="topMargin" constant="-1" id="0GG-uj-h0S"/>
+                                                <constraint firstItem="wlS-MY-2bP" firstAttribute="leading" secondItem="tqu-Zj-lJr" secondAttribute="trailing" constant="8" id="H9Z-QC-LNB"/>
+                                                <constraint firstItem="4W9-jI-Tkr" firstAttribute="top" secondItem="wNn-QW-83l" secondAttribute="topMargin" constant="3" id="cqk-Sb-ZUk"/>
+                                                <constraint firstItem="4W9-jI-Tkr" firstAttribute="centerY" secondItem="wlS-MY-2bP" secondAttribute="centerY" id="gOM-SL-6h3"/>
+                                                <constraint firstItem="wlS-MY-2bP" firstAttribute="trailing" secondItem="wNn-QW-83l" secondAttribute="trailingMargin" id="hnc-Nh-pwv"/>
+                                                <constraint firstItem="tqu-Zj-lJr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4W9-jI-Tkr" secondAttribute="trailing" constant="5" id="mHU-2m-jMP"/>
+                                                <constraint firstItem="tqu-Zj-lJr" firstAttribute="top" secondItem="wNn-QW-83l" secondAttribute="topMargin" constant="3" id="veG-ys-VdV"/>
+                                                <constraint firstItem="4W9-jI-Tkr" firstAttribute="leading" secondItem="wNn-QW-83l" secondAttribute="leadingMargin" constant="8" id="z3R-Jg-f9R"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -909,6 +994,10 @@
                             <outlet property="delegate" destination="2AB-h1-noa" id="Yi5-Tg-v1c"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="fuelAmt" destination="tqu-Zj-lJr" id="YiL-pp-VD4"/>
+                        <outlet property="fuelSlider" destination="wlS-MY-2bP" id="dKc-RA-uUo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXH-Dd-hjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

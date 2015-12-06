@@ -10,8 +10,17 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    @IBOutlet var fuelSlider: UISlider!
+    @IBOutlet var fuelAmt: UILabel!
+    
+    @IBAction func fuelSlider(sender: UISlider) {
+        fuelEstimate = Double(fuelCap)! * Double(combinedMPG) * Double(fuelSlider.value) * 0.01
+        fuelAmt.text = String(format: "%.0f", fuelSlider.value) + " %"
+        NSUserDefaults.standardUserDefaults().setObject(fuelEstimate, forKey: "fuelEstimate")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        fuelAmt.text = String(Int(fuelSlider.value)) + " %"
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +46,7 @@ class SettingsTableViewController: UITableViewController {
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "model")
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "year")
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "style")
+        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "fuelEstimate")
         carInfo = [String]()
     }
 }

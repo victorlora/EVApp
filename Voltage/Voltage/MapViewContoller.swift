@@ -15,6 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var speedLabel: UILabel!
     @IBOutlet var distanceLabel: UILabel!
+    @IBOutlet var fuelEstLabel: UILabel!
     
     var locationManager = CLLocationManager()
     var locationArr = [CLLocation?]()
@@ -48,8 +49,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.locationArr.append(userLocation)
             self.startingLocation = self.locationArr.first!
         }
+        
         self.distanceTraveled = Double(userLocation.distanceFromLocation(self.startingLocation!)) * 0.000621371
         
+        if (NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") != nil) {
+            fuelEstimate = fuelEstimate - (distanceTraveled / Double(combinedMPG))
+            print(fuelEstimate)
+            NSUserDefaults.standardUserDefaults().setObject(fuelEstimate, forKey: "fuelEstimate")
+            fuelEstLabel.text = String(format: "%.0f", fuelEstimate) + " mi."
+        } else {
+            fuelEstLabel.text = "N/A"
+        }
         let latitude = userLocation.coordinate.latitude
 
         let longitude = userLocation.coordinate.longitude
@@ -73,7 +83,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         // print user speed
         speedLabel.text = String(format: "%.0f", userLocation.speed * 2.23694)
-        distanceLabel.text = String(format:"%.2f", self.distanceTraveled) + " mi."
+        distanceLabel.text = String(format: "%.2f", self.distanceTraveled) + " mi."
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

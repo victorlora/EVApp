@@ -16,6 +16,7 @@ var mpgCity:Int = 0
 var mpgHighway:Int = 0
 var combinedMPG = 0
 var fuelCap = ""
+var fuelEstimate: Double = 0.0
 
 class MainMenuViewController: UIViewController {
     
@@ -31,11 +32,15 @@ class MainMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if isConnectedToNetwork() == true {
-        showFunFact();
-        time = .scheduledTimerWithTimeInterval(5, target: self, selector: Selector("showFunFact"), userInfo: nil, repeats: true)
-        getStyleId()
-        getCarInfo()
-        getTankCapacity()
+            showFunFact();
+            time = .scheduledTimerWithTimeInterval(5, target: self, selector: Selector("showFunFact"), userInfo: nil, repeats: true)
+            getStyleId()
+            getCarInfo()
+            getTankCapacity()
+            if (NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") != nil) {
+                fuelEstimate = NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") as! Double
+            }
+            print(fuelEstimate)
         }
         else{
             let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
