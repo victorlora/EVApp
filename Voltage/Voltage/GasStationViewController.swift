@@ -12,6 +12,7 @@ import Foundation
 
 class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var gasStationMap: MKMapView!
     //-----------------------API-----------------------
     private let API = "http://api.mygasfeed.com/ "
     private let APIKey = "iz01eibvxt "

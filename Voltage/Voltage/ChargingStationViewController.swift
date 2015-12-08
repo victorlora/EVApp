@@ -12,6 +12,8 @@ import Foundation
 
 class ChargingStationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var chargingStationMap: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

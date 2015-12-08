@@ -620,10 +620,10 @@
             </objects>
             <point key="canvasLocation" x="1118" y="664"/>
         </scene>
-        <!--View Controller-->
+        <!--Charging Station View Controller-->
         <scene sceneID="Y8t-M9-8WR">
             <objects>
-                <viewController id="lVT-t3-Fya" sceneMemberID="viewController">
+                <viewController id="lVT-t3-Fya" customClass="ChargingStationViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eD6-98-Giu"/>
                         <viewControllerLayoutGuide type="bottom" id="lKe-w3-P6s"/>
@@ -670,15 +670,18 @@
                             <constraint firstAttribute="bottomMargin" secondItem="Y74-QS-wLT" secondAttribute="bottom" id="vpK-63-35f"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chargingStationMap" destination="Y74-QS-wLT" id="LXU-zL-CoY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wd5-tZ-mDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1096" y="1556"/>
         </scene>
-        <!--View Controller-->
+        <!--Gas Station View Controller-->
         <scene sceneID="Coa-89-H6q">
             <objects>
-                <viewController id="WRh-H7-H95" sceneMemberID="viewController">
+                <viewController id="WRh-H7-H95" customClass="GasStationViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kLb-1Y-3Hp"/>
                         <viewControllerLayoutGuide type="bottom" id="6Ay-pg-c6I"/>
@@ -741,6 +744,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="gasStationMap" destination="w3N-lF-suZ" id="z2I-jo-U6I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJ5-Pc-gdH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1296,6 +1302,6 @@
         <image name="tire" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n6e-pR-hBB"/>
+        <segue reference="9zw-in-Bdt"/>
     </inferredMetricsTieBreakers>
 </document>

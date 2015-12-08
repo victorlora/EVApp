@@ -17,7 +17,6 @@
 		5208A7B81BE7F81600CB4437 /* VoltageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208A7B71BE7F81600CB4437 /* VoltageTests.swift */; };
 		5208A7C31BE7F81600CB4437 /* VoltageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208A7C21BE7F81600CB4437 /* VoltageUITests.swift */; };
 		522FEFF71C107BB9000E5279 /* MapViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522FEFF61C107BB9000E5279 /* MapViewContoller.swift */; };
-		5263A5571BEAA9DF00A02452 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */; };
 		7E1E79F31C13595A007BDC39 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E79F21C13595A007BDC39 /* WebViewController.swift */; };
 		7E47FF601C0BDFB600DFC1C8 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E47FF5F1C0BDFB600DFC1C8 /* MainMenuViewController.swift */; };
 		7E6315001C07B96900D8EE88 /* CarInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6314FF1C07B96900D8EE88 /* CarInfoViewController.swift */; };
@@ -60,7 +59,6 @@
 		5208A7C21BE7F81600CB4437 /* VoltageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltageUITests.swift; sourceTree = "<group>"; };
 		5208A7C41BE7F81600CB4437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		522FEFF61C107BB9000E5279 /* MapViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewContoller.swift; sourceTree = "<group>"; };
-		5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		7E1E79F21C13595A007BDC39 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		7E47FF5F1C0BDFB600DFC1C8 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		7E6314FF1C07B96900D8EE88 /* CarInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInfoViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				7E47FF5F1C0BDFB600DFC1C8 /* MainMenuViewController.swift */,
 				E4A34D1D1C0E809200DCC197 /* FactbookEV.swift */,
 				7E6314FF1C07B96900D8EE88 /* CarInfoViewController.swift */,
-				5263A5561BEAA9DF00A02452 /* NetworkOperation.swift */,
 				5208A7A91BE7F81500CB4437 /* Assets.xcassets */,
 				5208A7AB1BE7F81500CB4437 /* LaunchScreen.storyboard */,
 				5208A7AE1BE7F81500CB4437 /* Info.plist */,
@@ -297,7 +294,6 @@
 				520407481C149FB30054B328 /* ChargingStationViewController.swift in Sources */,
 				5204074A1C14A58C0054B328 /* GasStationViewController.swift in Sources */,
 				7E47FF601C0BDFB600DFC1C8 /* MainMenuViewController.swift in Sources */,
-				5263A5571BEAA9DF00A02452 /* NetworkOperation.swift in Sources */,
 				5208A7A31BE7F81500CB4437 /* AppDelegate.swift in Sources */,
 				7E6315001C07B96900D8EE88 /* CarInfoViewController.swift in Sources */,
 				7E982BF91C135CE60033FFB0 /* SettingsTableViewController.swift in Sources */,
