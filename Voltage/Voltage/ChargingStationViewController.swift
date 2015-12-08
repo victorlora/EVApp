@@ -16,6 +16,8 @@ class ChargingStationViewController: UIViewController, MKMapViewDelegate, CLLoca
     
     //-----------------------API-----------------------
     
+    private let API = "http://api.openchargemap.io/v2/poi/"
+    
     //----------------Location Vars----------------
     var locationManager = CLLocationManager()
     
