@@ -42,6 +42,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
             
         }))
+        dispatch_async(dispatch_get_main_queue(), {
+            self.presentViewController(refreshAlert, animated: true, completion: nil)
+        })
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
