@@ -14,8 +14,18 @@ class ChargingStationViewController: UIViewController, MKMapViewDelegate, CLLoca
     
     @IBOutlet weak var chargingStationMap: MKMapView!
     
+    //-----------------------API-----------------------
+    
+    //----------------Location Vars----------------
+    var locationManager = CLLocationManager()
+    
+    //--------------------------Functions--------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     override func didReceiveMemoryWarning() {

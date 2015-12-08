@@ -119,10 +119,10 @@
 			children = (
 				5208A7A21BE7F81500CB4437 /* AppDelegate.swift */,
 				522FEFF61C107BB9000E5279 /* MapViewContoller.swift */,
+				520407491C14A58C0054B328 /* GasStationViewController.swift */,
+				520407471C149FB30054B328 /* ChargingStationViewController.swift */,
 				5208A7A41BE7F81500CB4437 /* ViewController.swift */,
 				7E1E79F21C13595A007BDC39 /* WebViewController.swift */,
-				520407471C149FB30054B328 /* ChargingStationViewController.swift */,
-				520407491C14A58C0054B328 /* GasStationViewController.swift */,
 				7E982BF81C135CE60033FFB0 /* SettingsTableViewController.swift */,
 				5208A7A61BE7F81500CB4437 /* Main.storyboard */,
 				7E47FF5F1C0BDFB600DFC1C8 /* MainMenuViewController.swift */,

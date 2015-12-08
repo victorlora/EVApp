@@ -17,8 +17,16 @@ class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationM
     private let API = "http://api.mygasfeed.com/ "
     private let APIKey = "iz01eibvxt "
     
+    //----------------Location Vars----------------
+    var locationManager = CLLocationManager()
+    
+    //--------------------------Functions--------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     override func didReceiveMemoryWarning() {
