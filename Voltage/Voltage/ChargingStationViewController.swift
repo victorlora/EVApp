@@ -70,5 +70,43 @@ class ChargingStationViewController: UIViewController, MKMapViewDelegate, CLLoca
         
     }
     
+    func getLocations() {
+        if isConnectedToNetwork() == true {
+            // Setup the session to make REST GET call.
+            let openChargeAPI: String = API
+            let url = NSURL(string: openChargeAPI)!
+            
+            // Retreive JSON data
+            let data = NSData(contentsOfURL: url)!
+            
+            // Read the JSON
+            do {
+                let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+                // Parse JSON
+                if let location = json["latitude"] as? [[String: AnyObject]] {
+                    for make in location {
+                        if let location = make["latitude"] as? String {
+                        }
+                    }
+                }
+                
+            } catch {
+                print("Error finding makes")
+            }
+        }
+        else {
+            print("Internet Not Available")
+            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: { (action: UIAlertAction!) in
+                
+            }))
+            dispatch_async(dispatch_get_main_queue(), {
+                self.presentViewController(refreshAlert, animated: true, completion: nil)
+            })
+        }
+    }
+
+    
 
 }
