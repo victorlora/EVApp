@@ -107,6 +107,5 @@ class ChargingStationViewController: UIViewController, MKMapViewDelegate, CLLoca
         }
     }
 
-    
 
 }
