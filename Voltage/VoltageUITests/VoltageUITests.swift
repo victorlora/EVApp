@@ -64,15 +64,14 @@ class VoltageUITests: XCTestCase {
     
     // UI Test for the make back button
     func testChooseAcuraBackAlfaRomeo(){
+        
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        
-        tablesQuery.cells.staticTexts["Acura"].tap()
+        tablesQuery.staticTexts["Acura"].tap()
         
         //Assert statement, returns true if the Back make button exists
-        XCTAssert(app.buttons["Back"].exists)
-        let makesButton = app.buttons["Back"]
-        makesButton.tap()
+        XCTAssert(app.buttons["< Make"].exists)
+        app.buttons["< Make"].tap()
         tablesQuery.staticTexts["Alfa Romeo"].tap()
         
         //Assert statements for all Alfa Romeo models
@@ -84,39 +83,39 @@ class VoltageUITests: XCTestCase {
     
     // UI Test for the model back button using BMW
     func testChooseBMW1sBackBMW2s(){
+        
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        
         tablesQuery.staticTexts["BMW"].tap()
         tablesQuery.staticTexts["1 Series"].tap()
         
         //Assert statement, returns true if the back model button exists
-        XCTAssert(app.buttons["< Models"].exists)
-        app.buttons["Back"].tap()
+        XCTAssert(app.buttons["< Model"].exists)
+        app.buttons["< Model"].tap()
         tablesQuery.staticTexts["2 Series"].tap()
         
         //Assert statement, returns true if the back model button continues
         //to exist
-        XCTAssert(app.buttons["< Models"].exists)
+        XCTAssert(app.buttons["< Model"].exists)
     }
     
     // UI Test for the year back button using Bentley Arnage
     func testChooseBentArn2000BackBentArn2001(){
+        
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        
         tablesQuery.staticTexts["Bentley"].tap()
         tablesQuery.staticTexts["Arnage"].tap()
         tablesQuery.staticTexts["2001"].tap()
         
-        //Assert statement, returns true if the back year button exists
-        XCTAssert(app.buttons["Back"].exists)
-        app.buttons["Back"].tap()
+        //Assert statement, returns true if the year back button exists
+        XCTAssert(app.buttons["< Year"].exists)
+        app.buttons["< Year"].tap()
         tablesQuery.staticTexts["2002"].tap()
         
-        //Assert statement, returns true if the back year button continues
+        //Assert statement, returns true if the year back button continues
         //to exist after choosng a new yr
-        XCTAssert(app.buttons["Back"].exists)
+        XCTAssert(app.buttons["< Year"].exists)
     }
     
     //UI Test for Continue button after Make, Model, and Year have been chosen
