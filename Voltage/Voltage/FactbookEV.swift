@@ -25,7 +25,7 @@ struct FactBookEV {
         "On average EV drivers pay $1.20 to drive the same distance a conventional car could go on a gallon",
         "Electric cars charged from a coal fired grid are still more efficient and produce less pollution than gas engines.",
         "Up to 80 percent of the energy in the battery is transferred directly to power the car, compared with only 14-26 percent of the energy from gasoline-powered vehicles.",
-        "Driving an electric vehicle can help save you nearly $13,000 and use 6,100 gallons of gas less than conventional vehicles."
+        "Driving an electric vehicle can help save you nearly $13,000 and avoid 6,100 gallons of fuel when compared to a conventional vehicle."
     ]
     
     func randomFact() -> String {
