@@ -31,6 +31,7 @@ class VoltageUITests: XCTestCase {
     
     //UI Test for Make from front page, without scrolling(front page)
     func testChooseBugattiVeyron164(){
+        
         let app = XCUIApplication()
         let tablesQuery = app.tables
        
@@ -47,6 +48,7 @@ class VoltageUITests: XCTestCase {
     
     //UI Test for Make, Model and Year with scrolling
     func testChooseHondaCRV2000(){
+        
         let tablesQuery = XCUIApplication().tables
         
         //Assert statement returns true if Honda exists
@@ -120,6 +122,7 @@ class VoltageUITests: XCTestCase {
     
     //UI Test for Continue button after Make, Model, and Year have been chosen
     func testContinue(){
+        
         let app = XCUIApplication()
         let tablesQuery = app.tables
         
@@ -135,6 +138,7 @@ class VoltageUITests: XCTestCase {
     
     //UI Test for the Info button after the continue button is selected
     func testInfoButton(){
+        
         let app = XCUIApplication()
         let tablesQuery = app.tables
         
@@ -167,7 +171,6 @@ class VoltageUITests: XCTestCase {
     
     //UI Test for Info after Back button is selected
     func testInfoBackInfo(){
-        
         let app = XCUIApplication()
         let tablesQuery = app.tables
         
@@ -183,4 +186,179 @@ class VoltageUITests: XCTestCase {
         XCTAssert(app.buttons["Info"].exists)
         
     }
+    
+    //UI Test for charging station button
+    func testChagingStation(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["AM General"].tap()
+        tablesQuery.staticTexts["Hummer"].tap()
+        tablesQuery.staticTexts["1998"].tap()
+        tablesQuery.staticTexts["Hard Top 2dr SUV AWD"].tap()
+        app.buttons["Continue"].tap()
+        
+        //Assert statement, returns true if charging station button exists
+        XCTAssert(app.buttons["CharginStation"].exists)
+        
+    }
+    
+    //UI Test for Map button
+    func testMap(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["AM General"].tap()
+        tablesQuery.staticTexts["Hummer"].tap()
+        tablesQuery.staticTexts["1998"].tap()
+        tablesQuery.staticTexts["Hard Top 2dr SUV AWD"].tap()
+        app.buttons["Continue"].tap()
+        
+        //Assert statement, returns true if Map button exists
+        XCTAssert(app.buttons["Maps"].exists)
+        
+    }
+    
+    //UI Test for Accesories button
+    func testAccesories(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["AM General"].tap()
+        tablesQuery.staticTexts["Hummer"].tap()
+        tablesQuery.staticTexts["1998"].tap()
+        tablesQuery.staticTexts["Hard Top 2dr SUV AWD"].tap()
+        app.buttons["Continue"].tap()
+        
+        //Assert statement, returns true if Accessories button exists
+        XCTAssert(app.buttons["Accessories"].exists)
+        
+    }
+    
+    //UI Test for Certified Mechanic button
+    func testMech(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["AM General"].tap()
+        tablesQuery.staticTexts["Hummer"].tap()
+        tablesQuery.staticTexts["1998"].tap()
+        tablesQuery.staticTexts["Hard Top 2dr SUV AWD"].tap()
+        app.buttons["Continue"].tap()
+        
+        //Assert statement, returns true if Machanic button exists
+        XCTAssert(app.buttons["Mechanic"].exists)
+        
+    }
+    
+    //UI Test for Gas station button
+    func testGasStation(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["AM General"].tap()
+        tablesQuery.staticTexts["Hummer"].tap()
+        tablesQuery.staticTexts["1998"].tap()
+        tablesQuery.staticTexts["Hard Top 2dr SUV AWD"].tap()
+        app.buttons["Continue"].tap()
+        
+        //Assert statement, returns true if gas station button exists
+        XCTAssert(app.buttons["GasStation"].exists)
+        
+    }
+    
+    //UI Test for charging station back button
+    func testChargingStationBack(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["AM General"].tap()
+        tablesQuery.staticTexts["Hummer"].tap()
+        tablesQuery.staticTexts["1998"].tap()
+        tablesQuery.staticTexts["Hard Top 2dr SUV AWD"].tap()
+        app.buttons["Continue"].tap()
+        app.buttons["CharginStation"].tap()
+        
+        //Assert statement, returns true if charging station button exists
+        XCTAssert(app.buttons["Back"].exists)
+        
+    }
+    
+    //UI Test for Map back button
+    func testMapBack(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["AM General"].tap()
+        tablesQuery.staticTexts["Hummer"].tap()
+        tablesQuery.staticTexts["1998"].tap()
+        tablesQuery.staticTexts["Hard Top 2dr SUV AWD"].tap()
+        app.buttons["Continue"].tap()
+        app.buttons["Maps"].tap()
+        
+        //Assert statement, returns true if Map back button exists
+        XCTAssert(app.buttons["Back"].exists)
+        
+    }
+    
+    //UI Test for Accesories backbutton
+    func testAccesoriesBack(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["AM General"].tap()
+        tablesQuery.staticTexts["Hummer"].tap()
+        tablesQuery.staticTexts["1998"].tap()
+        tablesQuery.staticTexts["Hard Top 2dr SUV AWD"].tap()
+        app.buttons["Continue"].tap()
+        app.buttons["Accessories"].tap()
+        
+        //Assert statement, returns true if Accessories back button exists
+        XCTAssert(app.buttons["Back"].exists)
+        
+    }
+    
+    //UI Test for Gas station back button
+    func testGasStationBack(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["AM General"].tap()
+        tablesQuery.staticTexts["Hummer"].tap()
+        tablesQuery.staticTexts["1998"].tap()
+        tablesQuery.staticTexts["Hard Top 2dr SUV AWD"].tap()
+        app.buttons["Continue"].tap()
+        app.buttons["GasStation"].tap()
+        
+        //Assert statement, returns true if gas station back button exists
+        XCTAssert(app.buttons["Back"].exists)
+        
+    }
+    
+    //UI Tests main page after random assortment of commands
+    func testRandomCommands(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["Infiniti"].tap()
+        tablesQuery.staticTexts["M56"].tap()
+        tablesQuery.staticTexts["2011"].tap()
+        app.buttons["< Year"].tap()
+        app.buttons["< Model"].tap()
+        tablesQuery.staticTexts["G Convertible"].tap()
+        tablesQuery.staticTexts["2013"].tap()
+        tablesQuery.staticTexts["IPL 2dr Convertible (3.7L 6cyl 7A)"].tap()
+        app.buttons["Continue"].tap()
+        app.buttons["Info"].tap()
+        
+        let backButton = app.buttons["Back"]
+        backButton.tap()
+        app.buttons["CharginStation"].tap()
+        backButton.tap()
+        app.buttons["Settings"].tap()
+        tablesQuery.buttons["Back"].tap()
+    
+        //Assert statement, returns true if all 7 buttons on the main page exist after
+        //going back and forth through pages and ending on the main page
+        XCTAssert(app.buttons["Info"].exists)
+        XCTAssert(app.buttons["CharginStation"].exists)
+        XCTAssert(app.buttons["Maps"].exists)
+        XCTAssert(app.buttons["Accessories"].exists)
+        XCTAssert(app.buttons["Mechanic"].exists)
+        XCTAssert(app.buttons["GasStation"].exists)
+        //first time Settings button is being tested
+        XCTAssert(app.buttons["Settings"].exists)
+        
+    }
+    
 }
