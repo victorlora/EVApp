@@ -81,7 +81,7 @@ class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 // Parse JSON
                 if let location = json["latitude"] as? [[String: AnyObject]] {
                     for make in location {
-                        if let location = make["latitude"] as? String {
+                        if let _ = make["latitude"] as? String {
                         }
                     }
                 }
