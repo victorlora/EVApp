@@ -56,6 +56,34 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.startingLocation = self.locationArr.first!
         }
         
+        //Check Vehcile Type for Search For Station
+        var refuelType = ""
+        var energy = ""
+        if (engType == "electric"){
+            refuelType = "Electric"
+            energy = "Electricity"
+        }
+        if (engType == "hybrid"){
+            refuelType = "Gas or Electric"
+            energy = "Gas"
+        }
+        if (engType == "gas"){
+            refuelType = "Gas"
+            energy = "Electricty and Gas"
+        }
+        if (engType == "diesel"){
+            refuelType = "Diesel"
+            energy = "Diesel"
+        }
+        if (engType == "Flex-fuel-ffv"){
+            refuelType = "Flex-Fuel"
+            energy = "Gas"
+        }
+        if (engType == "Natural-gas-cng"){
+            refuelType = "CNG"
+            energy = "CNG"
+        }
+        
         // Set distance traveled
         self.distanceTraveled = Double(userLocation.distanceFromLocation(self.startingLocation!)) * 0.000621371
         // Check for user defaults for mileage estimate
@@ -64,16 +92,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             print(milesLeftEstimate)
             NSUserDefaults.standardUserDefaults().setObject(milesLeftEstimate, forKey: "fuelEstimate")
             fuelEstLabel.text = String(format: "%.0f", milesLeftEstimate) + " mi."
-            print("Engine: \(engType)")
-            if (engType == "electric"){
-              print("It's Electric")
-            }
             if(milesLeftEstimate <= 20){
-                let lowMilesAlert = UIAlertController(title: "Warning Low Gas", message: "Find The Nearest Gas Station", preferredStyle: UIAlertControllerStyle.Alert)
+                let lowMilesAlert = UIAlertController(title: "Warning Low \(energy)", message: "Find The Nearest \(refuelType) Station", preferredStyle: UIAlertControllerStyle.Alert)
                 
-                lowMilesAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                if (engType == "gas" || engType == "diesel" || engType == "Natural-gas-cng" || engType == "Flex-fuel-ffv"){
+                lowMilesAlert.addAction(UIAlertAction(title: "Gas Stations", style: .Default, handler: { (action: UIAlertAction!) in
                     
                 }))
+                }
                 dispatch_async(dispatch_get_main_queue(), {
                     self.presentViewController(lowMilesAlert, animated: true, completion: nil)
                 })
