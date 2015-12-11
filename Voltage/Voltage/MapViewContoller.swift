@@ -64,6 +64,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             print(milesLeftEstimate)
             NSUserDefaults.standardUserDefaults().setObject(milesLeftEstimate, forKey: "fuelEstimate")
             fuelEstLabel.text = String(format: "%.0f", milesLeftEstimate) + " mi."
+            print("Engine: \(engType)")
+            if (engType == "electric"){
+              print("It's Electric")
+            }
             if(milesLeftEstimate <= 20){
                 let lowMilesAlert = UIAlertController(title: "Warning Low Gas", message: "Find The Nearest Gas Station", preferredStyle: UIAlertControllerStyle.Alert)
                 

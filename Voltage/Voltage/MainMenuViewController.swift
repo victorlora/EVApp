@@ -17,6 +17,7 @@ var mpgCity:Int = 0                 // Stores city mpg
 var mpgHighway:Int = 0              // Stores highway mpg
 var combinedMPG = 0                 // Stores combined mpg
 var fuelCap = ""                    // Stores fuel tank capacity
+var engType = ""
 var milesLeftEstimate: Double = 0.0      // Stores mileage remaining estimate
 
 class MainMenuViewController: UIViewController {
@@ -178,9 +179,8 @@ class MainMenuViewController: UIViewController {
                 if let torq = engineSpecs["torque"] as? Int {
                     carInfo.append("\t Torque: \(torq)")
                 }
-                if let engType = engineSpecs["type"] as? String {
-                    carInfo.append("\t Engine Type: \(engType)")
-                }
+                engType = (engineSpecs["type"] as? String)!
+                carInfo.append("\t Engine Type: \(engType)")
             }
             if let tranSpecs = json["transmission"] as? NSDictionary {
                 carInfo.append("Transmission Specs:")
