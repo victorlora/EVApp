@@ -850,11 +850,13 @@
                         <outlet property="fuelEstLabel" destination="7Dh-fj-5Mj" id="JtB-JH-uyF"/>
                         <outlet property="mapView" destination="OfE-Rs-hOK" id="l86-aa-Erm"/>
                         <outlet property="speedLabel" destination="3NA-Og-DLZ" id="eBM-Kd-jvF"/>
+                        <segue destination="WRh-H7-H95" kind="show" identifier="GasStations" id="78g-pf-KEB"/>
+                        <segue destination="lVT-t3-Fya" kind="show" identifier="ChargingStations" id="Ioj-fk-tQ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14k-dA-NNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1809" y="-106"/>
+            <point key="canvasLocation" x="2007" y="-218"/>
         </scene>
         <!--Settings-->
         <scene sceneID="gkv-Fs-E03">
@@ -1218,6 +1220,8 @@
         <image name="tire" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="elu-sG-kFI"/>
+        <segue reference="PYW-lh-Ghj"/>
+        <segue reference="78g-pf-KEB"/>
+        <segue reference="Ioj-fk-tQ5"/>
     </inferredMetricsTieBreakers>
 </document>

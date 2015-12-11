@@ -69,7 +69,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         if (engType == "gas"){
             refuelType = "Gas"
-            energy = "Electricty and Gas"
+            energy = "Gas"
         }
         if (engType == "diesel"){
             refuelType = "Diesel"
@@ -97,8 +97,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 
                 if (engType == "gas" || engType == "diesel" || engType == "Natural-gas-cng" || engType == "Flex-fuel-ffv"){
                 lowMilesAlert.addAction(UIAlertAction(title: "Gas Stations", style: .Default, handler: { (action: UIAlertAction!) in
-                    
+                    self.performSegueWithIdentifier("GasStations", sender: self)
                 }))
+                }
+                else if(engType == "hybrid"){
+                    lowMilesAlert.addAction(UIAlertAction(title: "Gas Stations", style: .Default, handler: { (action: UIAlertAction!) in
+                        self.performSegueWithIdentifier("GasStations", sender: self)
+                    }))
+                    lowMilesAlert.addAction(UIAlertAction(title: "Electric Stations", style: .Default, handler: { (action: UIAlertAction!) in
+                        self.performSegueWithIdentifier("ChargingStations", sender: self)
+                    }))
+
+                }
+                else if(engType == "electric"){
+                    lowMilesAlert.addAction(UIAlertAction(title: "Electric Stations", style: .Default, handler: { (action: UIAlertAction!) in
+                        self.performSegueWithIdentifier("ChargingStations", sender: self)
+                    }))
                 }
                 dispatch_async(dispatch_get_main_queue(), {
                     self.presentViewController(lowMilesAlert, animated: true, completion: nil)
