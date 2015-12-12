@@ -11,17 +11,19 @@ import MapKit
 import SystemConfiguration
 import Foundation
 
-class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     
     //----------------UI Links----------------
     @IBOutlet weak var gasStationMap: MKMapView!
     
     //-----------------------API-----------------------
-    private let API = "http://api.mygasfeed.com/"
+    private var API = "http://api.mygasfeed.com/stations/radius"
     private let APIKey = "iz01eibvxt"
     
     //----------------Location Vars----------------
     var locationManager = CLLocationManager()
+    var currentLocation = CLLocation()
+    var locationArr = [CLLocation?]()
     
     //--------------------------Functions--------------------------------
     override func viewDidLoad() {
@@ -67,6 +69,34 @@ class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationM
         return Reachable && !requiresConnection
         
     }
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation: CLLocation = locations[0]
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
+        API = API + "/\(latitude)/\(longitude)/20/reg/price/iz01eibvxt.json"
+        // Store users initial location-necessary for distance traveled
+        if locationArr.count != 1 {
+            self.locationArr.append(userLocation)
+        }
+        // Set zoom amount
+        let latDelta: CLLocationDegrees = 0.01
+        let lonDelta: CLLocationDegrees = 0.01
+        // Create view variables and region of interest
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        // Center map at this region
+        self.gasStationMap.setRegion(region, animated: true)
+        
+        // Enable map features
+        self.gasStationMap.showsUserLocation = true;
+        self.gasStationMap.showsScale = true;
+        self.gasStationMap.showsPointsOfInterest = true;
+        self.gasStationMap.showsTraffic = true;
+
+    }
+
+   
     
     func getLocations() {
         if isConnectedToNetwork() == true {
