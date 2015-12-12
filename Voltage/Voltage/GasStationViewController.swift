@@ -18,7 +18,7 @@ class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     //-----------------------API-----------------------
     private let API = "http://api.mygasfeed.com/"
-    private let APIKey = "iz01eibvxt "
+    private let APIKey = "iz01eibvxt"
     
     //----------------Location Vars----------------
     var locationManager = CLLocationManager()
