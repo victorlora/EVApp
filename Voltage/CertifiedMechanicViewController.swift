@@ -1,63 +1,49 @@
 //
-//  WebViewController.swift
+//  CertifiedMechanicViewController.swift
 //  Voltage
 //
-//  Created by Victor Lora on 12/5/15.
+//  Created by Josh Rosenzweig on 12/12/15.
 //  Copyright © 2015 EV-APP. All rights reserved.
 //
 
 import UIKit
+import MapKit
 import SystemConfiguration
+import Foundation
 
-class WebViewController: UIViewController {
-
+class CertifiedMechanicViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+   
     //----------------UI Links----------------
-    @IBOutlet var webView: UIWebView!
+    @IBOutlet weak var certifiedMechanicMapView: MKMapView!
+   
+    //----------------Location Vars----------------
+    var locationManager = CLLocationManager()
+    var locationArr = [CLLocation?]()
+    var startingLocation: CLLocation?
+    var distanceTraveled: Double = 0
     
     //--------------------------Functions--------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        if isConnectedToNetwork() == true {
-            webLoad()
-        }
-        else{
-            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: { (action: UIAlertAction!) in
-                self.webLoad()
-            }))
-            dispatch_async(dispatch_get_main_queue(), {
-                self.presentViewController(refreshAlert, animated: true, completion: nil)
-            })
-
-        }
-    }
-
-    /* webLoad()
-     * @description
-     *      Load desired webpage
-     */
-    func webLoad(){
-        let url = NSURL(string: "http://www.autozone.com")!
-        webView.loadRequest(NSURLRequest(URL: url))
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
         let refreshAlert = UIAlertController(title: "Memory Warning", message: "All data cannot be saved.", preferredStyle: UIAlertControllerStyle.Alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-
+            
         }))
-        
-        presentViewController(refreshAlert, animated: true, completion: nil)
     }
     
     /* isConnectedToNetwork()
-     * @description
-     *      Checks for network connection
-     */
+    * @description
+    *      Checks for network connection
+    */
     
     func isConnectedToNetwork() -> Bool {
         

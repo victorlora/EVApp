@@ -334,10 +334,10 @@
             </objects>
             <point key="canvasLocation" x="334" y="1078"/>
         </scene>
-        <!--View Controller-->
+        <!--Certified Mechanic View Controller-->
         <scene sceneID="5Ry-jb-Jha">
             <objects>
-                <viewController id="b89-RM-AkH" sceneMemberID="viewController">
+                <viewController id="b89-RM-AkH" customClass="CertifiedMechanicViewController" customModule="Voltage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Srv-zf-PIv"/>
                         <viewControllerLayoutGuide type="bottom" id="xYm-8g-8eJ"/>
@@ -380,6 +380,9 @@
                             <constraint firstItem="dU4-3X-CoO" firstAttribute="top" secondItem="0dQ-Rj-91U" secondAttribute="bottom" constant="8" symbolic="YES" id="rPu-os-o02"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="certifiedMechanicMapView" destination="dU4-3X-CoO" id="9ec-xv-Ruv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QvF-qG-X1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

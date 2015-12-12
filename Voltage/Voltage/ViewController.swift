@@ -19,7 +19,6 @@ var userStyle:String = ""           // Stores user's style selection
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    //--------------------------Variables--------------------------------
     
     //--------------UI Links--------------
     @IBOutlet weak var carViewer: UITableView!
@@ -30,6 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var carLogo: UIImageView!
     @IBOutlet weak var backButton: UIButton!
 
+    //--------------------------Functions--------------------------------
     @IBAction func backButton(sender: AnyObject) {
         if (currentPage == models) {
             switchToMake()
@@ -53,10 +53,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             saveCar.setOn(false, animated: true)
         }
     }
-    
-
-    
-
     
     //-----------------------API-----------------------
     private let API = "https://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=6m8ettta5byepu43rkhsc79j"

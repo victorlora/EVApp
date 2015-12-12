@@ -13,6 +13,7 @@ import Foundation
 
 class ChargingStationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    //----------------UI Links----------------
     @IBOutlet weak var chargingStationMap: MKMapView!
     
     //-----------------------API-----------------------

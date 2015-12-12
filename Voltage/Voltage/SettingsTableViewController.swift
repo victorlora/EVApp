@@ -10,8 +10,11 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    //--------------UI Links--------------
     @IBOutlet var fuelSlider: UISlider!
     @IBOutlet var fuelAmt: UILabel!
+    
+    //--------------------------Functions--------------------------------
     
     // Allows user to select amount of fuel in gas-tank
     @IBAction func fuelSlider(sender: UISlider) {
