@@ -915,6 +915,15 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="tbS-Sk-dvS"/>
                                 </constraints>
                             </mapView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lowFuel" translatesAutoresizingMaskIntoConstraints="NO" id="Fpv-O1-HbX">
+                                <rect key="frame" x="554" y="26" width="26" height="34"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Fpv-O1-HbX" secondAttribute="height" multiplier="13:17" id="8qC-IX-MGW"/>
+                                    <constraint firstAttribute="height" constant="34" id="bmO-qv-yKC"/>
+                                    <constraint firstAttribute="width" constant="26" id="hO1-1h-2hV"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -931,8 +940,10 @@
                             <constraint firstItem="3NA-Og-DLZ" firstAttribute="leading" secondItem="KEv-Rb-Pfd" secondAttribute="trailing" constant="8" id="Wzj-pH-KqW"/>
                             <constraint firstItem="oVI-ae-jA3" firstAttribute="top" secondItem="OfE-Rs-hOK" secondAttribute="bottom" constant="30" id="ZNE-Hs-lLD"/>
                             <constraint firstItem="oVI-ae-jA3" firstAttribute="leading" secondItem="JKh-FC-nOw" secondAttribute="trailing" constant="8" id="ahC-8B-GPo"/>
+                            <constraint firstItem="Fpv-O1-HbX" firstAttribute="trailing" secondItem="RiK-PA-4aN" secondAttribute="trailingMargin" id="cvt-zP-0aG"/>
                             <constraint firstItem="koy-Rn-HOU" firstAttribute="leading" secondItem="RiK-PA-4aN" secondAttribute="leadingMargin" id="dCA-Wi-Le8"/>
                             <constraint firstItem="koy-Rn-HOU" firstAttribute="top" secondItem="oVI-ae-jA3" secondAttribute="bottom" constant="5" id="dNB-0m-Eby"/>
+                            <constraint firstItem="Fpv-O1-HbX" firstAttribute="top" secondItem="ISz-zZ-rgJ" secondAttribute="bottom" constant="6" id="dyJ-ZS-keC"/>
                             <constraint firstItem="JKh-FC-nOw" firstAttribute="top" secondItem="3NA-Og-DLZ" secondAttribute="bottom" constant="1" id="eh1-uu-Etg"/>
                             <constraint firstItem="7Dh-fj-5Mj" firstAttribute="leading" secondItem="koy-Rn-HOU" secondAttribute="trailing" constant="8" id="ipm-oH-jvw"/>
                             <constraint firstItem="KEv-Rb-Pfd" firstAttribute="top" secondItem="OfE-Rs-hOK" secondAttribute="bottom" constant="8" id="keY-aY-1bk"/>
@@ -947,6 +958,7 @@
                     <connections>
                         <outlet property="distanceLabel" destination="oVI-ae-jA3" id="Dvf-5b-nUD"/>
                         <outlet property="fuelEstLabel" destination="7Dh-fj-5Mj" id="JtB-JH-uyF"/>
+                        <outlet property="lowFuelIcon" destination="Fpv-O1-HbX" id="qKq-7M-d8b"/>
                         <outlet property="mapView" destination="OfE-Rs-hOK" id="l86-aa-Erm"/>
                         <outlet property="speedLabel" destination="3NA-Og-DLZ" id="eBM-Kd-jvF"/>
                         <segue destination="WRh-H7-H95" kind="show" identifier="GasStations" id="78g-pf-KEB"/>
@@ -1353,11 +1365,12 @@
         <image name="Settings" width="60" height="60"/>
         <image name="background" width="170" height="170"/>
         <image name="gas-3X" width="750" height="1571"/>
+        <image name="lowFuel" width="33" height="36"/>
         <image name="tire" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WsP-Xw-UGN"/>
-        <segue reference="rJt-Wc-9vn"/>
-        <segue reference="sns-X6-pYy"/>
+        <segue reference="Ioj-fk-tQ5"/>
+        <segue reference="PYW-lh-Ghj"/>
+        <segue reference="78g-pf-KEB"/>
     </inferredMetricsTieBreakers>
 </document>

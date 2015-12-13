@@ -17,6 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet var speedLabel: UILabel!
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet var fuelEstLabel: UILabel!
+    @IBOutlet var lowFuelIcon: UIImageView!
     
     //----------------Location Vars----------------
     var locationManager = CLLocationManager()
@@ -95,6 +96,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             NSUserDefaults.standardUserDefaults().setObject(milesLeftEstimate, forKey: "fuelEstimate")
             fuelEstLabel.text = String(format: "%.0f", milesLeftEstimate) + " mi."
+            
+            if (milesLeftEstimate <= 20) {
+                lowFuelIcon.hidden = false
+            } else {
+                lowFuelIcon.hidden = true
+            }
             if(Int(milesLeftEstimate) != current && Int(milesLeftEstimate) == 20 || Int(milesLeftEstimate) == 10
                 || Int(milesLeftEstimate) == 5 || Int(milesLeftEstimate) == 1) {
                     
