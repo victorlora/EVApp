@@ -23,6 +23,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locationArr = [CLLocation?]()
     var startingLocation: CLLocation?
     var distanceTraveled: Double = 0
+    var current = 0
+    
     
     //--------------------------Functions--------------------------------
     
@@ -93,43 +95,45 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             NSUserDefaults.standardUserDefaults().setObject(milesLeftEstimate, forKey: "fuelEstimate")
             fuelEstLabel.text = String(format: "%.0f", milesLeftEstimate) + " mi."
-            if(Int(milesLeftEstimate) == 20 || Int(milesLeftEstimate) == 10
-                || Int(milesLeftEstimate) == 5 || Int(milesLeftEstimate) == 1){
-                let lowMilesAlert = UIAlertController(title: "Warning Low \(energy)", message: "Find The Nearest \(refuelType) Station", preferredStyle: UIAlertControllerStyle.Alert)
+            if(Int(milesLeftEstimate) != current && Int(milesLeftEstimate) == 20 || Int(milesLeftEstimate) == 10
+                || Int(milesLeftEstimate) == 5 || Int(milesLeftEstimate) == 1) {
+                    
+                    let lowMilesAlert = UIAlertController(title: "Warning Low \(energy)", message: "Find The Nearest \(refuelType) Station", preferredStyle: UIAlertControllerStyle.Alert)
                 
-                if (engType == "gas" || engType == "diesel" || engType == "Natural-gas-cng" || engType == "Flex-fuel-ffv"){
-                    lowMilesAlert.addAction(UIAlertAction(title: "Gas Stations", style: .Default, handler: { (action: UIAlertAction!) in
-                            self.performSegueWithIdentifier("GasStations", sender: self)
-                        }))
-                    lowMilesAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler:
-                        { (action: UIAlertAction!) in
-                            NSLog("OK Pressed")
-                        }))
-                }
-                else if(engType == "hybrid"){
-                    lowMilesAlert.addAction(UIAlertAction(title: "Gas Stations", style: .Default, handler: { (action: UIAlertAction!) in
-                            self.performSegueWithIdentifier("GasStations", sender: self)
-                        }))
-                    lowMilesAlert.addAction(UIAlertAction(title: "Electric Stations", style: .Default, handler: { (action: UIAlertAction!) in
-                            self.performSegueWithIdentifier("ChargingStations", sender: self)
-                        }))
-                    lowMilesAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler:
-                        { (action: UIAlertAction!) in
-                            NSLog("OK Pressed")
-                        }))
+                    if (engType == "gas" || engType == "diesel" || engType == "Natural-gas-cng" || engType == "Flex-fuel-ffv"){
+                        lowMilesAlert.addAction(UIAlertAction(title: "Gas Stations", style: .Default, handler: { (action: UIAlertAction!) in
+                                self.performSegueWithIdentifier("GasStations", sender: self)
+                            }))
+                        lowMilesAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler:
+                            { (action: UIAlertAction!) in
+                                NSLog("OK Pressed")
+                            }))
+                    }
+                    else if(engType == "hybrid"){
+                        lowMilesAlert.addAction(UIAlertAction(title: "Gas Stations", style: .Default, handler: { (action: UIAlertAction!) in
+                                self.performSegueWithIdentifier("GasStations", sender: self)
+                            }))
+                        lowMilesAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler:
+                            { (action: UIAlertAction!) in
+                                NSLog("OK Pressed")
+                            }))
 
-                }
-                else if(engType == "electric"){
-                    lowMilesAlert.addAction(UIAlertAction(title: "Electric Stations", style: .Default, handler: { (action: UIAlertAction!) in
-                            self.performSegueWithIdentifier("ChargingStations", sender: self)
-                        }))
-                    lowMilesAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action: UIAlertAction!) in
-                            NSLog("OK Pressed")
-                        }))
-                }
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.presentViewController(lowMilesAlert, animated: true, completion: nil)
-                })
+                    }
+                    else if(engType == "electric"){
+                        lowMilesAlert.addAction(UIAlertAction(title: "Electric Stations", style: .Default, handler: { (action: UIAlertAction!) in
+                                self.performSegueWithIdentifier("ChargingStations", sender: self)
+                            }))
+                        lowMilesAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action: UIAlertAction!) in
+                                NSLog("OK Pressed")
+                            }))
+                    }
+                    if (self.current != Int(milesLeftEstimate)) {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.presentViewController(lowMilesAlert, animated: true, completion: nil)
+                        })
+                    }
+                    
+                    self.current = Int(milesLeftEstimate)
             }
         } else {
             fuelEstLabel.text = "N/A"
