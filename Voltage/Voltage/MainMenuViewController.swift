@@ -145,7 +145,7 @@ class MainMenuViewController: UIViewController {
             }
             
         } catch {
-            //errorHandler.text="Error finding id"
+            NSLog("Error getting car style id")
         }
     }
     
@@ -169,6 +169,10 @@ class MainMenuViewController: UIViewController {
             let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
             // Parse JSON
             if let engineSpecs = json["engine"] as? NSDictionary {
+                carInfo.append("Vehicle:")
+                carInfo.append("\t Make: " + userMake)
+                carInfo.append("\t Model: " + userModel)
+                carInfo.append("\t Year: " + userYear)
                 carInfo.append("Engine Specs:")
                 if let cylinders = engineSpecs["cylinder"] as? Int {
                     carInfo.append("\t Cylinders: \(cylinders)")
@@ -205,7 +209,7 @@ class MainMenuViewController: UIViewController {
                 carInfo.append("\t Combined: \(combinedMPG)")
             }
         } catch {
-            //errorHandler.text="Error finding makes"
+            NSLog("Error getting car info")
         }
         
     }
@@ -233,7 +237,6 @@ class MainMenuViewController: UIViewController {
                                         if id.isEqual("Fuel Capacity") {
                                             if let fuelCapacity = attribute["value"] as? String {
                                                 fuelCap = fuelCapacity
-                                                carInfo.append("\t Fuel Capacity: " + fuelCap + " gal.")
                                             }
                                         }
                                     }

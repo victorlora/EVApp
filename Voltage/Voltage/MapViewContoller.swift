@@ -102,6 +102,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             } else {
                 lowFuelIcon.hidden = true
             }
+            
+            if (milesLeftEstimate <= 0) {
+                fuelEstLabel.text = "Fuel Level Critical!"
+            }
+            
             if(Int(milesLeftEstimate) != current && Int(milesLeftEstimate) == 20 || Int(milesLeftEstimate) == 10
                 || Int(milesLeftEstimate) == 5 || Int(milesLeftEstimate) == 1) {
                     
@@ -168,6 +173,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.showsScale = true;
         self.mapView.showsPointsOfInterest = true;
         self.mapView.showsTraffic = true;
+        self.mapView.zoomEnabled = true;
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

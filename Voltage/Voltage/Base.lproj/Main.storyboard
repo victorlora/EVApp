@@ -883,25 +883,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas Miles Remaining:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koy-Rn-HOU">
-                                <rect key="frame" x="20" y="571" width="153" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Range:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koy-Rn-HOU">
+                                <rect key="frame" x="20" y="571" width="55" height="21"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="153" id="88z-OA-lKB"/>
-                                    <constraint firstAttribute="width" secondItem="koy-Rn-HOU" secondAttribute="height" multiplier="51:7" id="QzD-fA-BsJ"/>
+                                    <constraint firstAttribute="width" constant="55" id="88z-OA-lKB"/>
+                                    <constraint firstAttribute="width" secondItem="koy-Rn-HOU" secondAttribute="height" multiplier="51:7" constant="-98" id="QzD-fA-BsJ"/>
                                     <constraint firstAttribute="height" constant="21" id="dbo-ip-LPO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-fj-5Mj">
-                                <rect key="frame" x="181" y="571" width="71" height="21"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="44q-tj-NAU"/>
-                                    <constraint firstAttribute="width" secondItem="7Dh-fj-5Mj" secondAttribute="height" multiplier="71:21" id="CZK-y3-dcq"/>
-                                    <constraint firstAttribute="width" constant="71" id="h1H-bu-Upz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -924,6 +912,18 @@
                                     <constraint firstAttribute="width" constant="26" id="hO1-1h-2hV"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-fj-5Mj">
+                                <rect key="frame" x="83" y="571" width="237" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="44q-tj-NAU"/>
+                                    <constraint firstAttribute="width" secondItem="7Dh-fj-5Mj" secondAttribute="height" multiplier="71:21" constant="166" id="CZK-y3-dcq"/>
+                                    <constraint firstAttribute="width" constant="237" id="h1H-bu-Upz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
