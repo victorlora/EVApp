@@ -723,7 +723,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="chargingStationMap" destination="Y74-QS-wLT" id="LXU-zL-CoY"/>
+                        <outlet property="chargingStationMap" destination="Y74-QS-wLT" id="JKw-ec-b0p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wd5-tZ-mDc" userLabel="First Responder" sceneMemberID="firstResponder"/>

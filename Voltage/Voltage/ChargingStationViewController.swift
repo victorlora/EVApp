@@ -106,6 +106,29 @@ class ChargingStationViewController: UIViewController, MKMapViewDelegate, CLLoca
                 self.presentViewController(refreshAlert, animated: true, completion: nil)
             })
         }
+        
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation: CLLocation = locations[0]
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
+        // Set zoom amount
+        let latDelta: CLLocationDegrees = 0.01
+        let lonDelta: CLLocationDegrees = 0.01
+        // Create view variables and region of interest
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        
+        // Center map at this region
+        self.chargingStationMap.setRegion(region, animated: true)
+        
+        // Enable map features
+        self.chargingStationMap.showsUserLocation = true
+        self.chargingStationMap.showsScale = true
+        self.chargingStationMap.showsPointsOfInterest = true
+        self.chargingStationMap.showsTraffic = true
     }
 
 
