@@ -13,6 +13,16 @@ class WebViewController: UIViewController {
 
     //----------------UI Links----------------
     @IBOutlet var webView: UIWebView!
+    @IBAction func goBack(sender: AnyObject) {
+        webView.goBack()
+    }
+    @IBAction func goForward(sender: AnyObject) {
+        webView.goForward()
+    }
+    @IBAction func refresh(sender: AnyObject) {
+        webView.reload()
+    }
+    
     
     //--------------------------Functions--------------------------------
     override func viewDidLoad() {
