@@ -24,6 +24,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locationArr = [CLLocation?]()
     var startingLocation: CLLocation?
     var distanceTraveled: Double = 0
+    var distanceTraveledOld: Double = 0
     var current = 0
     
     
@@ -91,7 +92,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.distanceTraveled = Double(userLocation.distanceFromLocation(self.startingLocation!)) * 0.000621371
         // Check for user defaults for mileage estimate
         if (NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") != nil) {
-            milesLeftEstimate = milesLeftEstimate - (distanceTraveled / Double(combinedMPG))
+            milesLeftEstimate = milesLeftEstimate - (distanceTraveled - distanceTraveledOld)
             // print(milesLeftEstimate)
             
             NSUserDefaults.standardUserDefaults().setObject(milesLeftEstimate, forKey: "fuelEstimate")
@@ -175,6 +176,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.showsPointsOfInterest = true;
         self.mapView.showsTraffic = true;
         self.mapView.zoomEnabled = true;
+        
+        self.distanceTraveledOld = self.distanceTraveled
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
