@@ -130,6 +130,13 @@ class ChargingStationViewController: UIViewController, MKMapViewDelegate, CLLoca
         self.chargingStationMap.showsPointsOfInterest = true
         self.chargingStationMap.showsTraffic = true
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Stop updating location when user moves on to a different page
+        // This may be something we want the user to run in the backgroun...?
+        locationManager.stopUpdatingLocation()
+    }
+
 
 
 }
