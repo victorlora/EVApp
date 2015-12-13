@@ -100,8 +100,6 @@ class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationM
         self.gasStationMap.showsTraffic = true;
 
     }
-
-   
     
     func getLocations() {
         if isConnectedToNetwork() == true {
@@ -118,12 +116,14 @@ class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 // Parse JSON
                 if let location = json["stations"] as? [[String: AnyObject]] {
                     for gasStations in location {
-                        if let mapStation = gasStations["lat"] as? String {
-                            self.location.append(mapStation)
+                        if let mapStationLat = gasStations["lat"] as? String {
+                            self.location.append(mapStationLat)
+                        }
+                        if let mapStationLng = gasStations["lng"] as? String {
+                            self.location.append(mapStationLng)
                         }
                     }
                 }
-                
             } catch {
                 print("Error finding makes")
             }
@@ -140,5 +140,4 @@ class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationM
             })
         }
     }
-    
 }
