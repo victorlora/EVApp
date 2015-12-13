@@ -20,6 +20,10 @@ class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationM
     private var API = "http://api.mygasfeed.com/stations/radius"
     private let APIKey = "iz01eibvxt"
     
+    //----------API Generated Arrays----------
+    var location = [String]()  // Array of locations populated by API and displayed on the UI MapView
+
+    
     //----------------Location Vars----------------
     var locationManager = CLLocationManager()
     var currentLocation = CLLocation()
@@ -112,9 +116,10 @@ class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationM
             do {
                 let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
                 // Parse JSON
-                if let location = json["latitude"] as? [[String: AnyObject]] {
-                    for make in location {
-                        if let _ = make["latitude"] as? String {
+                if let location = json["stations"] as? [[String: AnyObject]] {
+                    for gasStations in location {
+                        if let mapStation = gasStations["lat"] as? String {
+                            self.location.append(mapStation)
                         }
                     }
                 }
