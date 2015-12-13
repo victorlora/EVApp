@@ -107,8 +107,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 fuelEstLabel.text = "Fuel Level Critical!"
             }
             
-            if(Int(milesLeftEstimate) != current && Int(milesLeftEstimate) == 20 || Int(milesLeftEstimate) == 10
-                || Int(milesLeftEstimate) == 5 || Int(milesLeftEstimate) == 1) {
+            if(milesLeftEstimate <= 21 || milesLeftEstimate == 11 || milesLeftEstimate == 6 || milesLeftEstimate == 2) {
                     
                     let lowMilesAlert = UIAlertController(title: "Warning Low \(energy)", message: "Find The Nearest \(refuelType) Station", preferredStyle: UIAlertControllerStyle.Alert)
                 
