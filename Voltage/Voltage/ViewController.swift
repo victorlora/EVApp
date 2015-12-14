@@ -109,7 +109,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func beginView(){
         if (NSUserDefaults.standardUserDefaults().objectForKey("make") != nil) {
             userMake = NSUserDefaults.standardUserDefaults().objectForKey("make") as! String
-            print (userMake)
             if (NSUserDefaults.standardUserDefaults().objectForKey("model") != nil) {
                 userModel = NSUserDefaults.standardUserDefaults().objectForKey("model") as! String
                 if (NSUserDefaults.standardUserDefaults().objectForKey("year") != nil) {

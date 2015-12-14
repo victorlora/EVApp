@@ -18,11 +18,12 @@ var mpgHighway:Int = 0              // Stores highway mpg
 var combinedMPG = 0                 // Stores combined mpg
 var fuelCap = ""                    // Stores fuel tank capacity
 var engType = ""
-var milesLeftEstimate: Double = 0.0      // Stores mileage remaining estimate
+var milesLeftEstimate: Double = -1      // Stores mileage remaining estimate
 
 class MainMenuViewController: UIViewController {
     
     @IBOutlet weak var funFactLabel: UILabel!
+    @IBOutlet var greetingLabel: UILabel!
     
     var time = NSTimer()
     
@@ -32,8 +33,38 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.Hour, fromDate: NSDate())
+        let hour = components.hour
+        var greeting = "EVApp"
+        
+        // Set appropriate greeting
+        if (hour >= 12 && hour <= 17) {
+            greeting = "Good afternoon"
+        } else if (hour >= 17 && hour <= 23){
+            greeting = "Good evening"
+        } else {
+            greeting = "Good morning"
+        }
+        greetingLabel.text = greeting
+        
+        // Retrieve user's name from memory
+        if (NSUserDefaults.standardUserDefaults().objectForKey("firstName") != nil) {
+            globalFirstName = NSUserDefaults.standardUserDefaults().objectForKey("firstName") as! String!
+        }
+        if (NSUserDefaults.standardUserDefaults().objectForKey("lastName") != nil) {
+            globalLastName = NSUserDefaults.standardUserDefaults().objectForKey("lastName") as! String!
+        }
+        // Set greeting
+        if (globalFirstName.characters.count > 0){
+            greetingLabel.text = greeting + ", " + globalFirstName + "!"
+        } else {
+            greetingLabel.text = greeting + "!"
+        }
+
+        
         if isConnectedToNetwork() == true {
-            showFunFact();
+            showFunFact()
             time = .scheduledTimerWithTimeInterval(5, target: self, selector: Selector("showFunFact"), userInfo: nil, repeats: true)
             getStyleId()
             getCarInfo()
@@ -41,9 +72,7 @@ class MainMenuViewController: UIViewController {
             if (NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") != nil) {
                 milesLeftEstimate = NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") as! Double
             }
-            print(milesLeftEstimate)
-        }
-        else{
+        } else {
             let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: { (action: UIAlertAction!) in
@@ -64,7 +93,7 @@ class MainMenuViewController: UIViewController {
         let refreshAlert = UIAlertController(title: "Memory Warning", message: "All data cannot be saved.", preferredStyle: UIAlertControllerStyle.Alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            print("Handle Ok logic here")
+            NSLog("Ok clicked.")
         }))
         
         presentViewController(refreshAlert, animated: true, completion: nil)

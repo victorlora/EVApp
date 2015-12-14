@@ -92,7 +92,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.distanceTraveled = Double(userLocation.distanceFromLocation(self.startingLocation!)) * 0.000621371
         // Check for user defaults for mileage estimate
         if (NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") != nil) {
-            milesLeftEstimate = milesLeftEstimate - (distanceTraveled - distanceTraveledOld)
+            // Update milesLeftEstimate
+            // (real) milesLeftEstimate = milesLeftEstimate - (distanceTraveled - distanceTraveledOld)
+            milesLeftEstimate = milesLeftEstimate - 1 // presentation code
             // print(milesLeftEstimate)
             
             NSUserDefaults.standardUserDefaults().setObject(milesLeftEstimate, forKey: "fuelEstimate")
