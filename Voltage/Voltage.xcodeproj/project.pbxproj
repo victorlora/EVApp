@@ -224,7 +224,7 @@
 				TargetAttributes = {
 					5208A79E1BE7F81500CB4437 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 7C557GXHFL;
+						DevelopmentTeam = 93234J3H2M;
 					};
 					5208A7B21BE7F81600CB4437 = {
 						CreatedOnToolsVersion = 7.1;
@@ -444,7 +444,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Voltage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ron.gerschel-gmail.com";
+				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.volt.Voltage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -459,7 +459,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Voltage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ron.gerschel-gmail.com";
+				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.volt.Voltage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
