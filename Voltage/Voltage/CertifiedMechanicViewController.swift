@@ -2,7 +2,7 @@
 //  CertifiedMechanicViewController.swift
 //  Voltage
 //
-//  Created by Josh Rosenzweig on 12/12/15.
+//  Created by EVApp Team on 12/12/15.
 //  Copyright © 2015 EV-APP. All rights reserved.
 //
 
