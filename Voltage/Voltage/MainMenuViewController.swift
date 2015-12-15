@@ -282,7 +282,8 @@ class MainMenuViewController: UIViewController {
     func getTankCapacity() {
         // Setup the session to make REST GET call.  
         // Notice the URL is https NOT http!!
-        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(styleId)/equipment?availability=standard&equipmentType=OTHER&fmt=json&api_key=\(APIKey)")!
+        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(styleId)/equipment?"
+            + "availability=standard&equipmentType=OTHER&fmt=json&api_key=\(APIKey)")!
         let data = NSData(contentsOfURL: url)!  // Get JSON data
         
         do {                                    // Read the JSON
