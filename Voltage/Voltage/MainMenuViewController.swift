@@ -10,33 +10,42 @@ import UIKit
 import SystemConfiguration
 
 
-//----------------Static Vars----------------
+// Global variables
 var carInfo = [String]()            // List of car information
 var styleId = ""                    // Stores style id
 var mpgCity:Int = 0                 // Stores city mpg
 var mpgHighway:Int = 0              // Stores highway mpg
 var combinedMPG = 0                 // Stores combined mpg
 var fuelCap = ""                    // Stores fuel tank capacity
-var engType = ""
-var milesLeftEstimate: Double = 0      // Stores mileage remaining estimate
+var engType = ""                    // Stores engine type
+var milesLeftEstimate: Double = 0   // Stores mileage remaining estimate
 
 class MainMenuViewController: UIViewController {
     
+    // UI Links
     @IBOutlet weak var funFactLabel: UILabel!
     @IBOutlet var greetingLabel: UILabel!
     
-    var time = NSTimer()
+    var time = NSTimer()        // Timer
+    let factBook = FactBookEV() // Factbook
     
-    let factBook = FactBookEV()
-    
+    // API Key
     private let APIKey = "6m8ettta5byepu43rkhsc79j"
     
+    // Functions
+    
+    /* viewDidLoad()
+    * @description
+    *      Initial function call similar to main()
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
+        var greeting = "EVApp"
+        
+        // Gather information necessary to acquire hour
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(.Hour, fromDate: NSDate())
         let hour = components.hour
-        var greeting = "EVApp"
         
         // Set appropriate greeting
         if (hour >= 12 && hour <= 17) {
@@ -46,15 +55,18 @@ class MainMenuViewController: UIViewController {
         } else {
             greeting = "Good morning"
         }
+        
         greetingLabel.text = greeting
         
         // Retrieve user's name from memory
         if (NSUserDefaults.standardUserDefaults().objectForKey("firstName") != nil) {
             globalFirstName = NSUserDefaults.standardUserDefaults().objectForKey("firstName") as! String!
         }
+        
         if (NSUserDefaults.standardUserDefaults().objectForKey("lastName") != nil) {
             globalLastName = NSUserDefaults.standardUserDefaults().objectForKey("lastName") as! String!
         }
+        
         // Set greeting
         if (globalFirstName.characters.count > 0){
             greetingLabel.text = greeting + ", " + globalFirstName + "!"
@@ -65,20 +77,25 @@ class MainMenuViewController: UIViewController {
         
         if isConnectedToNetwork() == true {
             showFunFact()
-            time = .scheduledTimerWithTimeInterval(5, target: self, selector: Selector("showFunFact"), userInfo: nil, repeats: true)
             getStyleId()
             getCarInfo()
             getTankCapacity()
+            time = .scheduledTimerWithTimeInterval(5, target: self,
+                selector: Selector("showFunFact"), userInfo: nil, repeats: true)
+            
             if (NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") != nil) {
                 milesLeftEstimate = NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") as! Double
             }
-        } else {
-            let refreshAlert = UIAlertController(title: "No Internet Connection", message: "Retry When There is a Connection", preferredStyle: UIAlertControllerStyle.Alert)
             
-            refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: { (action: UIAlertAction!) in
-                self.getStyleId()
-                self.getCarInfo()
-                self.getTankCapacity()
+        } else {
+            let refreshAlert = UIAlertController(title: "No Internet Connection",
+                message: "Retry When There is a Connection",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            refreshAlert.addAction(UIAlertAction(title: "Retry", style: .Default,
+                handler: { (action: UIAlertAction!) in
+                    self.getStyleId()
+                    self.getCarInfo()
+                    self.getTankCapacity()
             }))
             dispatch_async(dispatch_get_main_queue(), {
                 self.presentViewController(refreshAlert, animated: true, completion: nil)
@@ -87,21 +104,31 @@ class MainMenuViewController: UIViewController {
         }
     }
     
+    /* didReceiveMemoryWarning()
+    * @description
+    *      Used on large, memory intensive apps
+    */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        let refreshAlert = UIAlertController(title: "Memory Warning", message: "All data cannot be saved.", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            NSLog("Ok clicked.")
+        let refreshAlert = UIAlertController(title: "Memory Warning",
+            message: "All data cannot be saved.",
+            preferredStyle: UIAlertControllerStyle.Alert)
+        refreshAlert.addAction(UIAlertAction(title: "OK!", style: .Default,
+            handler: { (action: UIAlertAction!) in NSLog("OK clicked.")
         }))
         
         presentViewController(refreshAlert, animated: true, completion: nil)
     }
     
+    /* isConnectedToNetwork()
+    * @description
+    *      Checks for network connection
+    */
     func isConnectedToNetwork() -> Bool {
         
-        var blankAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+        var blankAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0,
+            sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         blankAddress.sin_len = UInt8(sizeofValue(blankAddress))
         blankAddress.sin_family = sa_family_t(AF_INET)
         
@@ -110,6 +137,7 @@ class MainMenuViewController: UIViewController {
         }
         
         var stop: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
+        
         if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &stop) == false {
             return false
         }
@@ -118,10 +146,12 @@ class MainMenuViewController: UIViewController {
         let requiresConnection = stop == .ConnectionRequired
         
         return Reachable && !requiresConnection
-        
     }
     
-    
+    /* showFunFact()
+    * @description
+    *       displays random fact fact every 5s.
+    */
     @IBAction func showFunFact(){
         funFactLabel.text = factBook.randomFact()
     }
@@ -131,21 +161,22 @@ class MainMenuViewController: UIViewController {
     *      Makes API call and parses JSON to get a car's
     *      style ID based on user's car selection
     */
-    
     func getStyleId() {
         
-        // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))/models?fmt=json&api_key=\(APIKey)"
-        let url = NSURL(string: edmundsAPI)!
+        // Setup the session to make REST GET call.  
+        // Notice the URL is https NOT http!!
+        let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/"
+                                + "\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))"
+                                + "/models?fmt=json&api_key=\(APIKey)"
+        let url = NSURL(string: edmundsAPI)!    // Call API
+        let data = NSData(contentsOfURL: url)!  // Get JSON data
         
-        // Get JSON data
-        let data = NSData(contentsOfURL: url)!
-        
-        // Read the JSON
-        do {
-            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
-            // Parse JSON
-            if let models = json["models"] as? [[String: AnyObject]] {
+        do {                                    // Read JSON
+            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data,
+                options: .AllowFragments) as! NSDictionary
+            
+            if let models = json["models"] as? [[String: AnyObject]] {  // Parse JSON
+                
                 for model in models {
                     if let carModel = model["name"] as? String {
                         if carModel.isEqual(userModel) {
@@ -172,7 +203,6 @@ class MainMenuViewController: UIViewController {
                     }
                 }
             }
-            
         } catch {
             NSLog("Error getting car style id")
         }
@@ -183,26 +213,25 @@ class MainMenuViewController: UIViewController {
     *      Makes API call and parses JSON to get a car's
     *      information based on the user's selection
     */
-    
     func getCarInfo() {
         carInfo = [String]()
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(styleId)?view=full&fmt=json&api_key=\(APIKey)")!
+        let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/"
+                                + "\(styleId)?view=full&fmt=json&api_key=\(APIKey)")!
+        let data = NSData(contentsOfURL: url)!  // Get JSON data
         
-        // Get JSON data
-        let data = NSData(contentsOfURL: url)!
-        
-        // Read the JSON
-        do {
-            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
-            // Parse JSON
-            if let engineSpecs = json["engine"] as? NSDictionary {
+        do {                                    // Read the JSON
+            let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data,
+                options: .AllowFragments) as! NSDictionary
+            
+            if let engineSpecs = json["engine"] as? NSDictionary {  // Parse JSON
                 carInfo.append("Vehicle:")
                 carInfo.append("\t Make: " + userMake)
                 carInfo.append("\t Model: " + userModel)
                 carInfo.append("\t Year: " + userYear)
                 carInfo.append("Engine Specs:")
+                
                 if let cylinders = engineSpecs["cylinder"] as? Int {
                     carInfo.append("\t Cylinders: \(cylinders)")
                 }
@@ -212,11 +241,13 @@ class MainMenuViewController: UIViewController {
                 if let torq = engineSpecs["torque"] as? Int {
                     carInfo.append("\t Torque: \(torq)")
                 }
+                
                 engType = (engineSpecs["type"] as? String)!
                 carInfo.append("\t Engine Type: \(engType)")
             }
             if let tranSpecs = json["transmission"] as? NSDictionary {
                 carInfo.append("Transmission Specs:")
+                
                 if let transType = tranSpecs["transmissionType"] as? String {
                     carInfo.append("\t Transmission Type: \(transType)")
                 }
@@ -243,20 +274,21 @@ class MainMenuViewController: UIViewController {
         
     }
     
+    /* getTankCapacity()
+    * @description
+    *      Makes API call and parses JSON to get a car's
+    *      tank capacity
+    */
     func getTankCapacity() {
-        
-        
-        // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
+        // Setup the session to make REST GET call.  
+        // Notice the URL is https NOT http!!
         let url = NSURL(string: "https://api.edmunds.com/api/vehicle/v2/styles/\(styleId)/equipment?availability=standard&equipmentType=OTHER&fmt=json&api_key=\(APIKey)")!
+        let data = NSData(contentsOfURL: url)!  // Get JSON data
         
-        // Get JSON data
-        let data = NSData(contentsOfURL: url)!
-        
-        // Read the JSON
-        do {
+        do {                                    // Read the JSON
             let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
-            // Parse JSON
-            if let equipment = json["equipment"] as? [[String: AnyObject]] {
+            
+            if let equipment = json["equipment"] as? [[String: AnyObject]] {    // Parse JSON
                 for item in equipment {
                     if let name = item["name"] as? String {
                         if name.isEqual("Specifications") {
@@ -276,11 +308,7 @@ class MainMenuViewController: UIViewController {
                 }
             }
         } catch {
-            //errorHandler.text="Error finding makes"
+            NSLog("Error getting tank capacity")
         }
-        
     }
-    
-    
-    
 }

@@ -19,7 +19,6 @@ var userStyle:String = ""   // Stores user's style selection
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
     // UI Links
     @IBOutlet weak var carViewer: UITableView!
     @IBOutlet weak var carTaskLabel: UILabel!
@@ -68,7 +67,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let textCellIdentifier = "carChoice"    // Cell with carchoice (for tableview purposes)
     var currentPage = []                    // Stores array of the current items to
                                             // be selected (e.g. makes, models, etc.)
-   
     // Functions
     
     /* viewDidLoad()
@@ -97,7 +95,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             })
         }
     }
-    
     
     /* beginView()
     * @description
@@ -205,76 +202,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         carViewer.reloadData()
     }
     
-    /* switchToModel()
-    * @description
-    *      Sets the parameters for the "Select Model" view
-    */
-    func switchToModel() {
-        self.models = [String]()
-        getModels()
-        
-        self.currentPage = self.models
-        
-        let maker = userMake.stringByReplacingOccurrencesOfString(" ", withString: "")
-        let car = UIImage(named: "\(maker.lowercaseString).png")
-        carLogo.image = car
-        carTaskLabel.text = "Select Car Model"
-        
-        backButton.setTitle("< Make", forState: .Normal)
-        backButton.hidden = false
-        saveCarLabel.hidden = true
-        saveCar.hidden = true
-        continueButton.hidden = true
-        
-        carViewer.reloadData()
-    }
-    
-    /* switchToYear()
-    * @description
-    *      Sets the parameters for the "Select Year" view
-    *
-    */
-    func switchToYear() {
-        years = [String]()
-        userYear = ""
-        getYears()
-        
-        self.currentPage = years
-        
-        let maker = userMake.stringByReplacingOccurrencesOfString(" ", withString: "")
-        let car = UIImage(named: "\(maker.lowercaseString).png")
-        carLogo.image = car
-        carTaskLabel.text = "Select Car Year"
-        backButton.setTitle("< Model", forState: .Normal)
-        
-        backButton.hidden = false
-        saveCarLabel.hidden = true
-        saveCar.hidden = true
-        continueButton.hidden = true
-        
-        carViewer.reloadData()
-    }
-    
-    func switchToStyle() {
-        styles = [String]()
-        userStyle = ""
-        getStyles()
-        
-        self.currentPage = styles
-        
-        let maker = userMake.stringByReplacingOccurrencesOfString(" ", withString: "")
-        let car = UIImage(named: "\(maker.lowercaseString).png")
-        carLogo.image = car
-        carTaskLabel.text = "Select Car Style"
-        backButton.setTitle("< Year", forState: .Normal)
-        
-        backButton.hidden = false
-        saveCarLabel.hidden = true
-        saveCar.hidden = true
-        
-        carViewer.reloadData()
-    }
-    
     /* getMakes()
     * @description
     *      Makes API call and parses JSON to compile a list
@@ -282,10 +209,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     */
     func getMakes() {
         if isConnectedToNetwork() == true {
-            // Setup the session to make REST GET call.  
+            // Setup the session to make REST GET call.
             // Notice the URL is https NOT http!!
             let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/"
-                                       + "makes?fmt=json&api_key=\(APIKey)"
+                + "makes?fmt=json&api_key=\(APIKey)"
             let url = NSURL(string: edmundsAPI)!    // Call API
             let data = NSData(contentsOfURL: url)!  // Get JSON data
             
@@ -317,6 +244,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             })
         }
     }
+
+    
+    /* switchToModel()
+    * @description
+    *      Sets the parameters for the "Select Model" view
+    */
+    func switchToModel() {
+        self.models = [String]()
+        getModels()
+        
+        self.currentPage = self.models
+        
+        let maker = userMake.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let car = UIImage(named: "\(maker.lowercaseString).png")
+        carLogo.image = car
+        carTaskLabel.text = "Select Car Model"
+        
+        backButton.setTitle("< Make", forState: .Normal)
+        backButton.hidden = false
+        saveCarLabel.hidden = true
+        saveCar.hidden = true
+        continueButton.hidden = true
+        
+        carViewer.reloadData()
+    }
     
     /* getModels()
     * @description
@@ -327,11 +279,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if isConnectedToNetwork() == true {
             // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
             let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/"
-                                    + "\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))"
-                                    + "/models?fmt=json&api_key=\(APIKey)"
+                + "\(userMake.stringByReplacingOccurrencesOfString(" ", withString: "_"))"
+                + "/models?fmt=json&api_key=\(APIKey)"
             let url = NSURL(string: edmundsAPI)!    // Call API
             let data = NSData(contentsOfURL: url)!  // Get JSON data
-        
+            
             do {                                    // Read the JSON
                 let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data,
                     options: .AllowFragments) as! NSDictionary
@@ -345,7 +297,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             } catch {
                 errorHandler.text="Error finding models"
-            }} else {
+            }
+        } else {
             print("Internet Not Available")
             let refreshAlert = UIAlertController(title: "No Internet Connection",
                 message: "Retry When There is a Connection",
@@ -359,6 +312,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    /* switchToYear()
+    * @description
+    *      Sets the parameters for the "Select Year" view
+    *
+    */
+    func switchToYear() {
+        years = [String]()
+        userYear = ""
+        getYears()
+        
+        self.currentPage = years
+        
+        let maker = userMake.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let car = UIImage(named: "\(maker.lowercaseString).png")
+        carLogo.image = car
+        carTaskLabel.text = "Select Car Year"
+        backButton.setTitle("< Model", forState: .Normal)
+        
+        backButton.hidden = false
+        saveCarLabel.hidden = true
+        saveCar.hidden = true
+        continueButton.hidden = true
+        
+        carViewer.reloadData()
+    }
+    
     /* getYears()
     * @description
     *      Makes API call and parses JSON to compile a list
@@ -366,17 +345,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     */
     func getYears() {
         if isConnectedToNetwork() == true {
-            // Setup the session to make REST GET call.  
+            // Setup the session to make REST GET call.
             // Notice the URL is https NOT http!!
             let edmundsAPI: String = "https://api.edmunds.com/api/vehicle/v2/"
-                                        + "makes?fmt=json&api_key=\(APIKey)"
+                + "makes?fmt=json&api_key=\(APIKey)"
             let url = NSURL(string: edmundsAPI)!    // Call API
             let data = NSData(contentsOfURL: url)!  // Get JSON data
             
             do {                                    // Read the JSON
                 let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data,
                     options: .AllowFragments) as! NSDictionary
-        
+                
                 if let makes = json["makes"] as? [[String: AnyObject]] {    // Parse JSON
                     for make in makes {
                         if let name = make["name"] as? String {
@@ -403,7 +382,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
             } catch {
                 errorHandler.text="Error finding years"
-            }} else {
+            }
+        } else {
             print("Internet Not Available")
             let refreshAlert = UIAlertController(title: "No Internet Connection",
                 message: "Retry When There is a Connection",
@@ -415,6 +395,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.presentViewController(refreshAlert, animated: true, completion: nil)
             })
         }
+    }
+    
+    /* switchToStyle()
+    * @description
+    *      Sets the parameters for the "Select Style" view
+    *
+    */
+    func switchToStyle() {
+        styles = [String]()
+        userStyle = ""
+        getStyles()
+        
+        self.currentPage = styles
+        
+        let maker = userMake.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let car = UIImage(named: "\(maker.lowercaseString).png")
+        carLogo.image = car
+        carTaskLabel.text = "Select Car Style"
+        backButton.setTitle("< Year", forState: .Normal)
+        
+        backButton.hidden = false
+        saveCarLabel.hidden = true
+        saveCar.hidden = true
+        
+        carViewer.reloadData()
     }
     
     /* getStyles()
@@ -461,7 +466,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
             } catch {
                 errorHandler.text="Error finding styles"
-            }} else {
+            }
+        } else {
             print("Internet Not Available")
             let refreshAlert = UIAlertController(title: "No Internet Connection",
                 message: "Retry When There is a Connection",
@@ -473,7 +479,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.presentViewController(refreshAlert, animated: true, completion: nil)
             })
         }
-        
     }
     
     /* configureView()

@@ -8,70 +8,86 @@
 
 import UIKit
 
+// Global variables
 var globalFirstName:String = ""
 var globalLastName:String = ""
+
 class SettingsTableViewController: UITableViewController {
     
-    //--------------UI Links--------------
+    // UI Links
     @IBOutlet var firstName: UITextField!
     @IBOutlet var lastName: UITextField!
     @IBOutlet var fuelSlider: UISlider!
     @IBOutlet var fuelAmt: UILabel!
     
-    //--------------------------Functions--------------------------------
-    
-    // Allows user to select amount of fuel in gas-tank
+    // Fuel amt. selection handler
     @IBAction func fuelSlider(sender: UISlider) {
+        
         if (Double(fuelCap) != nil && combinedMPG != 0) {
             milesLeftEstimate = Double(fuelCap)! * Double(combinedMPG) * Double(fuelSlider.value) * 0.01
             fuelAmt.text = String(format: "%.0f", fuelSlider.value) + " %"
             NSUserDefaults.standardUserDefaults().setObject(milesLeftEstimate, forKey: "fuelEstimate")
         } else {
             NSLog("fuel cap not available for this vehicle")
-            let alert = UIAlertController(title: "Alert!", message: "This function is not available for the selected vehicle.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Alert!",
+                message: "This function is not available for the selected vehicle.",
+                preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler:
-                { (action: UIAlertAction!) in
-                    NSLog("OK Pressed")
-            }))
+                { (action: UIAlertAction!) in NSLog("OK Pressed") }))
+            
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
+    // Functions
     
+    /* viewDidLoad()
+    * @description
+    *      Initial function call similar to main()
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         fuelAmt.text = String(Int(fuelSlider.value)) + " %"
         if (milesLeftEstimate != -1) {
+            
             if (Double(fuelCap) != nil) {
                 fuelSlider.value =  Float(milesLeftEstimate / (Double(fuelCap)! * Double(combinedMPG))) * 100
             }
+            
             fuelAmt.text = String(format: "%.0f", fuelSlider.value) + " %"
         }
+        
+        // Retrieve user's name from memory if not empty
         if (NSUserDefaults.standardUserDefaults().objectForKey("firstName") != nil) {
             self.firstName.text = NSUserDefaults.standardUserDefaults().objectForKey("firstName") as! String!
         }
+        
         if (NSUserDefaults.standardUserDefaults().objectForKey("lastName") != nil) {
             self.lastName.text = NSUserDefaults.standardUserDefaults().objectForKey("lastName") as! String!
         }
     }
     
+    /* didReceiveMemoryWarning()
+    * @description
+    *      Used on large, memory intensive apps
+    */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        let refreshAlert = UIAlertController(title: "Memory Warning", message: "All data cannot be saved.", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            
-        }))
+        let refreshAlert = UIAlertController(title: "Memory Warning",
+            message: "All data cannot be saved.",
+            preferredStyle: UIAlertControllerStyle.Alert)
+        refreshAlert.addAction(UIAlertAction(title: "OK", style: .Default,
+            handler: { (action: UIAlertAction!) in NSLog("OK Pressed") }))
         
         presentViewController(refreshAlert, animated: true, completion: nil)
     }
     
     /* prepareForSegue()
     * @description
-    *      Performs before segue is made
+    *      Perform following before segue is made
     */
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         // Resets user defaults to nil when the user decides to change cars
         if (segue.identifier == "selectCar") {
             resetUserDefaults()
@@ -79,6 +95,8 @@ class SettingsTableViewController: UITableViewController {
         
         globalFirstName = String(self.firstName.text!)
         globalLastName  = String(self.lastName.text!)
+        
+        // Save user's name input to memory
         NSUserDefaults.standardUserDefaults().setObject(globalFirstName, forKey: "firstName")
         NSUserDefaults.standardUserDefaults().setObject(globalLastName, forKey: "lastName")
     }
@@ -87,13 +105,13 @@ class SettingsTableViewController: UITableViewController {
     * @description
     *      Resets all user defaults to nil
     */
-    
     func resetUserDefaults() {
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "make")
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "model")
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "year")
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "style")
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "fuelEstimate")
+        
         combinedMPG = 0
         carInfo = [String]()
     }

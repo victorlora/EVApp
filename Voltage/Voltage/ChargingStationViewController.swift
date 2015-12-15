@@ -13,11 +13,10 @@ import Foundation
 
 class ChargingStationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    //----------------UI Links----------------
+    // UI Links
     @IBOutlet weak var chargingStationMap: MKMapView!
     
-    //-----------------------API-----------------------
-    
+    //API
     private let API = "http://api.openchargemap.io/v2/poi/?output=json&countrycode=US"
     
     //----------API Generated Arrays----------
@@ -35,11 +34,17 @@ class ChargingStationViewController: UIViewController, MKMapViewDelegate, CLLoca
         locationManager.startUpdatingLocation()
     }
     
+    /* didReceiveMemoryWarning()
+    * @description
+    *      Used on large, memory intensive apps
+    */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        let refreshAlert = UIAlertController(title: "Memory Warning", message: "All data cannot be saved.", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+        let refreshAlert = UIAlertController(title: "Memory Warning",
+            message: "All data cannot be saved.",
+            preferredStyle: UIAlertControllerStyle.Alert)
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default,
+            handler: { (action: UIAlertAction!) in
             
         }))
     }
