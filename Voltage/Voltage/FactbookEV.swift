@@ -2,7 +2,7 @@
 //  FactbookEV.swift
 //  Voltage
 //
-//  Created by Ron Gerschel on 12/1/15.
+//  Created by EVApp Team on 12/1/15.
 //  Copyright © 2015 EV-APP. All rights reserved.
 //
 

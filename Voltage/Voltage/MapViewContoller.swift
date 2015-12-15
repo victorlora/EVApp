@@ -2,7 +2,7 @@
 //  MapViewContoller.swift
 //  Voltage
 //
-//  Created by Josh Rosenzweig on 12/3/15.
+//  Created by EVApp Team on 12/3/15.
 //  Copyright © 2015 EV-APP. All rights reserved.
 //
 
@@ -93,9 +93,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Check for user defaults for mileage estimate
         if (NSUserDefaults.standardUserDefaults().objectForKey("fuelEstimate") != nil) {
             // Update milesLeftEstimate
-            // (real) milesLeftEstimate = milesLeftEstimate - (distanceTraveled - distanceTraveledOld)
-            milesLeftEstimate = milesLeftEstimate - 1 // presentation code
-            // print(milesLeftEstimate)
+            milesLeftEstimate = milesLeftEstimate - (distanceTraveled - distanceTraveledOld)
             
             NSUserDefaults.standardUserDefaults().setObject(milesLeftEstimate, forKey: "fuelEstimate")
             fuelEstLabel.text = String(format: "%.0f", milesLeftEstimate) + " mi."
