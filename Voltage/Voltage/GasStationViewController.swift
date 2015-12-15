@@ -22,7 +22,7 @@ class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     //----------API Generated Arrays----------
     var location = [String]()  // Array of locations populated by API and displayed on the UI MapView
-
+    
     
     //----------------Location Vars----------------
     var locationManager = CLLocationManager()
@@ -98,7 +98,7 @@ class GasStationViewController: UIViewController, MKMapViewDelegate, CLLocationM
         self.gasStationMap.showsScale = true;
         self.gasStationMap.showsPointsOfInterest = true;
         self.gasStationMap.showsTraffic = true;
-
+        
     }
     
     func getLocations() {

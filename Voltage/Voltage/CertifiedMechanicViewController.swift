@@ -12,10 +12,10 @@ import SystemConfiguration
 import Foundation
 
 class CertifiedMechanicViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-   
+    
     //----------------UI Links----------------
     @IBOutlet weak var certifiedMechanicMapView: MKMapView!
-   
+    
     //----------------Location Vars----------------
     var locationManager = CLLocationManager()
     var locationArr = [CLLocation?]()
@@ -66,5 +66,5 @@ class CertifiedMechanicViewController: UIViewController, MKMapViewDelegate, CLLo
         return Reachable && !requiresConnection
         
     }
-
+    
 }

@@ -61,7 +61,7 @@ class MainMenuViewController: UIViewController {
         } else {
             greetingLabel.text = greeting + "!"
         }
-
+        
         
         if isConnectedToNetwork() == true {
             showFunFact()
@@ -86,7 +86,7 @@ class MainMenuViewController: UIViewController {
             
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -120,12 +120,12 @@ class MainMenuViewController: UIViewController {
         return Reachable && !requiresConnection
         
     }
-
+    
     
     @IBAction func showFunFact(){
         funFactLabel.text = factBook.randomFact()
     }
-
+    
     /* getCarStyleId()
     * @description
     *      Makes API call and parses JSON to get a car's
@@ -280,7 +280,7 @@ class MainMenuViewController: UIViewController {
         }
         
     }
-
-
-
+    
+    
+    
 }

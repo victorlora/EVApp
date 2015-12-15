@@ -10,7 +10,7 @@ import UIKit
 import SystemConfiguration
 
 class WebViewController: UIViewController {
-
+    
     //----------------UI Links----------------
     @IBOutlet var webView: UIWebView!
     @IBAction func goBack(sender: AnyObject) {
@@ -39,14 +39,14 @@ class WebViewController: UIViewController {
             dispatch_async(dispatch_get_main_queue(), {
                 self.presentViewController(refreshAlert, animated: true, completion: nil)
             })
-
+            
         }
     }
-
+    
     /* webLoad()
-     * @description
-     *      Load desired webpage
-     */
+    * @description
+    *      Load desired webpage
+    */
     func webLoad(){
         let url = NSURL(string: "http://www.autozone.com")!
         webView.loadRequest(NSURLRequest(URL: url))
@@ -58,16 +58,16 @@ class WebViewController: UIViewController {
         let refreshAlert = UIAlertController(title: "Memory Warning", message: "All data cannot be saved.", preferredStyle: UIAlertControllerStyle.Alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-
+            
         }))
         
         presentViewController(refreshAlert, animated: true, completion: nil)
     }
     
     /* isConnectedToNetwork()
-     * @description
-     *      Checks for network connection
-     */
+    * @description
+    *      Checks for network connection
+    */
     
     func isConnectedToNetwork() -> Bool {
         
@@ -90,5 +90,5 @@ class WebViewController: UIViewController {
         return Reachable && !requiresConnection
         
     }
-
+    
 }

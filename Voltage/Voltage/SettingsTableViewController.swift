@@ -11,7 +11,7 @@ import UIKit
 var globalFirstName:String = ""
 var globalLastName:String = ""
 class SettingsTableViewController: UITableViewController {
-
+    
     //--------------UI Links--------------
     @IBOutlet var firstName: UITextField!
     @IBOutlet var lastName: UITextField!
@@ -54,7 +54,7 @@ class SettingsTableViewController: UITableViewController {
             self.lastName.text = NSUserDefaults.standardUserDefaults().objectForKey("lastName") as! String!
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         let refreshAlert = UIAlertController(title: "Memory Warning", message: "All data cannot be saved.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -67,16 +67,16 @@ class SettingsTableViewController: UITableViewController {
     }
     
     /* prepareForSegue()
-     * @description
-     *      Performs before segue is made
-     */
+    * @description
+    *      Performs before segue is made
+    */
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Resets user defaults to nil when the user decides to change cars
         if (segue.identifier == "selectCar") {
             resetUserDefaults()
         }
-
+        
         globalFirstName = String(self.firstName.text!)
         globalLastName  = String(self.lastName.text!)
         NSUserDefaults.standardUserDefaults().setObject(globalFirstName, forKey: "firstName")
@@ -84,9 +84,9 @@ class SettingsTableViewController: UITableViewController {
     }
     
     /* resetUserDefaults()
-     * @description
-     *      Resets all user defaults to nil
-     */
+    * @description
+    *      Resets all user defaults to nil
+    */
     
     func resetUserDefaults() {
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "make")
@@ -99,9 +99,9 @@ class SettingsTableViewController: UITableViewController {
     }
     
     /* touchesBegan() & textFieldShould Return()
-     *  @description
-     *      Allows user to exit keyboard layout by touching away from keyboard
-     */
+    *  @description
+    *      Allows user to exit keyboard layout by touching away from keyboard
+    */
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
