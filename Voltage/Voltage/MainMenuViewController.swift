@@ -18,7 +18,7 @@ var mpgHighway:Int = 0              // Stores highway mpg
 var combinedMPG = 0                 // Stores combined mpg
 var fuelCap = ""                    // Stores fuel tank capacity
 var engType = ""
-var milesLeftEstimate: Double = -1      // Stores mileage remaining estimate
+var milesLeftEstimate: Double = 0      // Stores mileage remaining estimate
 
 class MainMenuViewController: UIViewController {
     
