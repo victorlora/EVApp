@@ -2,7 +2,7 @@
 //  SettingsViewController.swift
 //  Voltage
 //
-//  Created by admin on 12/5/15.
+//  Created by EVApp Team on 12/5/15.
 //  Copyright © 2015 EV-APP. All rights reserved.
 //
 
