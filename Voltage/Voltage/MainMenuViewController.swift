@@ -22,17 +22,17 @@ var milesLeftEstimate: Double = 0   // Stores mileage remaining estimate
 
 class MainMenuViewController: UIViewController {
     
-    // UI Links
+    //----------------UI Links----------------
     @IBOutlet weak var funFactLabel: UILabel!
     @IBOutlet var greetingLabel: UILabel!
     
     var time = NSTimer()        // Timer
     let factBook = FactBookEV() // Factbook
     
-    // API Key
+    //----------------API Key----------------
     private let APIKey = "6m8ettta5byepu43rkhsc79j"
     
-    // Functions
+    //----------------Functions----------------
     
     /* viewDidLoad()
     * @description
